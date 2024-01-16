@@ -1,0 +1,32 @@
+.store {
+    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(../images/mall.jfif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.food-outlets {
+    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(../images/fooood.jpg);
+    background-size: cover;
+}
+
+.send-recieve {
+    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(../images/deliveryguy.jpg);
+    background-size: contain;
+}
+
+.store h1, .food-outlets h1, .send-recieve h1 {
+    color: #efe;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 40%;
+    letter-spacing: 1px;
+}
+
+.why-us h1 {
+    font-family: 'Dancing script';
+  }
+  
+  .why-us p {
+    font-family: 'playpen sans', 'Dancing script';
+  }
