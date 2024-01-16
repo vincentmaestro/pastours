@@ -1,17 +1,17 @@
 .store {
-    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(../images/mall.jfif);
+    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(/src/images/mall.jfif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
 .food-outlets {
-    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(../images/fooood.jpg);
+    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(/src/images/fooood.jpg);
     background-size: cover;
 }
 
 .send-recieve {
-    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(../images/deliveryguy.jpg);
+    background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(/src/images/deliveryguy.jpg);
     background-size: contain;
 }
 
