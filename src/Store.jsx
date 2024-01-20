@@ -12,9 +12,9 @@ function Store() {
     const [promos, setPromos] = useState([]);
     const promosRef = useRef();
     let scrollCount = 0;
-    const scrollWidth = window.innerWidth > 425 ? 35 : 52;
-    const maxForwardCount = window.innerWidth > 425 ? 4 : 5;
-    const maxBackwardCount = window.innerWidth > 425 ? 3 : 4;
+    const scrollWidth = window.innerWidth > 530 ? 35 : 52;
+    const maxForwardCount = window.innerWidth > 530 ? 4 : 5;
+    const maxBackwardCount = window.innerWidth > 530 ? 3 : 4;
     const sectionRef = useRef();
     const subSectionsRef = useRef();
 
