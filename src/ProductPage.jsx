@@ -33,14 +33,14 @@ function ProductPage () {
     }, []);
 
     return (
-    <div className="bg-slate-100 h-screen">
+    <div className="bg-slate-100">
         {currentState.isLoading && <Loading />}
         {error && <p className="text-center relative top-[20%]">{error}</p>}
         {
             <div className="flex flex-col items-center relative top-[5%] tablet:top-[8%]">
                 <div className="w-[20%] laptop:w-[25%] mobile:w-[40%]"><img src={product.image} alt={product.name} /></div>
                 <div className="mt-[1%] laptop:mt-[2%] mobile:mt-[4%]">
-                    <p className="text-2xl tablet:text-xl">{product.name}</p>
+                    <p className="text-2xl tablet:text-xl">{product.name} <span>{product.size}</span></p>
                     <p>{product.price}</p>
                     <p>{product.description}</p>
                 </div>

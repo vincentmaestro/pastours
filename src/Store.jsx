@@ -128,7 +128,7 @@ function Store() {
     }, [section]);
     
     return (
-        <div className="Store bg-slate-200 h-screen">
+        <div className="Store bg-slate-200">
             <h1 className="title-heading text-3xl flex justify-center items-center py-[12px] tablet:text-2xl mobile:py-[4px]">STORE</h1>
             <div className="promotions-tab-mobile hidden tablet:block overflow-x-clip mb-2">
                 {!promos.length && <p className="text-center text-xl">Cannot get promotions at this time, please try again</p>}
@@ -168,7 +168,7 @@ function Store() {
                         <button value="babycare" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Baby care</button>
                         <button value="petfood" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Pet food</button>
                     </div>
-                    <div ref={subSectionsRef} className="select-none flex gap-x-6 py-1 justify-center overflow-x-auto laptop_s:gap-3 laptop:justify-normal laptop:px-[4%] laptop_s:text-sm laptop_s:font-semibold">
+                    <div ref={subSectionsRef} className="select-none flex gap-x-6 py-2 justify-center overflow-x-auto laptop_s:gap-3 laptop:justify-normal laptop:px-[4%] laptop_s:text-sm laptop_s:font-semibold">
                         {subSections && subSections.map((section, key) => (
                             <button key={key} id={key} className="rounded-md px-2 laptop:min-w-[22%] laptop:px-0 tablet:min-w-[30%] tablet_s:min-w-[36%] mobile:min-w-[46%] mobile:text-[13px] mobile:px-1" onClick={() => {document.getElementById(section).scrollIntoView()}}>{section}</button>
                         ))}
