@@ -16,7 +16,7 @@ export default {
 
       'tablet_s': {'max': '640px'},
 
-      'mobile': {'max': '425px'},
+      'mobile': {'max': '530px'},
 
       'mobile_m': {'max': '375px'},
 
