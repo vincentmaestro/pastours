@@ -277,7 +277,7 @@ function LoginandSignup({auth}) {
                         <button className="font-semibold" onClick={() => toggleAuthStage('signup')}>Create Account</button>
                     </div>
                     <p className="text-center mb-3 font-semibold text-xl">OR</p>
-                    <button className="mx-auto block cursor-pointer"><img src="/src/assets/continuewithGoogle.svg" alt="continueWithGoogle" /></button>
+                    <button className="mx-auto block cursor-pointer"><img src="./src/assets/continuewithGoogle.svg" alt="continueWithGoogle" /></button>
                 </form>
             }
             {authStage.signup && 
