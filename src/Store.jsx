@@ -156,7 +156,7 @@ function Store() {
                     ))}
                 </div>
                 <div className="indicator-tab-mobile w-full hidden bg-orange-400 tablet:block py-1">
-                    <div ref={sectionRef} className="hidden select-none px-[8%] tablet:flex gap-[4%] mb-2 py-2 overflow-x-scroll text-sm font-semibold tablet_s:px-[4%]" onClick={e => e.target.tagName === 'BUTTON' ? navigateToSection(e) : null}>
+                    <div ref={sectionRef} className="hidden select-none px-[8%] tablet:flex gap-[4%] mb-4 py-3 overflow-x-scroll text-sm font-semibold tablet_s:px-[4%]" onClick={e => e.target.tagName === 'BUTTON' ? navigateToSection(e) : null}>
                         <button value="beverages" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Water & Beverages</button>
                         <button value="snacksandbaked" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Snacks & Baked goods</button>
                         <button value="icecream" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Ice cream</button>
@@ -168,7 +168,7 @@ function Store() {
                         <button value="babycare" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Baby care</button>
                         <button value="petfood" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Pet food</button>
                     </div>
-                    <div ref={subSectionsRef} className="select-none flex gap-x-6 py-2 justify-center overflow-x-auto laptop_s:gap-3 laptop:justify-normal laptop:px-[4%] laptop_s:text-sm laptop_s:font-semibold">
+                    <div ref={subSectionsRef} className="select-none flex gap-x-6 py-3 justify-center overflow-x-auto laptop_s:gap-3 laptop:justify-normal laptop:px-[4%] laptop_s:text-sm laptop_s:font-semibold">
                         {subSections && subSections.map((section, key) => (
                             <button key={key} id={key} className="rounded-md px-2 laptop:min-w-[22%] laptop:px-0 tablet:min-w-[30%] tablet_s:min-w-[36%] mobile:min-w-[46%] mobile:text-[13px] mobile:px-1" onClick={() => {document.getElementById(section).scrollIntoView()}}>{section}</button>
                         ))}
