@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { database, signInState } from "./App";
 import { doc, getDoc } from "firebase/firestore";
 import Loading from "./loading";
@@ -13,6 +13,7 @@ function ProductPage () {
     const productId = url.get('product');
     const [product, setProduct] = useState({});
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     async function getProduct() {
         const product = (await getDoc(doc(db, category, 'items', section, productId))).data();
@@ -34,6 +35,7 @@ function ProductPage () {
 
     return (
     <div className="bg-slate-100">
+        <button className="flex items-center ml-[3%] mt-[1%]" onClick={() => navigate(-1)}><span className="material-symbols-outlined text-[17px]">arrow_back_ios</span>Back</button>
         {currentState.isLoading && <Loading />}
         {error && <p className="text-center relative top-[20%]">{error}</p>}
         {
