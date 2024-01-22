@@ -39,18 +39,19 @@ function ProductPage () {
         {error && <p className="text-center relative top-[20%]">{error}</p>}
         <div className="bg-orange-400">
             <button className="material-symbols-outlined relative top-[10px] ml-[2%] mobile:ml-[3%] mobile:text-[17px]" onClick={() => navigate(-1)}>arrow_back_ios</button>
-            <div className="flex flex-col items-center relative top-[5%] tablet:top-[8%]">
-                <div className="w-[20%] laptop:w-[25%] mobile:w-[40%]"><img src={product.image} alt={product.name} /></div>
-                <div className="mt-[1%] laptop:mt-[2%] mobile:mt-[4%]">
-                    <p className="text-2xl tablet:text-xl">{product.name} <span>{product.size}</span></p>
-                    <p>{product.price}</p>
-                    <p>{product.description}</p>
+            <div className="flex flex-col items-center laptop:mt-[2%]">
+                <div className="w-[16%] laptop:my-[2%] laptop:w-[25%] tablet:w-[45%] mobile:my-[4%]"><img src={product.image} alt={product.name} /></div>
+                <div className="">
+                    <p className="text-2xl tablet:text-xl text-center py-[.15%]">{product.name} <span className="mobile:hidden">{product.size}</span></p>
+                    <p className="hidden mobile:block text-xl tablet:text-xl text-center pb-[.15%]">{product.size}</p>
+                    <p className="text-center text-2xl py-[.15%]">NGN 500</p>
+                    <p className="text-justify w-[85%] mx-auto py-[.15%]">Lorem ipsum dolor sit amet consectetur ex non itaque illo corrupti quas nobis, neque veritatis totam dolorem architecto explicabo pariatur possimr sit, amet consectetur adipisicing elit. Cupiditate, nesciunt. Dolore blanditiis illo autem fugit numquam mollitia.</p>
                 </div>
             </div>
         </div>
-        <div className="flex justify-center gap-x-[10px] py-[10px] bg-slate-300">
-            <input type="number" min={1} className="w-[4%] h-[22px] rounded-[5px] outline-none laptop:w-[5%] tablet:w-[6%] mobile:w-[10%]" />
-            <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
+        <div className="flex justify-center gap-x-[10px] py-[20px] bg-slate-300">
+            <input type="number" min={1} className="w-[4%] h-[22px] rounded-[5px] outline-none laptop:w-[5%] tablet:w-[6%] mobile:w-[10%] mobile_m:w-[12%]" />
+            <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[4px] rounded-[4px]">Add to cart</button>
         </div>
     </div>
     );
