@@ -7,7 +7,10 @@ import './css/home.css'
 function Home() {
 
     useEffect(() => {
-        return () => sessionStorage.removeItem('currentSection');
+        return () => {
+            sessionStorage.removeItem('currentSection');
+            sessionStorage.removeItem('scrollHeight');
+        }
     }, []);
 
     return (

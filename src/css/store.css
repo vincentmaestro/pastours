@@ -39,14 +39,6 @@
     }
 }
 
-/* @media screen and (max-width:992px) {
-    [data-fixed="true"] {
-        .stores section {
-            padding-top: 5%;
-        }
-    }
-} */
-
 @media screen and (max-width:768px) {
     [data-fixed-tab="true"] {
         .indicator-tab-mobile {
@@ -61,15 +53,10 @@
     }
 }
 
-/* @media screen and (max-width:375px) {
+@media screen and (max-width:576px) {
     [data-fixed-tab="true"] {
-        .indicator-tab-mobile {
-            position: fixed;
-            top: 0px;
-        }
-
         .products section {
-            padding-top: 12%;
+            padding-top: 16%;
         }
     }
-} */
+}

@@ -89,7 +89,6 @@ function Store() {
 
         onscroll = () => {
             sh = window.scrollY;
-
             window.scrollY > 140 ? document.querySelector('.Store').setAttribute('data-fixed', 'true') : document.querySelector('.Store').removeAttribute('data-fixed');
             window.scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
             window.scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
@@ -132,15 +131,14 @@ function Store() {
             else section.classList.remove('active-section');
         })[0]
         .classList.add('active-section');
-        // Array.from(sectionRef.current.childNodes).filter(section => section.classList.contains('active-section'))[0].scrollIntoView({inline: 'center'});
+        Array.from(sectionRef.current.childNodes).filter(section => section.classList.contains('active-section'))[0].scrollIntoView({inline: 'center'});
 
     }, [section]);
 
     useEffect(() => {
-        // console.log(scrollHeight);
         const tm = setTimeout(() => {
             scrollTo(0, scrollHeight);
-        }, 5000);
+        }, 4000);
         return () => clearTimeout(tm);
     }, []);
     
@@ -247,7 +245,7 @@ function Store() {
                             </div>
                         ))}
                     </div>
-                    {scrollToTop && <button className="material-symbols-outlined fixed left-[77%] top-[85%] text-white bg-orange-400 text-[30px] rounded-[16px]" onClick={() => scrollTo(0, 0)}>keyboard_arrow_up</button>}
+                    {scrollToTop && <button className="material-symbols-outlined text-white font-bold bg-orange-400 text-[32px] rounded-[16px] fixed left-[77%] top-[85%] tablet:left-[94%]" onClick={() => scrollTo(0, 0)}>keyboard_arrow_up</button>}
                 </div>
             </div>
         </div>

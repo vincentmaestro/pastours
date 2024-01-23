@@ -37,7 +37,7 @@ function ProductPage () {
     <div className="">
         {currentState.isLoading && <Loading />}
         {error && <p className="text-center relative top-[20%]">{error}</p>}
-        <div className="bg-orange-400">
+        <div className="bg-orange-300">
             <button className="material-symbols-outlined relative top-[10px] ml-[2%] mobile:ml-[3%] mobile:text-[17px]" onClick={() => navigate(-1)}>arrow_back_ios</button>
             <div className="flex flex-col items-center laptop:mt-[2%]">
                 <div className="w-[16%] laptop:my-[2%] laptop:w-[25%] tablet:w-[45%] mobile:my-[4%]"><img src={product.image} alt={product.name} /></div>
