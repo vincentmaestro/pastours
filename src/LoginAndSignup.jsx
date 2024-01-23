@@ -247,20 +247,20 @@ function LoginandSignup({auth}) {
     return (
         <div className="loginandsignup fixed top-0 left-0 w-full h-full z-[1] bg-[#001122e7]">
             {authStage.login &&
-                <form className="login bg-orange-200 relative top-[7%] w-[65%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:w-[75%] laptop_l:top-[14%] tablet:top-[12%] tablet_s:w-[90%]" onSubmit={login}>
+                <form className="login bg-orange-200 relative top-[7%] w-[65%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:w-[75%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={login}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mt-[2%] mb-[4%] tablet:mt-0">Login</h1>
-                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[4%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[4%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.email}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type="email" name="email" placeholder="Email" id="savedEmail" className="w-[80%]" value={localStorage.getItem('rememberMe') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
+                            <input type="email" name="email" placeholder="Email" id="savedEmail" className="w-[80%] outline-none" value={localStorage.getItem('rememberMe') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
                             <span className="material-symbols-outlined">mail</span>
                         </div>
                     </div>
-                    <div className="password border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="password border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="password-error block text-center text-sm text-red-500 font-semibold">{errors.password}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder="Password" className="w-[80%]" value={loginData.password} onChange={handleLoginInput} />
+                            <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder="Password" className="w-[80%] outline-none" value={loginData.password} onChange={handleLoginInput} />
                             <span className="material-symbols-outlined cursor-pointer" onClick={() => {setpasswordVisible(!passwordVisible)}}>{passwordVisible ? 'visibility' : 'visibility_off'}</span>
                         </div>
                     </div>
@@ -281,31 +281,31 @@ function LoginandSignup({auth}) {
                 </form>
             }
             {authStage.signup && 
-                <form className="signup bg-orange-200 relative top-[6%] w-[65%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:w-[75%] laptop_l:top-[12%] tablet:top-[12%] tablet_s:w-[90%]" onSubmit={handleSignup}>
+                <form className="signup bg-orange-200 relative top-[6%] w-[65%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:w-[75%] laptop_l:top-[12%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={handleSignup}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mb-[3%] laptop_s:mb-[2%] laptop_s:mt-[-2%]">Sign up</h1>
-                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.email}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type="email" name="email" placeholder="Email" className="w-[80%] py-[1px]" value={signupData.email} onChange={handleSignupInput} />
+                            <input type="email" name="email" placeholder="Email" className="w-[80%] outline-none py-[1px]" value={signupData.email} onChange={handleSignupInput} />
                             <span className="material-symbols-outlined">mail</span>
                         </div>
                     </div>
-                    <div className="username border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="username border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="username-error block text-center text-sm text-red-500 font-semibold">{errors.username}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type="text" name="username" placeholder="Username" className="w-[80%] py-[1px]" value={signupData.username} onChange={handleSignupInput} />
+                            <input type="text" name="username" placeholder="Username" className="w-[80%] outline-none py-[1px]" value={signupData.username} onChange={handleSignupInput} />
                             <span className="material-symbols-outlined">person</span>
                         </div>
-                        <span className="text-xs font-semibold px-4">*minimum of 3 characters, maximum of 10. Can include letters, numbers, "-" and "."</span>
+                        <span className="text-xs text-gray-700 font-semibold px-4">*minimum of 3 characters, maximum of 10. Can include letters, numbers, "-" and "."</span>
                     </div>
-                    <div className="password border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="password border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="password-error block text-center text-sm text-red-500 font-semibold">{errors.password}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder="Password" className="w-[80%] py-[1px]" value={signupData.password} onChange={handleSignupInput} />
+                            <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder="Password" className="w-[80%] outline-none py-[1px]" value={signupData.password} onChange={handleSignupInput} />
                             <span className="material-symbols-outlined cursor-pointer" onClick={() => {setpasswordVisible(!passwordVisible)}}>{passwordVisible ? 'visibility' : 'visibility_off'}</span>
                         </div>
-                        <span className="text-xs font-semibold px-4">*minimum of 7 characters. Can include letters, numbers, "-" and "."</span>
+                        <span className="text-xs text-gray-700 font-semibold px-4">*minimum of 7 characters. Can include letters, numbers, "-" and "."</span>
                     </div>
                     <button type="submit" className="w-[18%] ml-[40%] mb-2 py-[3px] rounded-[20px] bg-[#fd7e14] font-bold laptop_s:w-[26%] laptop_s:ml-[37%] tablet:ml-[35%] tablet:py-[1px] mobile:w-[36%] mobile:ml-[32%] mobile_m:w-[45%] mobile_m:ml-[28%]">Create Account</button>
                     <div className="flex items-center gap-x-[12%] w-[35%] mx-auto mb-2 laptop_l:w-[40%] laptop_s:mb-[1%] tablet:w-[60%] tablet:gap-[24%] mobile_m:w-[72%] mobile_m:gap-[30%]">
@@ -317,21 +317,21 @@ function LoginandSignup({auth}) {
                 </form>
             }
             {authStage.resetpassword && 
-                <form className="forgot-password bg-orange-200 relative top-[20%] pt-[1%] w-[60%] pb-[40px] mx-auto laptop_l:top-[30%] laptop_l:w-[70%]" onSubmit={resetPassword}>
-                    <span className="material-symbols-outlined cursor-pointer relative left-[95%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
+                <form className="forgot-password bg-orange-200 relative top-[20%] w-[60%] pt-[1%] pb-[40px] mx-auto laptop_l:top-[30%] laptop_l:w-[70%] tablet:w-[90%]" onSubmit={resetPassword}>
+                    <span className="material-symbols-outlined cursor-pointer relative left-[95%] mobile:left-[93%] mobile_m:left-[90%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mb-5">Forgot password</h1>
-                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto laptop_l:w-[45%]">
+                    <div className="email border rounded-[16px] flex flex-col gap-y-1 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] mobile:w-[75%] mobile_m:w-[85%]">
                         <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.email}</span>
                         <span className="email-error block text-center text-red-500 font-semibold">{passwordResetMailSent === false && 'An error occured'}</span>
                         {<p className="text-center pb-2 font-semibold">{passwordResetMailSent ? 'Password reset email sent' : "Let's start with your Email"}</p>}
                         <div className="flex justify-center gap-x-3 pb-4">
-                            <input type="email" name="email" placeholder="email" className="w-[80%] py-[1px]" value={loginData.email} onChange={handleLoginInput} />
+                            <input type="email" name="email" placeholder="email" className="w-[80%] outline-none py-[1px]" value={loginData.email} onChange={handleLoginInput} />
                             <span className="material-symbols-outlined">mail</span>
                         </div>
-                        { passwordResetMailSent ? <button className="py-[4px] font-semibold bg-[#fd7e14] w-[35%] mx-auto rounded-[20px]" onClick={() => dispatch({case: 'start', state: false})}>Close</button>
-                            : <button type="submit" className="py-[4px] font-semibold bg-[#fd7e14] w-[35%] mx-auto rounded-[20px]">Next</button>
-                        }
                     </div>
+                    { passwordResetMailSent ? <button className="py-[2px] font-semibold bg-[#fd7e14] w-[18%] ml-[40%] rounded-[20px]" onClick={() => dispatch({case: 'start', state: false})}>Close</button>
+                        : <button type="submit" className="py-[2px] font-semibold bg-[#fd7e14] w-[18%] ml-[40%] rounded-[20px]">Next</button>
+                    }
                 </form>
             }
         </div>

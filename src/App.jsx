@@ -95,20 +95,11 @@ function App() {
 
   useEffect(() => {
     if(currentState.isLoggedIn) {
-      const then = new Date();
-      const mins = then.getMinutes();
-      if(!auth.currentUser.emailVerified){
-        const timer = setInterval(() => {
-          const now = new Date();
-          const minutes = now.getMinutes();
-          if(minutes >= mins + 4) {
-            setPromptVerification(true);
-            clearInterval(timer);
-          }
-        }, 60000);
+      if(!auth.currentUser.emailVerified) {
+        setPromptVerification(true);
       }
     }
-  }, [promptVerification]);
+  }, []);
 
   function addToCart(e) {
     const isANumber = /^\d+$/;

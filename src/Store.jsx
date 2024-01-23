@@ -17,6 +17,9 @@ function Store() {
     const maxBackwardCount = window.innerWidth > 530 ? 3 : 4;
     const sectionRef = useRef();
     const subSectionsRef = useRef();
+    let sh = Number(sessionStorage.getItem('scrollHeight') || 0);
+    const [scrollHeight, setScrollHeight] = useState(sh);
+    const [scrollToTop, setScrollToTop] = useState(false);
 
     function moveToSlide(direction) {
         getDocs(collection(db, 'promotions'))
@@ -85,8 +88,11 @@ function Store() {
         }, 4000);
 
         onscroll = () => {
+            sh = window.scrollY;
+
             window.scrollY > 140 ? document.querySelector('.Store').setAttribute('data-fixed', 'true') : document.querySelector('.Store').removeAttribute('data-fixed');
             window.scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
+            window.scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
             document.querySelector('.products').childNodes.forEach((section, index) => {
                 if(window.scrollY >= section.offsetTop - section.clientHeight / 20) {
                     subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
@@ -101,7 +107,10 @@ function Store() {
             });
         }
 
-        return () => clearInterval(timer);
+        return () => {
+            clearInterval(timer);
+            sessionStorage.setItem('scrollHeight', sh);
+        }
 
     }, []);
 
@@ -123,9 +132,17 @@ function Store() {
             else section.classList.remove('active-section');
         })[0]
         .classList.add('active-section');
-        Array.from(sectionRef.current.childNodes).filter(section => section.classList.contains('active-section'))[0].scrollIntoView({inline: 'center'});
+        // Array.from(sectionRef.current.childNodes).filter(section => section.classList.contains('active-section'))[0].scrollIntoView({inline: 'center'});
 
     }, [section]);
+
+    useEffect(() => {
+        // console.log(scrollHeight);
+        const tm = setTimeout(() => {
+            scrollTo(0, scrollHeight);
+        }, 5000);
+        return () => clearTimeout(tm);
+    }, []);
     
     return (
         <div className="Store bg-slate-200">
@@ -230,6 +247,7 @@ function Store() {
                             </div>
                         ))}
                     </div>
+                    {scrollToTop && <button className="material-symbols-outlined fixed left-[77%] top-[85%] text-white bg-orange-400 text-[30px] rounded-[16px]" onClick={() => scrollTo(0, 0)}>keyboard_arrow_up</button>}
                 </div>
             </div>
         </div>
