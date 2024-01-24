@@ -138,7 +138,7 @@ function Store() {
     useEffect(() => {
         const tm = setTimeout(() => {
             scrollTo(0, scrollHeight);
-        }, 4000);
+        }, 3000);
         return () => clearTimeout(tm);
     }, []);
     
