@@ -84,7 +84,7 @@ function Provisions() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.cereals.map((cereal, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=provisions&section=cereal&product=${cereal.id}`}><img src={cereal.data().image} alt={cereal.data().name} /></Link>
+                                    <Link to={`product/?category=provisions&section=cereals&product=${cereal.id}`}><img src={cereal.data().image} alt={cereal.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px]">{cereal.data().name}</h1>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
