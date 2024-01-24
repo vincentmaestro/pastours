@@ -245,7 +245,7 @@ function Store() {
                             </div>
                         ))}
                     </div>
-                    {scrollToTop && <button className="material-symbols-outlined text-white font-bold bg-orange-400 text-[32px] rounded-[16px] fixed left-[77%] top-[85%] tablet:left-[94%]" onClick={() => scrollTo(0, 0)}>keyboard_arrow_up</button>}
+                    {scrollToTop && <button className="material-symbols-outlined text-white font-bold bg-orange-400 text-[30px] rounded-[16px] fixed left-[49%] top-[85%]" onClick={() => scrollTo(0, 0)}>keyboard_arrow_up</button>}
                 </div>
             </div>
         </div>
