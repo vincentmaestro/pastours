@@ -52,7 +52,8 @@ function SnacksAndBaked() {
                             {products.biscuits.map((biscuit, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=snacksandbaked&section=biscuits&product=${biscuit.id}`}><img src={biscuit.data().image} alt={biscuit.data().name} /></Link>
-                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px]">{biscuit.data().name}</h1>
+                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{biscuit.data().name}</h1>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{biscuit.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
@@ -67,7 +68,8 @@ function SnacksAndBaked() {
                             {products.chocolates.map((chocolate, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 hover:shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=snacksandbaked&section=chocolates&product=${chocolate.id}`}><img src={chocolate.data().image} alt={chocolate.data().name} /></Link>
-                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px]">{chocolate.data().name}</h1>
+                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{chocolate.data().name}</h1>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{chocolate.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
@@ -82,7 +84,8 @@ function SnacksAndBaked() {
                             {products.crispsAndChips.map((crispsAndChip, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=snacksandbaked&section=crispsandchips&product=${crispsAndChip.id}`}><img src={crispsAndChip.data().image} alt={crispsAndChip.data().name} /></Link>
-                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px]">{crispsAndChip.data().name}</h1>
+                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{crispsAndChip.data().name}</h1>
+                                    <span className="text-center font-semibold text-[14px] mobile:text-[12px]">{crispsAndChip.data().size}</span>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
@@ -97,7 +100,8 @@ function SnacksAndBaked() {
                             {products.bread.map((bread, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=snacksandbaked&section=bread&product=${bread.id}`}><img src={bread.data().image} alt={bread.data().name} /></Link>
-                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px]">{bread.data().name}</h1>
+                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{bread.data().name}</h1>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{bread.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
@@ -112,7 +116,8 @@ function SnacksAndBaked() {
                             {products.cakes.map((cake, key) => (
                                 <div id={cake.id} key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=snacksandbaked&section=cakes&product=${cake.id}`}><img src={cake.data().image} alt={cake.data().name} /></Link>
-                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px]">{cake.data().name}</h1>
+                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{cake.data().name}</h1>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{cake.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
