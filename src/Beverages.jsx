@@ -58,6 +58,7 @@ function Beverages() {
                                     <Link to={`product/?category=beverages&section=water&product=${water.id}`}><img src={water.data().image} alt={water.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{water.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{water.data().size}</p>
+                                    <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{sugar.data().price}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
