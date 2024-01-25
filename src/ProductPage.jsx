@@ -44,7 +44,7 @@ function ProductPage () {
                 <div className="">
                     <p className="text-2xl tablet:text-xl text-center">{product.name} <span className="mobile:hidden">{product.size}</span></p>
                     <p className="hidden mobile:block text-xl tablet:text-xl text-center">{product.size}</p>
-                    <p className="text-center text-2xl">NGN 500</p>
+                    <p className="text-center text-2xl">{product.price || '500'}</p>
                     <p className="text-justify w-[85%] mx-auto">Lorem ipsum dolor sit amet consectetur ex non itaque illo corrupti quas nobis, neque veritatis totam dolorem architecto explicabo pariatur possimr sit, amet consectetur adipisicing elit. Cupiditate, nesciunt. Dolore blanditiis illo autem fugit numquam mollitia.</p>
                 </div>
             </div>

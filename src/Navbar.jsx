@@ -20,7 +20,7 @@ function Navbar({auth}) {
             { currentState.start && <LoginandSignup auth = {auth} /> }
             { currentState.isLoading && <Loading /> }
             { currentState.animateMessage && 
-                <div className="action-outcome-message absolute right-0 top-[4%] flex items-center gap-3 font-semibold text-lg py-[6px] px-[25px] rounded-l-[30px] z-[1]" onAnimationEnd={() => dispatch({case: 'animate', state: false})}>
+                <div className="action-outcome-message fixed right-0 top-[4%] flex items-center gap-3 font-semibold text-lg py-[6px] px-[25px] rounded-l-[30px] z-[1]" onAnimationEnd={() => dispatch({case: 'animate', state: false})}>
                     <span class="material-symbols-outlined">bookmark</span>
                     <p>{ currentState.signInMessage }</p>
                 </div>
