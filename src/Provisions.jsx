@@ -56,7 +56,7 @@ function Provisions() {
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=provisions&section=chocolatePowder&product=${chocolatePowder.id}`}><img src={chocolatePowder.data().image} alt={chocolatePowder.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{chocolatePowder.data().name}</h1>
-                                    <span className="text-center font-semibold text-[14px] mobile:text-[12px]">{chocolatePowder.data().size}</span>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{chocolatePowder.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
@@ -72,7 +72,7 @@ function Provisions() {
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=provisions&section=milkPowder&product=${milkPowder.id}`}><img src={milkPowder.data().image} alt={milkPowder.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{milkPowder.data().name}</h1>
-                                    <span className="text-center font-semibold text-[14px] mobile:text-[12px]">{milkPowder.data().size}</span>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{milkPowder.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
@@ -88,7 +88,7 @@ function Provisions() {
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
                                     <Link to={`product/?category=provisions&section=cereals&product=${cereal.id}`}><img src={cereal.data().image} alt={cereal.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{cereal.data().name}</h1>
-                                    <span className="text-center font-semibold text-[14px] mobile:text-[12px]">{cereal.data().size}</span>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{cereal.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
