@@ -12,6 +12,7 @@ function Navbar({auth}) {
 
     function logout() {
         dispatch({case: 'loading', state: true});
+        setShowUser(!showUser)
         signOut(auth).then(() => dispatch({case: 'loading', state: false}));
     }
 

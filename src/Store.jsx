@@ -1,4 +1,4 @@
-import { useState, useEffect,  useRef, useContext } from "react";
+import { useState, useEffect,  useRef, useContext, useMemo } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import './css/store.css';
 import { database } from "./App";
@@ -17,6 +17,8 @@ function Store() {
     const maxBackwardCount = window.innerWidth > 530 ? 3 : 4;
     const sectionRef = useRef();
     const subSectionsRef = useRef();
+    let cr = 0;
+    const [currentSection, setCurrentSection] = useState(cr);
     let sh = Number(sessionStorage.getItem('scrollHeight') || 0);
     const [scrollHeight, setScrollHeight] = useState(sh);
     const [scrollToTop, setScrollToTop] = useState(false);
@@ -89,14 +91,17 @@ function Store() {
 
         onscroll = () => {
             sh = window.scrollY;
-            window.scrollY > 140 ? document.querySelector('.Store').setAttribute('data-fixed', 'true') : document.querySelector('.Store').removeAttribute('data-fixed');
-            window.scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
-            window.scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
+            scrollY > 140 ? document.querySelector('.Store').setAttribute('data-fixed', 'true') : document.querySelector('.Store').removeAttribute('data-fixed');
+            scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
+            scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
             document.querySelector('.products').childNodes.forEach((section, index) => {
                 if(window.scrollY >= section.offsetTop - section.clientHeight / 20) {
                     subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
                     Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].style.backgroundColor = 'white';
-                    // Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].scrollIntoView();
+                    cr = Array.from(subSectionsRef.current.childNodes).findIndex(nav => nav.getAttribute('id').includes(index));
+                    if(cr++ || cr--) {
+                        Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].scrollIntoView({inline: 'center'});
+                    }
                 }
                 if(window.scrollY < document.querySelector('.products').childNodes[0].offsetTop) {
                     subSectionsRef.current.childNodes.forEach(nav => {
