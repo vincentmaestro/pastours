@@ -98,10 +98,8 @@ function Store() {
                 if(window.scrollY >= section.offsetTop - section.clientHeight / 20) {
                     subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
                     Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].style.backgroundColor = 'white';
-                    cr = Array.from(subSectionsRef.current.childNodes).findIndex(nav => nav.getAttribute('id').includes(index));
-                    // if(cr++ || cr--) {
-                    //     Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].scrollIntoView({inline: 'center'});
-                    // }
+                    cr = Array.from(subSectionsRef.current.childNodes).findIndex(nav => nav.style.backgroundColor === 'white');
+                    subSectionsRef.current.childNodes[cr].scrollIntoView({inline: 'center'});
                 }
                 if(window.scrollY < document.querySelector('.products').childNodes[0].offsetTop) {
                     subSectionsRef.current.childNodes.forEach(nav => {
@@ -110,6 +108,11 @@ function Store() {
                 }
             });
         }
+
+        // subSectionsRef.current.onscroll = () => {
+        //     console.log(subSectionsRef.current.scrollLeft);
+        //     // console.log(subSectionsRef.current.childNodes[1].clientWidth);
+        // }
 
         return () => {
             clearInterval(timer);
