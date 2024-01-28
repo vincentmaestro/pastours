@@ -20,9 +20,13 @@
     font-family: 'Pacifo', cursive;
 }
 
-.active-section {
+.current-section {
     border-bottom: 3px solid white;
     color: white;
+}
+
+#current-subSection {
+    background-color: white;
 }
 
 [data-fixed="true"] {
@@ -56,7 +60,7 @@
 @media screen and (max-width:576px) {
     [data-fixed-tab="true"] {
         .products section {
-            padding-top: 17%;
+            padding-top: 20%;
         }
     }
 }

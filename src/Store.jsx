@@ -17,10 +17,9 @@ function Store() {
     const maxBackwardCount = window.innerWidth > 530 ? 3 : 4;
     const sectionRef = useRef();
     const subSectionsRef = useRef();
-    let cr = 0;
-    const [currentSection, setCurrentSection] = useState(cr);
+    const [cr, setCr] = useState(false);
     let sh = Number(sessionStorage.getItem('scrollHeight') || 0);
-    const [scrollHeight, setScrollHeight] = useState(sh);
+    const [scrollHeight] = useState(sh);
     const [scrollToTop, setScrollToTop] = useState(false);
 
     function moveToSlide(direction) {
@@ -74,47 +73,16 @@ function Store() {
     }
 
     useEffect(() => {
-        // fetch('http://localhost:8000/promotions')
-        // .then(promos => promos.json())
-        // .then(promos => {
-        //     setPromos(promos);
-        //     promosRef.current.childNodes[0].classList.add('current-slide');
-        //     console.log(promos);
-        //     setDoc(doc(db, 'promotions', 'premiumPromotions'), promos[5])
-        //     .then(() => console.log('product added'))
-        //     .catch((error) => console.log(error));
-        // });
-
         const timer = setInterval(() => {
             moveToSlide('next');
         }, 4000);
 
-        onscroll = () => {
-            sh = window.scrollY;
-            scrollY > 140 ? document.querySelector('.Store').setAttribute('data-fixed', 'true') : document.querySelector('.Store').removeAttribute('data-fixed');
-            scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
-            scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
-            document.querySelector('.products').childNodes.forEach((section, index) => {
-                if(window.scrollY >= section.offsetTop - section.clientHeight / 20) {
-                    subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
-                    Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].style.backgroundColor = 'white';
-                    cr = Array.from(subSectionsRef.current.childNodes).findIndex(nav => nav.style.backgroundColor === 'white');
-                    subSectionsRef.current.childNodes[cr].scrollIntoView({inline: 'center'});
-                }
-                if(window.scrollY < document.querySelector('.products').childNodes[0].offsetTop) {
-                    subSectionsRef.current.childNodes.forEach(nav => {
-                        nav.style.backgroundColor = 'initial';
-                    });
-                }
-            });
-        }
-
-        // subSectionsRef.current.onscroll = () => {
-        //     console.log(subSectionsRef.current.scrollLeft);
-        //     // console.log(subSectionsRef.current.childNodes[1].clientWidth);
-        // }
+        const tm = setTimeout(() => {
+            scrollTo(0, scrollHeight);
+        }, 2500);
 
         return () => {
+            clearTimeout(tm);
             clearInterval(timer);
             sessionStorage.setItem('scrollHeight', sh);
         }
@@ -131,24 +99,46 @@ function Store() {
 
         sectionRef.current.childNodes.forEach((section, index) => section.setAttribute('id', `section-${index}`));
         if(location.pathname === '/store') {
-            sectionRef.current.childNodes[0].classList.add('active-section');
+            sectionRef.current.childNodes[0].classList.add('current-section');
             return;
         }
         Array.from(sectionRef.current.childNodes).filter(section => {
             if(location.pathname.includes(section.value)) return section;
-            else section.classList.remove('active-section');
+            else section.classList.remove('current-section');
         })[0]
-        .classList.add('active-section');
-        Array.from(sectionRef.current.childNodes).filter(section => section.classList.contains('active-section'))[0].scrollIntoView({inline: 'center'});
+        .classList.add('current-section');
+        Array.from(sectionRef.current.childNodes).filter(section => section.classList.contains('current-section'))[0].scrollIntoView({inline: 'center'});
 
     }, [section]);
 
-    useEffect(() => {
+    const ctm = useMemo(() => {
+        onscroll = () => {
+            sh = window.scrollY;
+            scrollY > 140 ? document.querySelector('.Store').setAttribute('data-fixed', 'true') : document.querySelector('.Store').removeAttribute('data-fixed');
+            scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
+            scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
+            document.querySelector('.products').childNodes.forEach((section, index) => {
+                if((window.scrollY >= (section.offsetTop - (section.clientHeight / 20))) && cr === false) {
+                    subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
+                    Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].style.backgroundColor = 'white';
+                    Array.from(subSectionsRef.current.childNodes).filter(nav => nav.style.backgroundColor === 'white')[0].scrollIntoView({inline: 'center'});
+                }
+                else if((window.scrollY >= (section.offsetTop - (section.clientHeight / 20))) && cr === true) {
+                    subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
+                    Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].style.backgroundColor = 'white';
+                }
+                if(window.scrollY < document.querySelector('.products').childNodes[0].offsetTop) {
+                    subSectionsRef.current.childNodes.forEach(nav => {
+                        nav.style.backgroundColor = 'initial';
+                    });
+                }
+            });
+        }
         const tm = setTimeout(() => {
-            scrollTo(0, scrollHeight);
-        }, 3000);
-        return () => clearTimeout(tm);
-    }, []);
+            setCr(false);
+        }, 1000);
+        return tm;
+    }, [cr]);
     
     return (
         <div className="Store bg-slate-200">
@@ -197,7 +187,7 @@ function Store() {
                     </div>
                     <div ref={subSectionsRef} className="select-none flex gap-x-6 py-2 justify-center overflow-x-auto laptop_s:gap-3 laptop:justify-normal laptop:px-[4%] laptop_s:text-sm laptop_s:font-semibold">
                         {subSections && subSections.map((section, key) => (
-                            <button key={key} id={key} className="rounded-md px-2 laptop:min-w-[22%] laptop:px-0 tablet:min-w-[30%] tablet_s:min-w-[36%] mobile:min-w-[46%] mobile:text-[13px] mobile:px-1" onClick={() => {document.getElementById(section).scrollIntoView()}}>{section}</button>
+                            <button key={key} id={key} className="rounded-md px-2 laptop:min-w-[22%] laptop:px-0 tablet:min-w-[30%] tablet_s:min-w-[36%] mobile:min-w-[46%] mobile:text-[13px] mobile:px-1" onClick={e => {subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial'); e.target.style.backgroundColor = 'white'; setCr(true); clearTimeout(ctm); Array.from(subSectionsRef.current.childNodes).filter(nav => nav.style.backgroundColor === 'white')[0].scrollIntoView({inline: 'center'}); document.getElementById(section).scrollIntoView();}}>{section}</button>
                         ))}
                     </div>
                 </div>

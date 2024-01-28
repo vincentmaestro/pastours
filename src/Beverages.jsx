@@ -55,7 +55,7 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.water.map((water, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=beverages&section=water&product=${water.id}`}><img src={water.data().image} alt={water.data().name} /></Link>
+                                    <Link to={`product?category=beverages&section=water&product=${water.id}`}><img src={water.data().image} alt={water.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{water.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{water.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{water.data().price}</p>
@@ -72,7 +72,7 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.carbonatedDrinks.map((carbonatedDrink, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=beverages&section=carbonatedDrinks&product=${carbonatedDrink.id}`}><img src={carbonatedDrink.data().image} alt={carbonatedDrink.data().name} /></Link>
+                                    <Link to={`product?category=beverages&section=carbonatedDrinks&product=${carbonatedDrink.id}`}><img src={carbonatedDrink.data().image} alt={carbonatedDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{carbonatedDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{carbonatedDrink.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -88,7 +88,7 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.chocolateAndDiary.map((chocolateAndDiary, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=beverages&section=chocolateAndDiary&product=${chocolateAndDiary.id}`}><img src={chocolateAndDiary.data().image} alt={chocolateAndDiary.data().name} /></Link>
+                                    <Link to={`product?category=beverages&section=chocolateAndDiary&product=${chocolateAndDiary.id}`}><img src={chocolateAndDiary.data().image} alt={chocolateAndDiary.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{chocolateAndDiary.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{chocolateAndDiary.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -104,7 +104,7 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.juice.map((juice, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=beverages&section=juice&product=${juice.id}`}><img src={juice.data().image} alt={juice.data().name} /></Link>
+                                    <Link to={`product?category=beverages&section=juice&product=${juice.id}`}><img src={juice.data().image} alt={juice.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{juice.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{juice.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -120,7 +120,7 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.energyDrinks.map((energyDrink, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=beverages&section=energyDrink&product=${energyDrink.id}`}><img src={energyDrink.data().image} alt={energyDrink.data().name} /></Link>
+                                    <Link to={`product?category=beverages&section=energyDrink&product=${energyDrink.id}`}><img src={energyDrink.data().image} alt={energyDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{energyDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{energyDrink.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -136,7 +136,7 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.maltDrinks.map((maltDrink, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=beverages&section=maltDrinks&product=${maltDrink.id}`}><img src={maltDrink.data().image} alt={maltDrink.data().name} /></Link>
+                                    <Link to={`product?category=beverages&section=maltDrinks&product=${maltDrink.id}`}><img src={maltDrink.data().image} alt={maltDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{maltDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{maltDrink.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">

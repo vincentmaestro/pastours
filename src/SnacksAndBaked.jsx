@@ -51,7 +51,7 @@ function SnacksAndBaked() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.biscuits.map((biscuit, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=snacksandbaked&section=biscuits&product=${biscuit.id}`}><img src={biscuit.data().image} alt={biscuit.data().name} /></Link>
+                                    <Link to={`product?category=snacksandbaked&section=biscuits&product=${biscuit.id}`}><img src={biscuit.data().image} alt={biscuit.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{biscuit.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{biscuit.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -67,7 +67,7 @@ function SnacksAndBaked() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.chocolates.map((chocolate, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 hover:shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=snacksandbaked&section=chocolates&product=${chocolate.id}`}><img src={chocolate.data().image} alt={chocolate.data().name} /></Link>
+                                    <Link to={`product?category=snacksandbaked&section=chocolates&product=${chocolate.id}`}><img src={chocolate.data().image} alt={chocolate.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{chocolate.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{chocolate.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -83,7 +83,7 @@ function SnacksAndBaked() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.crispsAndChips.map((crispsAndChip, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=snacksandbaked&section=crispsandchips&product=${crispsAndChip.id}`}><img src={crispsAndChip.data().image} alt={crispsAndChip.data().name} /></Link>
+                                    <Link to={`product?category=snacksandbaked&section=crispsandchips&product=${crispsAndChip.id}`}><img src={crispsAndChip.data().image} alt={crispsAndChip.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{crispsAndChip.data().name}</h1>
                                     <span className="text-center font-semibold text-[14px] mobile:text-[12px]">{crispsAndChip.data().size}</span>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -99,7 +99,7 @@ function SnacksAndBaked() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.bread.map((bread, key) => (
                                 <div key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=snacksandbaked&section=bread&product=${bread.id}`}><img src={bread.data().image} alt={bread.data().name} /></Link>
+                                    <Link to={`product?category=snacksandbaked&section=bread&product=${bread.id}`}><img src={bread.data().image} alt={bread.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{bread.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{bread.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
@@ -115,7 +115,7 @@ function SnacksAndBaked() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.cakes.map((cake, key) => (
                                 <div id={cake.id} key={key} className="max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
-                                    <Link to={`product/?category=snacksandbaked&section=cakes&product=${cake.id}`}><img src={cake.data().image} alt={cake.data().name} /></Link>
+                                    <Link to={`product?category=snacksandbaked&section=cakes&product=${cake.id}`}><img src={cake.data().image} alt={cake.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{cake.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{cake.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
