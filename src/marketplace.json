@@ -1,17 +1,6 @@
 {
   "cart": [
-    {
-      "item": "Pringles Hot & spicy 165g",
-      "image": "http://localhost:5173/src/images/snacksandbaked/pringles_hot&spicy_165g.jpg",
-      "quantity": "3",
-      "id": 4
-    },
-    {
-      "item": "McVitie's digestive dark chocolate 266g",
-      "image": "http://localhost:5173/src/images/snacksandbaked/mc_vities_digestive_dark_chocolate_266g.jpg",
-      "quantity": "1",
-      "id": 5
-    }
+   
   ],
   "promotions": [
     {
@@ -923,6 +912,99 @@
         "description": "",
         "price": ""
       }
+    ],
+    "chocolatePowder": [
+      {
+        "size": "22.5g",
+        "image": "/images/provisions/cowbell_choco_22g.jpg",
+        "description": "",
+        "name": "Cowbell choco",
+        "price": ""
+      },
+      {
+        "description": "",
+        "price": "",
+        "image": "/images/provisions/bournvita_500g.jpg",
+        "name": "Bournvita",
+        "size": "500g"
+      },
+      {
+        "size": "20g",
+        "name": "Milo",
+        "price": "",
+        "description": "",
+        "image": "/images/provisions/milo_20g.jpg"
+      },
+      {
+        "description": "",
+        "size": "800g",
+        "image": "/images/provisions/milo_800g.jpg",
+        "name": "Milo",
+        "price": ""
+      },
+      {
+        "description": "",
+        "size": "500g",
+        "name": "Bournvita jar",
+        "image": "/images/provisions/bournvita_500g_jar.jpg",
+        "price": ""
+      },
+      {
+        "price": "",
+        "name": "Bournvita",
+        "size": "20g",
+        "image": "/images/provisions/bournvita_20g.jpg",
+        "description": ""
+      },
+      {
+        "name": "Peak Chocolate",
+        "price": "",
+        "description": "",
+        "size": "400g",
+        "image": "/images/provisions/peak_choco_400g.jpg"
+      },
+      {
+        "description": "",
+        "image": "/images/provisions/cowbell_choco_500g.jpg",
+        "name": "Cowbell choco",
+        "size": "500g",
+        "price": ""
+      },
+      {
+        "description": "",
+        "price": "",
+        "name": "Ovaltine",
+        "size": "800g",
+        "image": "/images/provisions/ovaltine_800g.jpg"
+      },
+      {
+        "price": "",
+        "description": "",
+        "image": "/images/provisions/ovaltine_400g.jpg",
+        "size": "400g",
+        "name": "Ovaltine"
+      },
+      {
+        "size": "250g",
+        "price": "",
+        "name": "Cadbury cocoa",
+        "image": "/images/provisions/cadbury_cocoa_250g.jpg",
+        "description": ""
+      },
+      {
+        "name": "Twisco",
+        "image": "/images/provisions/twisco_500g.jpg",
+        "description": "",
+        "price": "",
+        "size": "500g"
+      },
+      {
+        "price": "",
+        "size": "300g",
+        "description": "",
+        "name": "Nesquik chocolate",
+        "image": "/images/provisions/nesquik_chocolate_300g.jpg"
+      }
     ]
   },
   "snacksandbaked": {
@@ -1231,116 +1313,6 @@
       "Peanut butter",
       "Jam",
       "Nutella"
-    ],
-    "chocolate": [
-      {
-        "name": "Bournvita 20g",
-        "image": "/src/images/provisions/bournvita_20g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Bournvita 500g",
-        "image": "/src/images/provisions/bournvita_500g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Bournvita 500g jar",
-        "image": "/src/images/provisions/bournvita_500g_jar.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Cadbury cocoa 125g",
-        "image": "/src/images/provisions/cadbury_cocoa_125g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Cadbury cocoa 250g",
-        "image": "/src/images/provisions/cadbury_cocoa_250g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Milo 20g",
-        "image": "/src/images/provisions/milo_20g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Milo 400g",
-        "image": "/src/images/provisions/milo_400g.jpeg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Milo 800g",
-        "image": "/src/images/provisions/milo_800g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Ovaltine 18g",
-        "image": "/src/images/provisions/ovaltine_18g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Ovaltine 400g",
-        "image": "/src/images/provisions/ovaltine_400g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Ovaltine 800g",
-        "image": "/src/images/provisions/ovaltine_800g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Horlicks 500g",
-        "image": "/src/images/provisions/horlicks_500g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Nesquik chocolate 300g",
-        "image": "/src/images/provisions/nesquik_chocolate_300g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Nesquik chocolate 500g",
-        "image": "/src/images/provisions/nesquik_chocolate_500g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Twisco 500g",
-        "image": "/src/images/provisions/twisco_500g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Cowbell choco 22.5g",
-        "image": "/src/images/provisions/cowbell_choco_22g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Cowbell choco 500g",
-        "image": "/src/images/provisions/cowbell_choco_500g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Peak Chocolate 400g",
-        "image": "/src/images/provisions/peak_choco_400g.jpg",
-        "description": "",
-        "price": ""
-      }
     ],
     "milk": [
       {
