@@ -19,11 +19,13 @@ function Beverages() {
         const energyDrinks = (await getDocs(collection(db, 'beverages', 'items', 'energyDrinks'))).docs;
         const juice = (await getDocs(collection(db, 'beverages', 'items', 'juice'))).docs;
         const maltDrinks = (await getDocs(collection(db, 'beverages', 'items', 'maltDrinks'))).docs;
+        const powderedDrinks = (await getDocs(collection(db, 'beverages', 'items', 'powderedDrinks'))).docs;
+        const sodaWater = (await getDocs(collection(db, 'beverages', 'items', 'sodaWater'))).docs;
         const water = (await getDocs(collection(db, 'beverages', 'items', 'water'))).docs;
         const yoghurt = (await getDocs(collection(db, 'beverages', 'items', 'yoghurt'))).docs;
 
         if(!carbonatedDrinks.length) throw Error('Failed to fetch data. Please check your connection and retry');
-        else return {carbonatedDrinks, chocolateAndDiary, energyDrinks, juice, maltDrinks, water, yoghurt};
+        else return {carbonatedDrinks, powderedDrinks, chocolateAndDiary, energyDrinks, juice, maltDrinks, sodaWater, water, yoghurt};
     }
     
     useEffect(() => {
@@ -61,6 +63,43 @@ function Beverages() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{water.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{water.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{water.data().price}</p>
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                        <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
+                                        <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                    <section id="Soda water" className="mb-[5px]">
+                        <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Soda water</h1>
+                        <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
+                            {products.sodaWater.map((sodaWater, key) => (
+                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
+                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-gray-600 select-none">favorite</span>
+                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-gray-800 select-none">share</span>
+                                    <Link to={`product?category=beverages&section=water&product=${sodaWater.id}`}><img src={sodaWater.data().image} alt={sodaWater.data().name} /></Link>
+                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{sodaWater.data().name}</h1>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{sodaWater.data().size}</p>
+                                    <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{sodaWater.data().price}</p>
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                        <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
+                                        <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                    <section id="Powdered drinks" className="mb-[5px]">
+                        <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Powdered drinks</h1>
+                        <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
+                            {products.powderedDrinks.map((powderedDrink, key) => (
+                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
+                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-gray-600 select-none">favorite</span>
+                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-gray-800 select-none">share</span>
+                                    <Link to={`product?category=beverages&section=powderedDrinks&product=${powderedDrink.id}`}><img src={powderedDrink.data().image} alt={powderedDrink.data().name} /></Link>
+                                    <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{powderedDrink.data().name}</h1>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{powderedDrink.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>

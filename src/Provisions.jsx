@@ -36,16 +36,6 @@ function Provisions() {
         .then(products => {
             dispatch({case: 'loading', state: false});
             setProducts(products);
-            // products.chocolatePowder.forEach(product => {
-            //     const p = product.data();
-            //     fetch('http://localhost:8000/cart', {
-            //         method: 'POST',
-            //         headers: {'Content-Type': 'application/json'},
-            //         body: JSON.stringify({p})
-            //     })
-            //     .then(() => console.log('added'))
-            //     .catch(error => console.log(error));
-            // })
         })
         .catch(error => {
             dispatch({case: 'loading', state: false});
@@ -59,7 +49,7 @@ function Provisions() {
             {error && <p>{error}</p>}
             {products &&
                 <div className="products w-[60%] bg-slate-100 rounded-[10px] pl-[2%] laptop_s:w-[72%] tablet:w-full" onClick={addToCart}>
-                    <section id="Chocolate powder" className="mb-[5px]">
+                    {/* <section id="Chocolate powder" className="mb-[5px]">
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Chocolate powder</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.chocolatePowder.map((chocolatePowder, key) => (
@@ -76,7 +66,7 @@ function Provisions() {
                                 </div>
                             ))}
                         </div>
-                    </section>
+                    </section> */}
                     <section id="Milk powder" className="mb-[5px]">
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Milk powder</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">

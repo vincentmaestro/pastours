@@ -1,6 +1,6 @@
 {
   "cart": [
-   
+    
   ],
   "promotions": [
     {
@@ -915,95 +915,130 @@
     ],
     "chocolatePowder": [
       {
-        "size": "22.5g",
-        "image": "/images/provisions/cowbell_choco_22g.jpg",
         "description": "",
         "name": "Cowbell choco",
-        "price": ""
+        "price": "",
+        "size": "22.5g",
+        "image": "/images/beverages/cowbell_choco_22g.jpg"
       },
       {
         "description": "",
         "price": "",
-        "image": "/images/provisions/bournvita_500g.jpg",
-        "name": "Bournvita",
-        "size": "500g"
+        "image": "/images/beverages/ovaltine_400g.jpg",
+        "name": "Ovaltine",
+        "size": "400g"
       },
       {
-        "size": "20g",
-        "name": "Milo",
-        "price": "",
-        "description": "",
-        "image": "/images/provisions/milo_20g.jpg"
-      },
-      {
+        "name": "Ovaltine",
         "description": "",
         "size": "800g",
-        "image": "/images/provisions/milo_800g.jpg",
-        "name": "Milo",
-        "price": ""
-      },
-      {
-        "description": "",
-        "size": "500g",
-        "name": "Bournvita jar",
-        "image": "/images/provisions/bournvita_500g_jar.jpg",
-        "price": ""
-      },
-      {
         "price": "",
-        "name": "Bournvita",
-        "size": "20g",
-        "image": "/images/provisions/bournvita_20g.jpg",
+        "image": "/images/beverages/ovaltine_800g.jpg"
+      },
+      {
+        "size": "300g",
+        "description": "",
+        "image": "/images/beverages/nesquik_chocolate_300g.jpg",
+        "name": "Nesquik chocolate",
+        "price": ""
+      },
+      {
+        "name": "Twisco",
+        "price": "",
+        "image": "/images/beverages/twisco_500g.jpg",
+        "size": "500g",
         "description": ""
       },
       {
-        "name": "Peak Chocolate",
-        "price": "",
         "description": "",
-        "size": "400g",
-        "image": "/images/provisions/peak_choco_400g.jpg"
+        "size": "250g",
+        "name": "Cadbury cocoa",
+        "image": "/images/beverages/cadbury_cocoa_250g.jpg",
+        "price": ""
       },
       {
         "description": "",
-        "image": "/images/provisions/cowbell_choco_500g.jpg",
-        "name": "Cowbell choco",
-        "size": "500g",
-        "price": ""
+        "size": "20g",
+        "price": "",
+        "image": "/images/beverages/milo_20g.jpg",
+        "name": "Milo"
+      },
+      {
+        "price": "",
+        "description": "",
+        "size": "400g",
+        "image": "/images/beverages/milo_400g.jpg",
+        "name": "Milo"
+      },
+      {
+        "description": "",
+        "size": "125g",
+        "price": "",
+        "name": "Cadbury cocoa",
+        "image": "/images/beverages/cadbury_cocoa_125g.jpg"
       },
       {
         "description": "",
         "price": "",
         "name": "Ovaltine",
-        "size": "800g",
-        "image": "/images/provisions/ovaltine_800g.jpg"
+        "size": "18g",
+        "image": "/images/beverages/ovaltine_18g.jpg"
       },
       {
         "price": "",
+        "image": "/images/beverages/horlicks_500g.jpg",
         "description": "",
-        "image": "/images/provisions/ovaltine_400g.jpg",
-        "size": "400g",
-        "name": "Ovaltine"
+        "size": "500g",
+        "name": "Horlicks"
       },
       {
-        "size": "250g",
+        "size": "500g",
+        "description": "",
+        "image": "/images/beverages/nesquik_chocolate_500g.jpg",
+        "name": "Nesquik chocolate",
+        "price": ""
+      },
+      {
+        "name": "Bournvita",
         "price": "",
-        "name": "Cadbury cocoa",
-        "image": "/images/provisions/cadbury_cocoa_250g.jpg",
+        "size": "500g",
+        "image": "/images/beverages/bournvita_500g.jpg",
         "description": ""
       },
       {
-        "name": "Twisco",
-        "image": "/images/provisions/twisco_500g.jpg",
-        "description": "",
         "price": "",
-        "size": "500g"
+        "description": "",
+        "size": "800g",
+        "image": "/images/beverages/milo_800g.jpg",
+        "name": "Milo"
       },
       {
+        "name": "Bournvita jar",
         "price": "",
-        "size": "300g",
-        "description": "",
-        "name": "Nesquik chocolate",
-        "image": "/images/provisions/nesquik_chocolate_300g.jpg"
+        "size": "500g",
+        "image": "/images/beverages/bournvita_500g_jar.jpg",
+        "description": ""
+      },
+      {
+        "name": "Bournvita",
+        "price": "",
+        "size": "20g",
+        "image": "/images/beverages/bournvita_20g.jpg",
+        "description": ""
+      },
+      {
+        "image": "/images/beverages/peak_choco_400g.jpg",
+        "name": "Peak Chocolate",
+        "size": "400g",
+        "price": "",
+        "description": ""
+      },
+      {
+        "name": "Cowbell choco",
+        "size": "500g",
+        "image": "/images/beverages/cowbell_choco_500g.jpg",
+        "price": "",
+        "description": ""
       }
     ]
   },
@@ -1302,7 +1337,6 @@
   },
   "provisions": {
     "subSections": [
-      "Powdered chocolate",
       "Powdered milk",
       "Cereals",
       "Custard",
@@ -1316,544 +1350,475 @@
     ],
     "milk": [
       {
-        "name": "Peak full cream milk powder 14g",
-        "image": "/src/images/provisions/peak_full_cream_14g.jpg",
+        "image": "/images/beverages/miksi_400g.jpg",
+        "size": "400g",
         "description": "",
+        "price": "",
+        "name": "Miksi milk powder"
+      },
+      {
+        "price": "",
+        "name": "Kerrygold instant full milk powder",
+        "size": "380g",
+        "description": "",
+        "image": "/images/beverages/kerrygold_full_cream_380g.jpg"
+      },
+      {
+        "size": "900g",
+        "description": "",
+        "name": "Loya instant full cream powder",
+        "price": "",
+        "image": "/images/beverages/loya_milk_900g.jpg"
+      },
+      {
+        "image": "/images/beverages/peak_instant_milk_800g.jpg",
+        "price": "",
+        "description": "",
+        "size": "800g",
+        "name": "Peak instant milk powder"
+      },
+      {
+        "description": "",
+        "name": "Three crowns instant milk powder",
+        "image": "/images/beverages/three_crowns_400g.jpg",
+        "price": "",
+        "size": "400g"
+      },
+      {
+        "name": "Dano full cream milk powder",
+        "image": "/images/beverages/dano_full_cream_360g.jpg",
+        "price": "",
+        "description": "",
+        "size": "360g"
+      },
+      {
+        "price": "",
+        "image": "/images/beverages/kerrygold_avantage_380g.jpg",
+        "size": "380g",
+        "description": "",
+        "name": "Kerrygold instant milk powder"
+      },
+      {
+        "name": "Kerrygold instant full milk powder",
+        "description": "",
+        "image": "/images/beverages/kerrygold_full_cream_900g.jpg",
+        "price": "",
+        "size": "900g"
+      },
+      {
+        "description": "",
+        "image": "/images/beverages/dano_coolcow_850g.jpg",
+        "size": "800g",
+        "price": "",
+        "name": "Dano milk powder"
+      },
+      {
+        "image": "/images/beverages/loya_milk_350g.jpg",
+        "price": "",
+        "description": "",
+        "size": "400g",
+        "name": "Loya instant full cream powder"
+      },
+      {
+        "image": "/images/beverages/loya_milk_350g.jpg",
+        "price": "",
+        "description": "",
+        "size": "400g",
+        "name": "Loya instant full cream powder"
+      },
+      {
+        "description": "",
+        "image": "/images/beverages/dano_coolcow_850g.jpg",
+        "size": "800g",
+        "price": "",
+        "name": "Dano milk powder"
+      },
+      {
+        "description": "",
+        "size": "800g",
+        "image": "/images/beverages/miksi_800g.jpg",
+        "name": "Miksi milk powder",
         "price": ""
       },
       {
-        "name": "Peak full cream milk powder 400g",
-        "image": "/src/images/provisions/peak_full_cream_400g.jpg",
+        "price": "",
         "description": "",
-        "price": ""
+        "name": "Dano full cream milk powder",
+        "size": "900g",
+        "image": "/images/beverages/dano_full_cream_900g.jpg"
       },
       {
-        "name": "Peak full cream milk powder 800g",
-        "image": "/src/images/provisions/peak_full_cream_800g.jpg",
-        "description": "",
-        "price": ""
+        "image": "/images/beverages/cowbell_milk_400g.jpg",
+        "name": "Cowbell milk powder",
+        "size": "400g",
+        "price": "",
+        "description": ""
       },
       {
-        "name": "Peak instant milk powder 400g",
-        "image": "/src/images/provisions/peak_instant_milk_400g.jpg",
-        "description": "",
-        "price": ""
+        "price": "",
+        "name": "Peak full cream milk powder",
+        "image": "/images/beverages/peak_full_cream_14g.jpg",
+        "size": "14g",
+        "description": ""
       },
       {
-        "name": "Peak instant milk powder 800g",
-        "image": "/src/images/provisions/peak_instant_milk_800g.jpg",
+        "price": "",
+        "size": "400g",
         "description": "",
-        "price": ""
-      },
-      {
-        "name": "Cowbell milk powder 400g",
-        "image": "/src/images/provisions/cowbell_milk_400g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Kerrygold instant milk powder 12g",
-        "image": "/src/images/provisions/kerrygold_avantage_12g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Kerrygold instant milk powder 380g",
-        "image": "/src/images/provisions/kerrygold_avantage_380g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Kerrygold instant milk powder 800g",
-        "image": "/src/images/provisions/kerrygold_avantage_800g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Kerrygold instant full milk powder 380g",
-        "image": "/src/images/provisions/kerrygold_full_cream_380g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Kerrygold instant full milk powder 900g",
-        "image": "/src/images/provisions/kerrygold_full_cream_900g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Dano milk powder 400g",
-        "image": "/src/images/provisions/dano_coolcow_400g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Dano milk powder 800g",
-        "image": "/src/images/provisions/dano_coolcow_850g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Dano full cream milk powder 360g",
-        "image": "/src/images/provisions/dano_full_cream_360g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Dano full cream milk powder 900g",
-        "image": "/src/images/provisions/dano_full_cream_900g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Miksi milk powder 400g",
-        "image": "/src/images/provisions/miksi_400g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Miksi milk powder 800g",
-        "image": "/src/images/provisions/miksi_800g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Loya instant full cream powder 400g",
-        "image": "/src/images/provisions/loya_milk_350g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Loya instant full cream powder 900g",
-        "image": "/src/images/provisions/loya_milk_900g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Three crowns instant milk powder 400g",
-        "image": "/src/images/provisions/three_crowns_400g.jpg",
-        "description": "",
-        "price": ""
+        "name": "Dano milk powder",
+        "image": "/images/beverages/dano_coolcow_400g.jpg"
       }
     ],
     "cereals": [
       {
-        "name": "Golden morn 45g",
-        "image": "/src/images/provisions/golden_morn_45g.jpg",
+        "size": "45g",
+        "name": "Amaizing day",
+        "image": "/images/beverages/amaizing_day_45g.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Golden morn 450g",
-        "image": "/src/images/provisions/golden_morn_450g.jpg",
+        "image": "/images/beverages/coco_pops_450g.jpg",
+        "name": "Kellog's Coco pops",
+        "size": "450g",
         "description": "",
         "price": ""
       },
       {
-        "name": "Golden morn 900g",
-        "image": "/src/images/provisions/golden_morn_900g.jpg",
+        "image": "/images/beverages/coco_pops_50g.jpg",
+        "name": "Kellog's Coco pops",
+        "price": "",
+        "description": "",
+        "size": "50g"
+      },
+      {
+        "image": "/images/beverages/golden_morn_45g.jpg",
+        "name": "Golden morn",
+        "size": "45g",
         "description": "",
         "price": ""
       },
       {
-        "name": "Amaizing day 45g",
-        "image": "/src/images/provisions/amaizing_day_45g.jpg",
+        "image": "/images/beverages/nasco_corn_flakes_350g.jpg",
+        "price": "",
+        "description": "",
+        "size": "350g",
+        "name": "Nasco corn flakes"
+      },
+      {
+        "image": "/images/beverages/kellog's_corn_flakes_550g.jpg",
+        "size": "550g",
+        "name": "Kellog's Corn flakes",
         "description": "",
         "price": ""
       },
       {
-        "name": "Amaizing day 600g",
-        "image": "/src/images/provisions/amaizing_day_600g.jpg",
+        "image": "/images/beverages/golden_morn_450g.jpg",
+        "name": "Golden morn",
+        "size": "450g",
+        "price": "",
+        "description": ""
+      },
+      {
+        "name": "Golden morn",
+        "image": "/images/beverages/golden_morn_900g.jpg",
         "description": "",
+        "size": "900g",
         "price": ""
       },
       {
-        "name": "Kellog's Coco pops 50g",
-        "image": "/src/images/provisions/coco_pops_50g.jpg",
-        "description": "",
-        "price": ""
+        "price": "",
+        "size": "600g",
+        "name": "Amaizing day",
+        "image": "/images/beverages/amaizing_day_600g.jpg",
+        "description": ""
       },
       {
-        "name": "Kellog's Coco pops 450g",
-        "image": "/src/images/provisions/coco_pops_450g.jpg",
+        "price": "",
+        "name": "Kellog's Corn flakes",
+        "size": "32g",
         "description": "",
-        "price": ""
-      },
-      {
-        "name": "Kellog's Corn flakes 32g",
-        "image": "/src/images/provisions/kellog's_corn_flakes_32g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Kellog's Corn flakes 550g",
-        "image": "/src/images/provisions/kellog's_corn_flakes_550g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Nasco corn flakes 350g",
-        "image": "/src/images/provisions/nasco_corn_flakes_350g.jpg",
-        "description": "",
-        "price": ""
+        "image": "/images/beverages/kellog's_corn_flakes_32g.jpg"
       }
     ],
     "sugar": [
       {
-        "name": "Family 90 cubes 475g",
-        "image": "/src/images/provisions/family_sugar_cubes_475g.jpg",
+        "size": "500g",
+        "name": "Dogans 90 cubes",
         "description": "",
-        "price": "N350"
-      },
-      {
-        "name": "Family brown 45 cubes 238g",
-        "image": "/src/images/provisions/family_sugar_brown_cubes_283g.jpg",
-        "description": "",
-        "price": "N350"
-      },
-      {
-        "name": "Family brown 90 cubes 475g",
-        "image": "/src/images/provisions/family_sugar_brown_cubes_475g.jpg",
-        "description": "",
-        "price": "N350"
-      },
-      {
-        "name": "Family granulated 1kg",
-        "image": "/src/images/provisions/family_sugar_1kg.jpg",
-        "description": "",
-        "price": "N350"
-      },
-      {
-        "name": "Family brown granulated 1kg",
-        "image": "/src/images/provisions/family_brown_sugar_1kg.jpg",
-        "description": "",
-        "price": "N350"
-      },
-      {
-        "name": "Dangote granulated 250g",
-        "image": "/src/images/provisions/dangote_sugar_250g.jpg",
-        "description": "",
-        "price": "N350"
-      },
-      {
-        "name": "Dangote granulated 500g",
-        "image": "/src/images/provisions/dangote_sugar_500g.jpg",
-        "description": "",
-        "price": "N700"
-      },
-      {
-        "name": "Golden penny 90 cubes 500g",
-        "image": "/src/images/provisions/golden_penny_sugar_cubes_500g.jpg",
-        "description": "",
-        "price": "N1000"
-      },
-      {
-        "name": "Dogans 90 cubes 500g",
-        "image": "/src/images/provisions/dogans_sugar_cubes_500g.jpg",
-        "description": "",
+        "image": "/images/beverages/dogans_sugar_cubes_500g.jpg",
         "price": ""
       },
       {
-        "name": "St Louis 90 cubes 500g",
-        "image": "/src/images/provisions/st_louis_sugar.jpg",
+        "name": "Golden penny 90 cubes",
         "description": "",
-        "price": ""
+        "image": "/images/beverages/golden_penny_sugar_cubes_500g.jpg",
+        "price": "N1000",
+        "size": "500g"
+      },
+      {
+        "name": "Family granulated",
+        "description": "",
+        "price": "N350",
+        "size": "1kg",
+        "image": "/images/beverages/family_sugar_1kg.jpg"
+      },
+      {
+        "image": "/images/beverages/family_brown_sugar_1kg.jpg",
+        "size": "1kg",
+        "description": "",
+        "name": "Family brown granulated",
+        "price": "N350"
+      },
+      {
+        "image": "/images/beverages/st_louis_sugar.jpg",
+        "description": "",
+        "price": "",
+        "size": "500g",
+        "name": "St Louis 90 cubes"
+      },
+      {
+        "price": "N350",
+        "image": "/images/beverages/family_sugar_brown_cubes_283g.jpg",
+        "name": "Family brown 45 cubes",
+        "description": "",
+        "size": "238g"
+      },
+      {
+        "price": "N700",
+        "name": "Dangote granulated",
+        "size": "500g",
+        "description": "",
+        "image": "/images/beverages/dangote_sugar_500g.jpg"
+      },
+      {
+        "description": "",
+        "name": "Family 90 cubes",
+        "image": "/images/beverages/family_sugar_cubes_475g.jpg",
+        "size": "475g",
+        "price": "N350"
+      },
+      {
+        "image": "/images/beverages/family_sugar_brown_cubes_475g.jpg",
+        "name": "Family brown 90 cubes",
+        "size": "475g",
+        "description": "",
+        "price": "N350"
+      },
+      {
+        "size": "250g",
+        "description": "",
+        "price": "N350",
+        "name": "Dangote granulated",
+        "image": "/images/beverages/dangote_sugar_250g.jpg"
       }
     ],
     "custard": [
       {
-        "name": "Checkers vanilla 400g",
-        "image": "/src/images/provisions/checkers_vanilla_custard_400g.jpg",
+        "image": "/images/beverages/checkers_vanilla_custard_1kg.jpg",
         "description": "",
+        "size": "473ml",
+        "price": "",
+        "name": "Checkers vanilla"
+      },
+      {
+        "size": "400g",
+        "description": "",
+        "image": "/images/beverages/checkers_banana_custard_400g.jpg",
+        "name": "Checkers banana",
         "price": ""
       },
       {
-        "name": "Checkers vanilla 1kg",
-        "image": "/src/images/provisions/checkers_vanilla_custard_1kg.jpg",
         "description": "",
-        "price": ""
-      },
-      {
-        "name": "Checkers vanilla 1kg jar",
-        "image": "/src/images/provisions/checkers_vanilla_custard_jar_1kg.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Checkers milk custard 400g",
-        "image": "/src/images/provisions/checkers_milk_custard_jar_400g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Checkers milk custard 700g",
-        "image": "/src/images/provisions/checkers_milk_custard_700g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Checkers milk custard 1kg jar",
-        "image": "/src/images/provisions/checkers_milk_custard_jar_1kg.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Checkers banana 400g",
-        "image": "/src/images/provisions/checkers_banana_custard_400g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Checkers banana 1kg jar",
-        "image": "/src/images/provisions/checkers_banana_custard_jar_1kg.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
         "name": "Mr B",
-        "image": "/src/images/provisions",
+        "price": "",
+        "image": "/images/beverages"
+      },
+      {
+        "size": "400g",
         "description": "",
-        "price": ""
+        "price": "",
+        "name": "Checkers milk custard 400g",
+        "image": "/images/beverages/checkers_milk_custard_jar_400g.jpg"
+      },
+      {
+        "price": "",
+        "size": "700g",
+        "name": "Checkers milk custard",
+        "description": "",
+        "image": "/images/beverages/checkers_milk_custard_700g.jpg"
+      },
+      {
+        "name": "Checkers vanilla",
+        "size": "400g",
+        "price": "",
+        "image": "/images/beverages/checkers_vanilla_custard_400g.jpg",
+        "description": ""
+      },
+      {
+        "price": "",
+        "name": "Checkers vanilla jar",
+        "description": "",
+        "image": "/images/beverages/checkers_vanilla_custard_jar_1kg.jpg",
+        "size": "1kg"
+      },
+      {
+        "image": "/images/beverages/checkers_banana_custard_jar_1kg.jpg",
+        "price": "",
+        "description": "",
+        "size": "1kg",
+        "name": "Checkers banana jar"
+      },
+      {
+        "description": "",
+        "price": "",
+        "size": "1kg",
+        "image": "/images/beverages/checkers_milk_custard_jar_1kg.jpg",
+        "name": "Checkers milk custard jar"
       }
     ],
     "butter": [
       {
-        "name": "Blueband original 250g",
-        "image": "/src/images/provisions/blueband_original_250g.jpg",
+        "size": "900g",
+        "price": "",
+        "image": "/images/beverages/golden_penny_butter_900g.jpg",
         "description": "",
+        "name": "Golden penny spread"
+      },
+      {
+        "size": "450g",
+        "image": "/images/beverages/mamador_classic_butter_450g.jpg",
+        "description": "",
+        "price": "",
+        "name": "Mamador classic spread"
+      },
+      {
+        "size": "450g",
+        "image": "/images/beverages/golden_penny_butter_450g.jpg",
+        "price": "",
+        "name": "Golden penny spread",
+        "description": ""
+      },
+      {
+        "price": "",
+        "image": "/images/beverages/mamador_low_fat_butter_450g.jpg",
+        "size": "450g",
+        "description": "",
+        "name": "Mamador low fat spread"
+      },
+      {
+        "image": "/images/beverages/blueband_original_900g.jpg",
+        "name": "Blueband original",
+        "description": "",
+        "size": "900g",
         "price": ""
       },
       {
-        "name": "Blueband original 450g",
-        "image": "/src/images/provisions/blueband_original_450g.jpg",
+        "name": "Blueband low fat spread",
         "description": "",
-        "price": ""
+        "image": "/images/beverages/blueband_low_fat_450g.jpg",
+        "price": "",
+        "size": "450g"
       },
       {
-        "name": "Blueband original 900g",
-        "image": "/src/images/provisions/blueband_original_900g.jpg",
+        "size": "250g",
+        "price": "",
         "description": "",
-        "price": ""
+        "image": "/images/beverages/mamador_low_fat_butter_250g.jpg",
+        "name": "Mamador low fat spread"
       },
       {
-        "name": "Blueband low fat spread 250g",
-        "image": "/src/images/provisions/blueband_low_fat_250g.jpg",
+        "image": "/images/beverages/mamador_classic_butter_250g.jpg",
+        "price": "",
         "description": "",
-        "price": ""
+        "name": "Mamador classic spread",
+        "size": "250g"
       },
       {
-        "name": "Blueband low fat spread 450g",
-        "image": "/src/images/provisions/blueband_low_fat_450g.jpg",
+        "size": "450g",
+        "price": "",
+        "image": "/images/beverages/blueband_original_450g.jpg",
         "description": "",
-        "price": ""
+        "name": "Blueband original"
       },
       {
-        "name": "Blueband low fat spread 900g",
-        "image": "/src/images/provisions/blueband_low_fat_900g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Mamador low fat spread 250g",
-        "image": "/src/images/provisions/mamador_low_fat_butter_250g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Mamador low fat spread 450g",
-        "image": "/src/images/provisions/mamador_low_fat_butter_450g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Mamador classic spread 250g",
-        "image": "/src/images/provisions/mamador_classic_butter_250g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Mamador classic spread 450g",
-        "image": "/src/images/provisions/mamador_classic_butter_450g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Golden penny spread 250g",
-        "image": "/src/images/provisions/golden_penny_butter_250g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Golden penny spread 450g",
-        "image": "/src/images/provisions/golden_penny_butter_450g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Golden penny spread 900g",
-        "image": "/src/images/provisions/golden_penny_butter_900g.jpg",
-        "description": "",
-        "price": ""
+        "price": "",
+        "size": "250g",
+        "name": "Golden penny spread",
+        "image": "/images/beverages/golden_penny_butter_250g.jpg",
+        "description": ""
       }
     ],
     "mayonnaise": [
       {
-        "name": "Bama 236ml",
-        "image": "/src/images/provisions/bama_236ml.jpg",
+        "image": "/images/beverages/bama_473ml.jpg",
+        "price": "",
         "description": "",
-        "price": ""
+        "size": "473ml",
+        "name": "Bama"
       },
       {
-        "name": "Bama 473ml",
-        "image": "/src/images/provisions/bama_473ml.jpg",
         "description": "",
-        "price": ""
+        "image": "/images/beverages/la_mayo_946ml.jpg",
+        "price": "",
+        "name": "La mayo",
+        "size": "946ml"
       },
       {
-        "name": "Bama 946ml",
-        "image": "/src/images/provisions/bama_946ml.jpg",
-        "description": "",
-        "price": ""
+        "name": "Jago",
+        "size": "946ml",
+        "image": "/images/beverages/jago_946ml.jpg",
+        "price": "",
+        "description": ""
       },
       {
-        "name": "Jago 473ml",
-        "image": "/src/images/provisions/jago_473ml.jpg",
+        "image": "/images/beverages/bama_236ml.jpg",
         "description": "",
-        "price": ""
-      },
-      {
-        "name": "Jago 946ml",
-        "image": "/src/images/provisions/jago_946ml.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "La mayo 473ml",
-        "image": "/src/images/provisions/la_mayo_473ml.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "La mayo 946ml",
-        "image": "/src/images/provisions/la_mayo_946ml.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Heinz classic 215g",
-        "image": "/src/images/provisions/heinz_classic_215g.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Heinz classic 430g",
-        "image": "/src/images/provisions/heinz_classic_430g.jpg",
-        "description": "",
-        "price": ""
+        "price": "",
+        "size": "273ml",
+        "name": "Bama"
       },
       {
         "name": "Heinz classic 940g",
-        "image": "/src/images/provisions/heinz_classic_940g.jpg",
+        "size": "940ml",
         "description": "",
-        "price": ""
-      }
-    ],
-    "noodles": [
+        "price": "",
+        "image": "/images/beverages/heinz_classic_940g.jpg"
+      },
       {
-        "name": "Indomie indomitables",
-        "image": "/src/images/provisions/indomie_indomitables.jpg",
+        "description": "",
+        "image": "/images/beverages/la_mayo_473ml.jpg",
+        "size": "473ml",
+        "name": "La mayo",
+        "price": ""
+      },
+      {
+        "price": "",
+        "size": "430g",
+        "name": "Heinz classic",
+        "image": "/images/beverages/heinz_classic_430g.jpg",
+        "description": ""
+      },
+      {
+        "size": "473ml",
+        "image": "/images/beverages/jago_473ml.jpg",
+        "name": "Jago",
+        "price": "",
+        "description": ""
+      },
+      {
+        "size": "215g",
+        "image": "/images/beverages/heinz_classic_215g.jpg",
+        "name": "Heinz classic",
         "description": "",
         "price": ""
       },
       {
-        "name": "Indomie indomitables (pack)",
-        "image": "/src/images/provisions/indomie_indomitables_carton.jpg",
+        "size": "946ml",
+        "price": "",
         "description": "",
-        "price": ""
-      },
-      {
-        "name": "Indomie super pack",
-        "image": "/src/images/provisions/indomie_super_pack.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Indomie super pack (pack)",
-        "image": "/src/images/provisions/indomie_super_pack_carton.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Indomie hungry man",
-        "image": "/src/images/provisions/indomie_hungry_man_size.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Indomie hungry man (pack)",
-        "image": "/src/images/provisions/indomie_hungry_man_size_carton.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Indomie belle full",
-        "image": "/src/images/provisions/indomie_belle_full.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Indomie belle full (pack)",
-        "image": "/src/images/provisions/indomie_belle_full_carton.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Golden penny chicken flavour",
-        "image": "/src/images/provisions/golden_penny_chicken_flavour.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Golden penny chicken flavour (pack)",
-        "image": "/src/images/provisions/golden_penny_chicken_flavour_carton.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Golden penny jollof chicken",
-        "image": "/src/images/provisions/golden_penny_jollof_chicken_noodles.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Golden penny jollof chicken (pack)",
-        "image": "/src/images/provisions/golden_penny_jollof_chicken_noodles_carton.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Chikki chicken",
-        "image": "/src/images/provisions/chikki_chicken_noodles.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Chikki chicken (pack)",
-        "image": "/src/images/provisions/chikki_chicken_noodles_carton.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Supreme tasty chicken",
-        "image": "/src/images/provisions/supreme_noodles.jpg",
-        "description": "",
-        "price": ""
-      },
-      {
-        "name": "Supreme tasty chicken (pack)",
-        "image": "/src/images/provisions/supreme_noodles_carton.jpg",
-        "description": "",
-        "price": ""
+        "name": "Bama",
+        "image": "/images/beverages/bama_946ml.jpg"
       }
     ]
   }

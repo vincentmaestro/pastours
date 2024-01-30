@@ -118,7 +118,7 @@ function Store() {
             scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
             scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
             document.querySelector('.products').childNodes.forEach((section, index) => {
-                if((window.scrollY >= (section.offsetTop - (section.clientHeight / 20))) && cr === false) {
+                if(window.scrollY >= section.offsetTop && cr === false) {
                     subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
                     Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].style.backgroundColor = 'white';
                     Array.from(subSectionsRef.current.childNodes).filter(nav => nav.style.backgroundColor === 'white')[0].scrollIntoView({inline: 'center'});

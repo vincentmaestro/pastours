@@ -16,10 +16,21 @@ items.forEach(item => console.log(item.id, '=>', item.data()));
 fetch('http://localhost:8000/promotions')
     .then(promos => promos.json())
     .then(promos => {
-        setPromos(promos);
-        promosRef.current.childNodes[0].classList.add('current-slide');
-        console.log(promos);
         setDoc(doc(db, 'promotions', 'premiumPromotions'), promos[5])
         .then(() => console.log('product added'))
         .catch((error) => console.log(error));
     });
+
+
+<!-- push to local -->
+
+products.chocolatePowder.forEach(product => {
+    const p = product.data();
+    fetch('http://localhost:8000/cart', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(p)
+    })
+    .then(() => console.log('added'))
+    .catch(error => console.log(error));
+})
