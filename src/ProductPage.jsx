@@ -15,10 +15,6 @@ function ProductPage () {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    window.addEventListener("load", () => {
-        console.log('done');
-    });
-
     async function getProduct() {
         const product = (await getDoc(doc(db, category, 'items', section, productId))).data();
         return product;

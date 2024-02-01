@@ -307,277 +307,323 @@
     ],
     "chocolateAndDiary": [
       {
-        "name": "Viju wheat flavour 320 ml",
+        "name": "Viju wheat flavour",
+        "size": "320ml",
         "image": "/src/images/beverages/viju_wheat_320ml.webp",
         "description": "",
         "price": ""
       },
       {
-        "name": "Viju wheat flavour 320 ml x 12",
+        "name": "Viju wheat flavour x 12",
+        "size": "320ml",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Viju wheat flavour 500 ml",
+        "name": "Viju wheat flavour",
+        "size": "500ml",
         "image": "/src/images/beverages/viju_wheat_500ml.webp",
         "description": "",
         "price": ""
       },
       {
-        "name": "Viju wheat flavour 500 ml x 12",
+        "name": "Viju wheat flavour x 12",
+        "size": "500ml",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Viju chocolate flavour 320 ml",
+        "name": "Viju chocolate flavour",
+        "size": "320ml",
         "image": "/src/images/beverages/viju_chocolate_320ml.webp",
         "description": "",
         "price": ""
       },
       {
-        "name": "Viju chocolate flavour 320 ml x 12",
+        "name": "Viju chocolate flavour x 12",
+        "size": "320ml",
         "image": "/src/images/beverages/viju_chocolate_320ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Viju chocolate flavour 500 ml",
+        "name": "Viju chocolate flavour",
+        "size": "500ml",
         "image": "/src/images/beverages/viju_chocolate_500ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Viju chocolate flavour 500 ml x 12",
+        "name": "Viju chocolate flavour x 12",
+        "size": "500ml",
         "image": "/src/images/beverages/viju_chocolate_500ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Nutri yo 500 ml",
+        "name": "Nutri yo",
+        "size": "500ml",
         "image": "/src/images/beverages/nutri_yo_500ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Nutri yo 500 ml x 12",
+        "name": "Nutri yo",
+        "size": "500ml",
         "image": "/src/images/beverages/nutri_yo_500ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Nutri soya 400 ml",
+        "name": "Nutri soya",
+        "size": "400ml",
         "image": "/src/images/beverages/nutri_soya_malt_400ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Nutri soya 400 ml x 12",
+        "name": "Nutri soya x 12",
+        "size": "400ml",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Nutri choco 400 ml",
+        "name": "Nutri choco",
+        "size": "400ml",
         "image": "/src/images/beverages/nutri_choco_400ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Nutri choco 400 ml x 12",
+        "name": "Nutri choco x 12",
+        "size": "400ml",
         "image": "/src/images/beverages/nutri_choco_400ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk soya 300ml",
+        "name": "Vita milk soya",
+        "size": "300ml",
         "image": "/src/images/beverages/vitamilk_soya_300ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk soya 300ml x 6",
+        "name": "Vita milk soya x 6",
+        "size": "300ml",
         "image": "/src/images/beverages/vitamilk_soya_300ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk chocolate 300ml",
+        "name": "Vita milk chocolate",
+        "size": "300ml",
         "image": "/src/images/beverages/vitamilk_choco_300ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk chocolate 300ml x 6",
+        "name": "Vita milk chocolate x 6",
+        "size": "300ml",
         "image": "/src/images/beverages/vitamilk_choco_300ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk soya 1L",
+        "name": "Vita milk soya",
+        "size": "1L",
         "image": "/src/images/beverages/vitamilk_soya_1L.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk soya 1L x 6",
+        "name": "Vita milk soya x 6",
+        "size": "1L",
         "image": "/src/images/beverages/vitamilk_soya_1L_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk chocolate 1L",
+        "name": "Vita milk chocolate",
+        "size": "1L",
         "image": "/src/images/beverages/vitamilk_choco_1L.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Vita milk chocolate 1L x 6",
+        "name": "Vita milk chocolate x 6",
+        "size": "1L",
         "image": "/src/images/beverages/vitamilk_choco_1L_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "V-smartic 1L",
+        "name": "V-smartic",
+        "size": "1L",
         "image": "/src/images/beverages/vsmartic_1L.png",
         "description": "",
         "price": ""
       },
       {
-        "name": "V-smartic 1L x 12",
+        "name": "V-smartic x 12",
+        "size": "1L",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt plain 315ml",
+        "name": "Hollandia yoghurt plain",
+        "size": "315ml",
         "image": "/src/images/beverages/hollandia_yoghurt_plain_315ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt plain 315ml x 24",
+        "name": "Hollandia yoghurt plain x 24",
+        "size": "315ml",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt strawberry 315ml",
+        "name": "Hollandia yoghurt strawberry",
+        "size": "315ml",
         "image": "/src/images/beverages/hollandia_yoghurt_strawberry_315ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt strawberry 315ml x 24",
+        "name": "Hollandia yoghurt strawberry x 24",
+        "size": "315ml",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt plain 1L",
+        "name": "Hollandia yoghurt plain",
+        "size": "1L",
         "image": "/src/images/beverages/hollandia_yoghurt_plain_1L.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt plain 1L x 10",
+        "name": "Hollandia yoghurt plain x 10",
+        "size": "1L",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt strawberry 1L",
+        "name": "Hollandia yoghurt strawberry",
+        "size": "1L",
         "image": "/src/images/beverages/hollandia_yoghurt_strawberry_1L.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Hollandia yoghurt strawberry 1L x 10",
+        "name": "Hollandia yoghurt strawberry x 10",
+        "size": "1L",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo plain 375ml",
+        "name": "Fresh yo plain",
+        "size": "375ml",
         "image": "/src/images/beverages/fresh_yo_plain_375ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo plain 375ml x 12",
+        "name": "Fresh yo plain x 12",
+        "size": "375ml",
         "image": "/src/images/beverages/fresh_yo_plain_375ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo strawberry 375ml",
+        "name": "Fresh yo strawberry",
+        "size": "375ml",
         "image": "/src/images/beverages/fresh_yo_strawberry_375ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo strawberry 375ml x 12",
+        "name": "Fresh yo strawberry x 12",
+        "size": "375ml",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo mixed berry 375ml",
+        "name": "Fresh yo mixed berry",
+        "size": "375ml",
         "image": "/src/images/beverages/fresh_yo_mixed_berry_375ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo mixed berry 375ml x 12",
+        "name": "Fresh yo mixed berry x 12",
+        "size": "375ml",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo plain 750ml",
+        "name": "Fresh yo plain",
+        "size": "750ml",
         "image": "/src/images/beverages/fresh_yo_plain_750ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo plain 750ml x 6",
+        "name": "Fresh yo plain x 6",
+        "size": "750ml",
         "image": "/src/images/beverages/fresh_yo_plain_750ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo strawberry 750ml",
+        "name": "Fresh yo strawberry",
+        "size": "750ml",
         "image": "/src/images/beverages/fresh_yo_strawberry_750ml.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo strawberry 750ml x 6",
+        "name": "Fresh yo strawberry x 6",
+        "size": "750ml",
         "image": "/src/images/beverages/fresh_yo_strawberry_750ml_pack.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo plain 1L",
+        "name": "Fresh yo plain",
+        "size": "1L",
         "image": "/src/images/beverages/fresh_yo_plain_1L.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo plain 1L x 10",
+        "name": "Fresh yo plain x 10",
+        "size": "1L",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo strawberry 1L",
+        "name": "Fresh yo strawberry",
+        "size": "1L",
         "image": "/src/images/beverages/fresh_yo_strawberry_1L.jpg",
         "description": "",
         "price": ""
       },
       {
-        "name": "Fresh yo strawberry 1L x 10",
+        "name": "Fresh yo strawberry x 10",
+        "size": "1L",
         "image": "/src/images/beverages/",
         "description": "",
         "price": ""
@@ -1364,11 +1410,11 @@
         "image": "/images/beverages/kerrygold_full_cream_380g.jpg"
       },
       {
-        "size": "900g",
         "description": "",
-        "name": "Loya instant full cream powder",
+        "name": "Three crowns instant milk powder",
+        "image": "/images/beverages/three_crowns_400g.jpg",
         "price": "",
-        "image": "/images/beverages/loya_milk_900g.jpg"
+        "size": "400g"
       },
       {
         "image": "/images/beverages/peak_instant_milk_800g.jpg",
@@ -1378,18 +1424,11 @@
         "name": "Peak instant milk powder"
       },
       {
+        "size": "900g",
         "description": "",
-        "name": "Three crowns instant milk powder",
-        "image": "/images/beverages/three_crowns_400g.jpg",
+        "name": "Loya instant full cream powder",
         "price": "",
-        "size": "400g"
-      },
-      {
-        "name": "Dano full cream milk powder",
-        "image": "/images/beverages/dano_full_cream_360g.jpg",
-        "price": "",
-        "description": "",
-        "size": "360g"
+        "image": "/images/beverages/loya_milk_900g.jpg"
       },
       {
         "price": "",
@@ -1397,6 +1436,13 @@
         "size": "380g",
         "description": "",
         "name": "Kerrygold instant milk powder"
+      },
+      {
+        "name": "Dano full cream milk powder",
+        "image": "/images/beverages/dano_full_cream_360g.jpg",
+        "price": "",
+        "description": "",
+        "size": "360g"
       },
       {
         "name": "Kerrygold instant full milk powder",
@@ -1416,22 +1462,8 @@
         "image": "/images/beverages/loya_milk_350g.jpg",
         "price": "",
         "description": "",
-        "size": "400g",
+        "size": "350g",
         "name": "Loya instant full cream powder"
-      },
-      {
-        "image": "/images/beverages/loya_milk_350g.jpg",
-        "price": "",
-        "description": "",
-        "size": "400g",
-        "name": "Loya instant full cream powder"
-      },
-      {
-        "description": "",
-        "image": "/images/beverages/dano_coolcow_850g.jpg",
-        "size": "800g",
-        "price": "",
-        "name": "Dano milk powder"
       },
       {
         "description": "",
@@ -1467,6 +1499,141 @@
         "description": "",
         "name": "Dano milk powder",
         "image": "/images/beverages/dano_coolcow_400g.jpg"
+      },
+      {
+        "price": "",
+        "name": "Peak instant milk powder",
+        "image": "/images/beverages/peak_instant_milk_400g.jpg",
+        "size": "400g",
+        "description": ""
+      },
+      {
+        "price": "",
+        "name": "Kerrygold instant milk powder",
+        "image": "/images/beverages/kerrygold_avantage_800g.jpg",
+        "size": "800g",
+        "description": ""
+      },
+      {
+        "price": "",
+        "name": "Peak full cream milk powder",
+        "image": "/images/beverages/peak_full_cream_800g.jpg",
+        "size": "800g",
+        "description": ""
+      },
+      {
+        "price": "",
+        "name": "Kerrygold instant milk powder",
+        "image": "/images/beverages/kerrygold_avantage_12g.jpg",
+        "size": "12g",
+        "description": ""
+      },
+      {
+        "price": "",
+        "name": "Peak full cream milk powder",
+        "image": "/images/beverages/peak_full_cream_400g.jpg",
+        "size": "400g",
+        "description": ""
+      }
+    ],
+    "liquidMilk": [
+      {
+        "image": "/images/diaryEggsSpreads/dano_uht_1l.jpg",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "name": "Dano UHT full cream milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/dano_uht_skimmed_1l.jpg",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "name": "Dano UHT skimmed milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/dano_uht_semi_skimmed_1l.jpg",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "name": "Dano UHT semi-skimmed milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/peak_full_cream_uht_1l.jpg",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "name": "Peak UHT full cream milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/peak_low_fat_uht_1l.jpg",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "name": "Peak UHT low fat milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/hollandia_full_cream_uht_1l.jpg",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "name": "Hollandia UHT long life full cream milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/hollandia_low_fat_uht_1l.jpg",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "name": "Hollandia UHT long life low fat milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/peak_full_cream_evaporated_milk_150g.jpg",
+        "size": "150g",
+        "description": "",
+        "price": "",
+        "name": "Peak full cream evaporated milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/peak_filled_evaporated_milk_150g.jpg",
+        "size": "150g",
+        "description": "",
+        "price": "",
+        "name": "Peak filled evaporated milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/coast_evaporated_milk_160g.jpg",
+        "size": "160g",
+        "description": "",
+        "price": "",
+        "name": "Coast full cream evaporated milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/three_crowns_filled_evaporated_milk_160g.jpg",
+        "size": "160g",
+        "description": "",
+        "price": "",
+        "name": "Three crowns filled evaporated milk"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/hollandia_evap_50g.jpg",
+        "size": "50g",
+        "description": "",
+        "price": "",
+        "name": "Hollandia evap"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/hollandia_evap_120g.jpg",
+        "size": "120g",
+        "description": "",
+        "price": "",
+        "name": "Hollandia evap"
+      },
+      {
+        "image": "/images/diaryEggsSpreads/hollandia_evap_190g.jpg",
+        "size": "190g",
+        "description": "",
+        "price": "",
+        "name": "Hollandia evap"
       }
     ],
     "cereals": [

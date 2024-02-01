@@ -1,9 +1,9 @@
 import { useEffect, useState, useContext } from "react";
-import { atc } from "./App";
+import { database, signInState, userActions } from "./App";
 
 function IceCream() {
     const [products, setProducts] = useState(null);
-    const addToCart = useContext(atc);
+    const {addToCart, favouriteItem, shareItem} = useContext(userActions);
 
     useEffect(() => {
         fetch('http://localhost:8000/icecream')
@@ -11,10 +11,16 @@ function IceCream() {
         .then(products => setProducts(products));
     }, []);
 
+    function checkAction(e) {
+        if(e.target.tagName === 'BUTTON' && e.target.textContent === 'Add to cart') addToCart(e);
+        if(e.target.tagName === 'SPAN' && e.target.textContent === 'favorite') favouriteItem(e);
+        if(e.target.tagName === 'SPAN' && e.target.textContent === 'share') shareItem(e);
+    }
+
     return (
         <>
             {products &&
-                <div className="products w-[60%] bg-slate-100 rounded-[10px] pl-[2%] laptop_s:w-[72%] tablet:w-full" onClick={addToCart}>
+                <div className="products w-[60%] bg-slate-100 rounded-[10px] pl-[2%] laptop_s:w-[72%] tablet:w-full" onClick={checkAction}>
                     <section id="Supreme" className="mb-[5px]">
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Supreme</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">

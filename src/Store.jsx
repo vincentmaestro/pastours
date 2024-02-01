@@ -1,10 +1,11 @@
 import { useState, useEffect,  useRef, useContext, useMemo } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import './css/store.css';
-import { database } from "./App";
+import { database, signInState } from "./App";
 import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import Prompt from './Prompts';
 
 function Store() {
+    const {currentState} = useContext(signInState);
     const db = useContext(database);
     const [section, setSection] = useState(sessionStorage.getItem('currentSection') || 'beverages');
     const [subSections, setSubSections] = useState([]);
@@ -142,6 +143,7 @@ function Store() {
     
     return (
         <div className="Store bg-slate-200">
+            {currentState.userAction && <Prompt />}
             <h1 className="title-heading text-3xl flex justify-center items-center py-[12px] tablet:text-2xl mobile:py-[4px]">STORE</h1>
             <div className="promotions-tab-mobile hidden tablet:block overflow-x-clip mb-2">
                 {!promos.length && 
@@ -177,7 +179,7 @@ function Store() {
                         <button value="beverages" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Water & Beverages</button>
                         <button value="snacksandbaked" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Snacks & Baked goods</button>
                         <button value="icecream" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Ice cream</button>
-                        <button value="provisions" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Provisions</button>
+                        <button value="diaryEggsSpreads" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Diary, eggs & spreads</button>
                         <button value="cooking" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Cooking</button>
                         <button value="fruits&vegs" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Fruits & Vegetables</button>
                         <button value="homecare&laundry" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Home care & Laundry</button>
@@ -208,8 +210,8 @@ function Store() {
                                 <span className="text-lg">Ice cream</span>
                             </label>
                             <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                <input type="radio" name="select" value="provisions" defaultChecked={location.pathname.includes('provisions') ? true : false} />
-                                <span className="text-lg">Provisions</span>
+                                <input type="radio" name="select" value="diaryEggsSpreads" defaultChecked={location.pathname.includes('diaryEggsSpreads') ? true : false} />
+                                <span className="text-lg">Diary, eggs & spreads</span>
                             </label>
                             <label className="flex gap-x-3 mb-2 cursor-pointer">
                                 <input type="radio" name="select" value="cooking" defaultChecked={location.pathname.includes('cooking') ? true : false} />

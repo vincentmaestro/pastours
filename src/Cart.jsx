@@ -1,28 +1,28 @@
 import { useContext, useEffect, useState } from "react";
-import { signInState } from "./App";
-import { database } from "./App";
+import { database, signInState } from "./App";
+import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
 
-function Cart() {
+function Cart({auth}) {
     const {currentState, dispatch} = useContext(signInState);
     const [items, setItems] = useState(null);
     const db = useContext(database);
 
-    function fetchItems() {
-        fetch('http://localhost:8000/cart')
-        .then(items => items.json())
-        .then(items => setItems(items))
-        .catch(error => console.log(error));
-    }
+    // async function fetchItems() {
+    //     const cart = onSnapshot()
+    //     return cart;
+    // }
 
     useEffect(() => {
-        fetchItems();
-    }, [items]);
+        onSnapshot(collection(db, 'users', auth.currentUser.uid, 'cart'), cart => {
+            setItems(cart.docs);
+        })
+    }, []);
 
     function deleteItem(e) {
         const item = e.target.parentElement.parentElement.getAttribute('id');
-        fetch('http://localhost:8000/cart/' + item, { method: 'DELETE' })
+        deleteDoc(doc(db, 'users', auth.currentUser.uid, 'cart', item))
         .then()
-        .catch(error => console.log(error));
+        .catch(error => dispatch({case: 'userAction', state: true, prompt: error}));
     }
 
     return (
@@ -39,15 +39,15 @@ function Cart() {
                         <div key={item.id} id={item.id} className="w-[60%] px-[1%] flex items-center justify-between shadow-sm shadow-[#213438] mx-auto rounded-md mb-[12px] laptop:w-[85%] mobile:py-[1%]">
                             <div className="w-[75%] flex gap-x-[2%] items-center tablet:w-[70%] tablet:gap-x-[4%]">
                                 <div className="w-[9%] rounded-lg overflow-hidden tablet:w-[12%] mobile:w-[14%]">
-                                    <img src={item.image} alt={item.item} />
+                                    <img src={item.data().image} alt={item.data().item} />
                                 </div>
                                 <div className="w-[53%] tablet:w-[85%]">
-                                    <p>{item.item}</p>
-                                    {/* <p>{item.quantity} {item.quantity > 1 ? ' pieces' : ' piece'}</p> */}
+                                    <p>{item.data().item}</p>
+                                    <p>{item.data().size}</p>
                                 </div>
                             </div>
                             <div className="w-[10%] flex items-center gap-x-[10%] tablet:w-[13%] mobile:w-[22%]">
-                                <input className="w-[70%] h-[22px] rounded-[6px] outline-none" type="number" defaultValue={item.quantity} min={1} />
+                                <input className="w-[70%] h-[22px] rounded-[6px] outline-none" type="number" defaultValue={item.data().quantity} min={1} />
                                 <button className="material-symbols-outlined block text-[22px] text-red-600">delete</button>
                             </div>
                         </div>

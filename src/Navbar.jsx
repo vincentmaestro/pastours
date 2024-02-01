@@ -26,7 +26,7 @@ function Navbar({auth}) {
                     <p>{ currentState.signInMessage }</p>
                 </div>
             }
-            { currentState.showCart && <Cart /> }
+            { currentState.showCart && <Cart auth = {auth} /> }
 
             <nav className="bg-[#212529] py-[10px] flex justify-between items-center px-[8%] tablet:px-[6%] mobile:px-[4%]">
                 <Link to="/" className="brand">

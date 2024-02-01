@@ -47,6 +47,18 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 
+nav .get-started, nav .user-credentials {
+  background-color: var(--bs-orange);
+}
+
+.brand .motto {
+  font-family: 'dancing script';
+}
+
+.about-user {
+  transform: translateX(-50%);
+}
+
 .action-outcome-message {
   background-color: white;
   animation: slideInLeft 2s ease-out 2;
@@ -78,16 +90,19 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 
-nav .get-started, nav .user-credentials {
-  background-color: var(--bs-orange);
-}
-
-.brand .motto {
-  font-family: 'dancing script';
-}
-
-.about-user {
+.prompts {
   transform: translateX(-50%);
+  animation: fading 1.2s ease-in;
+}
+
+@keyframes fading {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: .3;
+  }
 }
 
 footer {
@@ -102,5 +117,105 @@ footer {
 @media screen and (max-width: 435px) {
   .footer-links li {
     padding: 1px 0;
+  }
+}
+
+.store {
+  background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(/images/mall.jfif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.food-outlets {
+  background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(/images/fooood.jpg);
+  background-size: cover;
+}
+
+.send-recieve {
+  background: linear-gradient(rgba(0, 10, 20, 0.3), rgba(20, 10, 0, 0.3)), url(/images/deliveryguy.jpg);
+  background-size: contain;
+}
+
+.store h1, .food-outlets h1, .send-recieve h1 {
+  color: #efe;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 40%;
+  letter-spacing: 1px;
+}
+
+.why-us h1 {
+  font-family: 'Dancing script';
+}
+
+.why-us p {
+  font-family: 'playpen sans', 'Dancing script';
+}
+
+
+.title-heading::before, .title-heading::after {
+  content: '';
+  position: relative;
+  width: 50px;
+  height: 3px;
+  margin-top: 5px;
+  background-color: orange;
+}
+
+.title-heading::before {
+  left: -.7%;
+}
+
+.title-heading::after {
+  right: -.7%;
+}
+
+.title-heading {
+  font-family: 'Pacifo', cursive;
+}
+
+.current-section {
+  border-bottom: 3px solid white;
+  color: white;
+}
+
+#current-subSection {
+  background-color: white;
+}
+
+[data-fixed="true"] {
+  .indicator {
+      width: 100%;
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+  .products section {
+      padding-top: 3%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  [data-fixed-tab="true"] {
+      .indicator-tab-mobile {
+          position: fixed;
+          /* width: 100%; */
+          top: 0px;
+      }
+
+      .products section {
+          padding-top: 10%;
+      }
+  }
+}
+
+@media screen and (max-width:576px) {
+  [data-fixed-tab="true"] {
+      .products section {
+          padding-top: 20%;
+      }
   }
 }

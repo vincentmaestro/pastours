@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, addDoc, collection, } from 'firebase/firestore';
 import { VerifyEmail } from './LoginAndSignup';
 import Validate from './Validate';
 import Navbar from './Navbar';
@@ -11,13 +11,14 @@ import Home from './Home';
 import Store from './Store';
 import Beverages from './Beverages';
 import SnacksAndBaked from './SnacksAndBaked';
+import DiaryEggsSpreads from './DiaryEggsSpreads';
 import Provisions from './Provisions';
 import IceCream from './IceCream';
 import ProductPage from './ProductPage';
 import Foodoutlets from './foodOutlets';
 
 export const signInState = createContext();
-export const atc = createContext();
+export const userActions = createContext();
 export const database = createContext();
 
 const firebaseConfig = {
@@ -40,7 +41,9 @@ const initialState = {
   animateMessage: false,
   signInMessage: '',
   greeting: '',
-  showCart: false
+  showCart: false,
+  userAction: false,
+  prompt: ''
 };
 
 function reducer(s, a) {
@@ -51,6 +54,7 @@ function reducer(s, a) {
     case 'greet': return { ...s, greeting: a.greeting };
     case 'logged_in': return { ...s, isLoggedIn: a.state };
     case 'showCart': return { ...s, showCart: a.state };
+    case 'userAction': return { ...s, userAction: a.state, prompt: a.prompt };
 
     case 'sign_in_successful':
     return {
@@ -101,24 +105,51 @@ function App() {
     }
   }, []);
 
+  function favouriteItem(e) {
+    if(!currentState.isLoggedIn) {
+      dispatch({case: 'userAction', state: true, prompt: 'Please sign in to continue'});
+      return;
+    }
+    else {
+      const item = e.target.parentElement.childNodes[3].textContent;
+      const size = e.target.parentElement.childNodes[4].textContent;
+      const image = e.target.parentElement.childNodes[2].firstChild.src;
+      addDoc(collection(db, 'users', auth.currentUser.uid, 'favourites'), {item, size, image})
+      .then(() => dispatch({case: 'userAction', state: true, prompt: 'Favourited'}))
+      .catch(error => dispatch({case: 'userAction', state: true, prompt: error}));
+    }
+  }
+
+  async function shareItem(e) {
+    const itemLink = e.target.parentElement.childNodes[2].href;
+    try {
+      await navigator.clipboard.writeText(itemLink);
+      dispatch({case: 'userAction', state: true, prompt: 'Link copied'});
+    }
+    catch(error) {
+      dispatch({case: 'userAction', state: true, prompt: error});
+    }
+  }
+
   function addToCart(e) {
     const isANumber = /^\d+$/;
-    if(e.target.tagName === 'BUTTON' && e.target.textContent === 'Add to cart') {
-      if(!isANumber.test(e.target.parentElement.childNodes[0].value) || e.target.parentElement.childNodes[0].value < 1)
+    if(!currentState.isLoggedIn) {
+      dispatch({case: 'userAction', state: true, prompt: 'Please sign in to continue'});
       return;
+    }
+    else {
+      if(!isANumber.test(e.target.parentElement.childNodes[0].value) || e.target.parentElement.childNodes[0].value < 1) {
+        dispatch({case: 'userAction', state: true, prompt: 'Item quantity must be at least 1'});
+        return;
+      }
       else {
-        const item = e.target.parentElement.parentElement.childNodes[1].textContent;
-        const image = e.target.parentElement.parentElement.childNodes[0].firstChild.src;
+        const item = e.target.parentElement.parentElement.childNodes[3].textContent;
+        const size = e.target.parentElement.parentElement.childNodes[4].textContent;
+        const image = e.target.parentElement.parentElement.childNodes[2].firstChild.src;
         const quantity = e.target.parentElement.childNodes[0].value;
-        fetch('http://localhost:8000/cart', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({item, image, quantity})
-        })
-        .then()
-        .catch(error => console.log(error));
-        // cart = [...cart, `${quantity} pcs of ${item}`];
-        // cart = [...cart, {item, quantity}];
+        addDoc(collection(db, 'users', auth.currentUser.uid, 'cart'), {item, size, image, quantity})
+        .then(() => dispatch({case: 'userAction', state: true, prompt: 'Added to cart'}))
+        .catch(error => dispatch({case: 'userAction', state: true, prompt: error}));
       }
     }
   }
@@ -126,7 +157,7 @@ function App() {
   return (
     <HelmetProvider>
       <signInState.Provider value={{currentState, dispatch}}>
-        <atc.Provider value={addToCart}>
+        <userActions.Provider value={{addToCart, favouriteItem, shareItem}}>
           <database.Provider value = {db}>
             <BrowserRouter>
               {promptVerification && <VerifyEmail auth = {auth} showPrompt = {setPromptVerification} />}
@@ -138,6 +169,7 @@ function App() {
                   <Route index element={<Beverages />} />
                   <Route path='beverages' element={<Beverages />} />
                   <Route path='snacksandbaked' element={<SnacksAndBaked />} />
+                  <Route path='diaryEggsSpreads' element={<DiaryEggsSpreads />} />
                   <Route path='icecream' element={<IceCream />} />
                   <Route path='provisions' element={<Provisions />} />
                 </Route>
@@ -146,7 +178,7 @@ function App() {
               </Routes>
             </BrowserRouter>
           </database.Provider>
-        </atc.Provider>
+        </userActions.Provider>
       </signInState.Provider>
     </HelmetProvider>
   );
