@@ -42,8 +42,8 @@ function Navbar({auth, db}) {
 
             <nav className="bg-[#212529] py-[10px] flex justify-between items-center px-[8%] tablet:px-[6%] mobile:px-[4%]">
                 <Link to="/" className="brand">
-                    <h1 className="logo text-[#ffc107] text-5xl tablet:text-4xl mobile:text-2xl">Pastours<span className="material-symbols-outlined bg-[#ffc107f1] text-black rounded-[50%] text-[18px] relative top-[-12px] tablet:text-[14px] mobile:text-[12px]">electric_bolt</span></h1>
-                    <span className="motto text-[19px] text-white font-bold tracking-[.7px] relative left-[32%] bottom-1 tablet:text-[16px] tablet:left-[17%] tablet:top-[-8px] mobile:text-[13px] mobile:tracking-[.5px] mobile:top-[-12px] mobile:left-[8%]">we dey deliver...</span>
+                    <h1 className="logo text-[#ffc107] text-5xl tablet:text-4xl mobile:text-2xl mobile_m:text-xl">Pastours<span className="material-symbols-outlined bg-[#ffc107f1] text-black rounded-[50%] text-[18px] relative top-[-12px] tablet:text-[14px] mobile:text-[12px]">electric_bolt</span></h1>
+                    <span className="motto text-[19px] text-white font-bold tracking-[.7px] relative left-[32%] bottom-1 tablet:text-[16px] tablet:left-[17%] tablet:top-[-8px] mobile:text-[13px] mobile:tracking-[.5px] mobile:top-[-12px] mobile:left-[8%] mobile_m:text-[12px] mobile_m:tracking-[.2px]">we dey deliver...</span>
                 </Link>
                 
                 { currentState.isLoggedIn ? 
