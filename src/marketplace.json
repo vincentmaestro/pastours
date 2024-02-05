@@ -8,6 +8,59 @@
     ],
     "beer": [
       
+    ],
+    "whisky": [
+      {
+        "name": "Bushmills the original whisky",
+        "size": "700ml",
+        "description": "",
+        "price": "",
+        "image": "bushmills_the_original_whisky_700ml.jpg"
+      },
+      {
+        "name": "Bushmills black bush whisky",
+        "size": "700ml",
+        "description": "",
+        "price": "",
+        "image": "bushmills_black_bush_whisky_700ml.jpg"
+      }
+    ],
+    "vodka": [
+      {
+        "name": "Bols premium vodka",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "image": "bols_vodka_1l.jpg"
+      }
+    ],
+    "liquer": [
+      {
+        "name": "Bols natural yoghurt liquer",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "image": "bols_natural_yoghurt_liquer_70cl.jpg"
+      },
+      {
+        "name": "Bols blue curaca liquer",
+        "size": "1L",
+        "description": "",
+        "price": "",
+        "image": "bols_blue_curacao_liquer_70cl.jpg"
+      }
+    ],
+    "champagne": [
+      
+    ],
+    "rose": [
+      
+    ],
+    "redWine": [
+      
+    ],
+    "whiteWine": [
+      
     ]
   },
   "promotions": [

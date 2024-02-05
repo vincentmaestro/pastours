@@ -48,7 +48,7 @@ function Navbar({auth, db}) {
                 
                 { currentState.isLoggedIn ? 
                     <div className="flex gap-x-[4%] min-w-[70%] items-center justify-end mobile_m:gap-x-[2%]">
-                        <button className="relative material-symbols-outlined text-white cursor-pointer mobile:text-[22px] mobile_m:text-[19px]" onClick={() => dispatch({case: 'showCart', state: !currentState.showCart})}><span className="absolute left-3 bottom-5 bg-orange-400 text-white rounded-[50%] text-[15px] px-[2px] pb-[4px] mobile:text-[12px] mobile_m:text-[9px]">{cartItemsCount}</span> shopping_cart</button>
+                        <button className="relative material-symbols-outlined text-white cursor-pointer mobile:text-[22px] mobile_m:text-[19px]" onClick={() => dispatch({case: 'showCart', state: !currentState.showCart})}><span className="absolute left-3 bottom-5 bg-orange-400 text-white rounded-[50%] text-[15px] px-[2px] pb-[4px] mobile:text-[12px] mobile_m:text-[9px] mobile_m:left-2 mobile_m:bottom-4">{cartItemsCount}</span> shopping_cart</button>
                         <div className="relative">
                             <div className="user-credentials flex gap-x-1 items-center px-3 py-2 rounded-[20px] cursor-pointer tablet:px-3 tablet:py-[6px]" onClick={() => setShowUser(!showUser)}>
                                 {auth.currentUser && <p className="text-white font-semibold mobile:text-[14px] mobile_m:text-[13px]">{currentState.greeting} {auth.currentUser.displayName}</p>}
