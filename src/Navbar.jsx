@@ -13,7 +13,7 @@ function Navbar({auth, db}) {
     const [cartItemsCount, setCartItemsCount] = useState(0);
 
     useEffect(() => {
-        onSnapshot(collection(db, 'users', auth.currentUser.uid, 'cart'), cart => {
+        auth.currentUser && onSnapshot(collection(db, 'users', auth.currentUser.uid, 'cart'), cart => {
             setCartItemsCount(cart.docs.length);
         });
     }, []);
