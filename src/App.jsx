@@ -115,7 +115,7 @@ function App() {
       const size = e.target.parentElement.childNodes[4].textContent;
       const image = e.target.parentElement.childNodes[2].firstChild.src;
       addDoc(collection(db, 'users', auth.currentUser.uid, 'favourites'), {item, size, image})
-      .then(() => dispatch({case: 'userAction', state: true, prompt: 'Favourited'}))
+      .then(() => dispatch({case: 'userAction', state: true, prompt: 'Added to favourites'}))
       .catch(error => dispatch({case: 'userAction', state: true, prompt: error}));
     }
   }
