@@ -1988,5 +1988,13 @@
         "image": "/images/beverages/bama_946ml.jpg"
       }
     ]
+  },
+  "alcohol": {
+    "subSections": [
+
+    ],
+    "beer": [
+      
+    ]
   }
 }

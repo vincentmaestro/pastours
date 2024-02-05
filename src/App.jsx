@@ -161,7 +161,7 @@ function App() {
           <database.Provider value = {db}>
             <BrowserRouter>
               {promptVerification && <VerifyEmail auth = {auth} showPrompt = {setPromptVerification} />}
-              <Navbar auth = {auth} />
+              <Navbar auth = {auth} db = {db} />
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='validate' element={<Validate auth = {auth} />} />

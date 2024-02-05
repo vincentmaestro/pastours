@@ -7,15 +7,10 @@ function Cart({auth}) {
     const [items, setItems] = useState(null);
     const db = useContext(database);
 
-    // async function fetchItems() {
-    //     const cart = onSnapshot()
-    //     return cart;
-    // }
-
     useEffect(() => {
         onSnapshot(collection(db, 'users', auth.currentUser.uid, 'cart'), cart => {
             setItems(cart.docs);
-        })
+        });
     }, []);
 
     function deleteItem(e) {

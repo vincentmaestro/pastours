@@ -96,7 +96,7 @@ function SnacksAndBaked() {
                                     <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-500 select-none">share</span>
                                     <Link to={`product?category=snacksandbaked&section=crispsandchips&product=${crispsAndChip.id}`}><img src={crispsAndChip.data().image} alt={crispsAndChip.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{crispsAndChip.data().name}</h1>
-                                    <span className="text-center font-semibold text-[14px] mobile:text-[12px]">{crispsAndChip.data().size}</span>
+                                    <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{crispsAndChip.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
