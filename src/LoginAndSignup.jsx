@@ -247,13 +247,13 @@ function LoginandSignup({auth}) {
     return (
         <div className="loginandsignup fixed top-0 left-0 w-full h-full z-[1] bg-[#001122e7]">
             {authStage.login &&
-                <form className="login bg-orange-200 relative top-[7%] w-[65%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:w-[75%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={login}>
+                <form className="login bg-orange-200 relative top-[7%] w-[75%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={login}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mt-[2%] mb-[4%] tablet:mt-0">Login</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[4%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.email}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type="email" name="email" placeholder="Email" id="savedEmail" className="w-[80%] outline-none" value={localStorage.getItem('rememberMe') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
+                            <input type="email" name="email" placeholder="Email" className="w-[80%] outline-none" value={localStorage.getItem('rememberMe') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
                             <span className="material-symbols-outlined">mail</span>
                         </div>
                     </div>
@@ -281,7 +281,7 @@ function LoginandSignup({auth}) {
                 </form>
             }
             {authStage.signup && 
-                <form className="signup bg-orange-200 relative top-[6%] w-[65%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:w-[75%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleSignup}>
+                <form className="signup bg-orange-200 relative top-[6%] w-[75%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleSignup}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mb-[3%] laptop_s:mb-[2%] laptop_s:mt-[-2%]">Sign up</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">

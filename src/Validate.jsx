@@ -71,18 +71,18 @@ function Validate({auth}) {
     return (
         <>
             {mode === 'resetPassword' &&
-                <form className="reset-password select-none pb-[40px]" onSubmit={resetPassword}>
-                    <h1 className="text-center font-bold text-3xl mt-4 mb-5">Reset password</h1>
-                    <div className="email border flex flex-col gap-y-1 py-2 w-[40%] mx-auto">
-                        <div className="flex justify-center w-[50%] mx-auto gap-x-3 pb-4">
-                            {email && <input type="email" name="email" className="w-[80%] py-[1px]" value={email} />}
+                <form className="bg-orange-200 py-[4%] select-none" onSubmit={resetPassword}>
+                    <h1 className="text-center font-bold text-4xl mt-4 mb-5">Reset password</h1>
+                    <div className="w-[60%] email flex flex-col mx-auto tablet:w-[75%] mobile:w-[90%]">
+                        <div className="w-[60%] flex justify-center mx-auto rounded-[16px] py-3 bg-white gap-x-3 mb-5 tablet:w-[80%] mobile:w-[85%]">
+                            {email && <input type="email" name="email" className="w-[80%] outline-none" value={email} />}
                             <span className="material-symbols-outlined">mail</span>
                         </div>
-                        <p className="text-center font-semibold pb-2">Enter new password</p>
-                        <div className="password border flex flex-col gap-y-1 py-2 mb-4 w-[50%] mx-auto">
+                        <p className="text-center text-xl font-semibold mb-1">Enter new password</p>
+                        <div className="password border flex flex-col gap-y-1 py-2 mb-8 w-[60%] mx-auto rounded-[16px] bg-white tablet:w-[80%] mobile:w-[85%]">
                             <span className="password-error block text-center text-sm text-red-500 font-semibold">{passwordError}</span>
                             <div className="flex justify-center gap-x-3">
-                                <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder="Password" className="w-[80%] py-[1px]" value={password} onChange={e => setPassword(e.target.value)} />
+                                <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder="Password" className="w-[80%] outline-none" value={password} onChange={e => setPassword(e.target.value)} />
                                 <span className="material-symbols-outlined cursor-pointer" onClick={() => {setpasswordVisible(!passwordVisible)}}>{passwordVisible ? 'visibility' : 'visibility_off'}</span>
                             </div>
                             <span className="text-xs font-semibold px-4">*minimum of 7 characters. Can include letters, numbers, "-" and "."</span>
@@ -95,12 +95,12 @@ function Validate({auth}) {
                 </form>
             }
             {mode === 'verifyEmail' && 
-                <div className="verify-email select-none">
-                    <h1 className="text-center font-bold text-3xl">Verify email</h1>
+                <div className="bg-orange-200 py-[4%] select-none">
+                    <h1 className="text-center font-bold text-4xl mb-4">Verify email</h1>
                     {emailVerified && 
-                        <div className="flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto">
-                            <p className="text-center">Email verified</p>
-                            <button className="py-[4px] font-semibold bg-[#fd7e14] w-[30%] mx-auto rounded-[20px]" onClick={() => navigate('/', {replace: true})}>Back to home</button>
+                        <div className="flex flex-col py-2">
+                            <p className="text-center text-2xl mb-4">Email verified</p>
+                            <button className="py-[4px] font-semibold bg-[#fd7e14] px-[12px] mx-auto rounded-[20px]" onClick={() => navigate('/', {replace: true})}>Back to home</button>
                         </div>
                     }
                 </div>

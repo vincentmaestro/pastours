@@ -173,7 +173,7 @@ function App() {
                   <Route path='icecream' element={<IceCream />} />
                   <Route path='provisions' element={<Provisions />} />
                 </Route>
-                <Route path='store/*' element={<ProductPage />} />
+                <Route path='store/*' element={<ProductPage auth = {auth} />} />
                 <Route path='food-outlets' element={<Foodoutlets />} />
               </Routes>
             </BrowserRouter>
