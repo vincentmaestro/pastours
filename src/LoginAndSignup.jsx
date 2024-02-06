@@ -49,7 +49,7 @@ function LoginandSignup({auth}) {
     const [passwordResetMailSent, setPasswordResetMailSent] = useState(null);
     const location = useLocation();
     const actionCodeSettings = {
-        url: 'http://localhost:5173/' + location.pathname
+        url: 'https://pastours.netlify.app/' + location.pathname
         // iOS: {
         //   bundleId: 'com.example.ios'
         // },
