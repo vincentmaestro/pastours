@@ -177,6 +177,7 @@ function Store() {
                 <div className="indicator-tab-mobile w-full hidden bg-orange-400 tablet:block py-1 z-[1]">
                     <div ref={sectionRef} className="hidden select-none px-[8%] tablet:flex gap-[4%] mb-2 py-1 overflow-x-scroll text-sm font-semibold tablet_s:px-[4%]" onClick={e => e.target.tagName === 'BUTTON' ? navigateToSection(e) : null}>
                         <button value="beverages" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Water & Beverages</button>
+                        <button value="alcoholics" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Alcoholic beverages</button>
                         <button value="snacksandbaked" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Snacks & Baked goods</button>
                         <button value="icecream" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Ice cream</button>
                         <button value="diaryEggsSpreads" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Diary, eggs & spreads</button>
@@ -200,6 +201,10 @@ function Store() {
                             <label className="flex gap-x-3 mb-2 cursor-pointer">
                                 <input type="radio" name="select" value="beverages" defaultChecked={(location.pathname === '/store' || location.pathname.includes('beverages')) ? true : false} />
                                 <span className="text-lg leading-6">Water & Beverages</span>
+                            </label>
+                            <label className="flex gap-x-3 mb-2 cursor-pointer">
+                                <input type="radio" name="select" value="alcoholics" defaultChecked={location.pathname.includes('alcoholics') ? true : false} />
+                                <span className="text-lg leading-6">Alcoholic beverages</span>
                             </label>
                             <label className="flex gap-x-3 mb-2 cursor-pointer">
                                 <input type="radio" name="select" value="snacksandbaked" defaultChecked={location.pathname.includes('snacksandbaked') ? true : false} />

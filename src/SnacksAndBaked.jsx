@@ -55,7 +55,7 @@ function SnacksAndBaked() {
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Biscuits/Cookies</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.biscuits.map((biscuit, key) => (
-                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
+                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
                                     <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
                                     <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
                                     <Link to={`product?category=snacksandbaked&section=biscuits&product=${biscuit.id}`}><img src={biscuit.data().image} alt={biscuit.data().name} /></Link>
@@ -73,7 +73,7 @@ function SnacksAndBaked() {
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Chocolates</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.chocolates.map((chocolate, key) => (
-                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 hover:shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
+                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 hover:shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
                                     <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
                                     <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
                                     <Link to={`product?category=snacksandbaked&section=chocolates&product=${chocolate.id}`}><img src={chocolate.data().image} alt={chocolate.data().name} /></Link>
@@ -91,7 +91,7 @@ function SnacksAndBaked() {
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Crisps & Chips</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.crispsAndChips.map((crispsAndChip, key) => (
-                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
+                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
                                     <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
                                     <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
                                     <Link to={`product?category=snacksandbaked&section=crispsandchips&product=${crispsAndChip.id}`}><img src={crispsAndChip.data().image} alt={crispsAndChip.data().name} /></Link>
@@ -109,7 +109,7 @@ function SnacksAndBaked() {
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Bread</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.bread.map((bread, key) => (
-                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
+                                <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
                                     <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
                                     <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
                                     <Link to={`product?category=snacksandbaked&section=bread&product=${bread.id}`}><img src={bread.data().image} alt={bread.data().name} /></Link>
@@ -127,7 +127,7 @@ function SnacksAndBaked() {
                         <h1 className="text-center py-[10px] text-2xl laptop_s:text-3xl">Cakes</h1>
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.cakes.map((cake, key) => (
-                                <div id={cake.id} key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30%]">
+                                <div id={cake.id} key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
                                     <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
                                     <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
                                     <Link to={`product?category=snacksandbaked&section=cakes&product=${cake.id}`}><img src={cake.data().image} alt={cake.data().name} /></Link>

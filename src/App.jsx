@@ -10,6 +10,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Store from './Store';
 import Beverages from './Beverages';
+import AlcoholicBeverages from './AlcoholicBeverages';
 import SnacksAndBaked from './SnacksAndBaked';
 import DiaryEggsSpreads from './DiaryEggsSpreads';
 import Provisions from './Provisions';
@@ -168,6 +169,7 @@ function App() {
                 <Route path='store' element={<Store />} >
                   <Route index element={<Beverages />} />
                   <Route path='beverages' element={<Beverages />} />
+                  <Route path='alcoholics' element={<AlcoholicBeverages />} />
                   <Route path='snacksandbaked' element={<SnacksAndBaked />} />
                   <Route path='diaryEggsSpreads' element={<DiaryEggsSpreads />} />
                   <Route path='icecream' element={<IceCream />} />
