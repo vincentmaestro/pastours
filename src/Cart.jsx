@@ -33,11 +33,11 @@ function Cart({auth}) {
         <>
             { prompt && 
                 <div className="fixed w-full h-full bg-[#001122e7] top-0 z-[3]">
-                    <div className="relative top-[30%]">
-                        <p className="text-center font-semibold text-lg mb-[2%] text-white">Are you sure you want to clear items in cart?</p>
-                        <div className="flex justify-center gap-x-[8%] mobile:gap-x-[12%]">
-                            <button className="bg-orange-400 text-white px-3 py-1 rounded-[8px]" onClick={() => {deleteAll(), setPrompt(false)}}>Yes</button>
-                            <button className="bg-orange-400 text-white px-3 py-1 rounded-[8px]" onClick={() => {setPrompt(false)}}>No</button>
+                    <div className="relative top-[35%]">
+                        <p className="text-center font-semibold text-lg mb-[4%] text-white">This action will empty your cart</p>
+                        <div className="flex justify-center items-center gap-x-[8%] tablet:gap-y-[32px] mobile:gap-y-[24px] tablet:flex-col">
+                            <button className="bg-orange-400 text-white px-3 py-1 rounded-[8px]" onClick={() => {deleteAll(), setPrompt(false)}}>Continue</button>
+                            <button className="bg-orange-400 text-white px-5 py-1 rounded-[8px]" onClick={() => {setPrompt(false)}}>Cancel</button>
                         </div>
                     </div>
                 </div>

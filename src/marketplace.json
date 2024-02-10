@@ -721,6 +721,13 @@
         "description": "",
         "price": "",
         "image": "/images/alcoholics/don_simon_sangria_1l.jpg"
+      },
+      {
+        "name": "Belaire rose",
+        "size": "75cl",
+        "description": "",
+        "price": "",
+        "image": "/images/alcoholics/belaire_rose_75cl.jpg"
       }
     ],
     "whiteWine": [

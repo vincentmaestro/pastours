@@ -10,6 +10,7 @@ function Alcoholicalcoholics() {
     const [error, setError] = useState('');
     const db = useContext(database);
     const {addToCart, favouriteItem, shareItem} = useContext(userActions);
+    const [prompt, setPrompt] = useState(false);
 
     async function getProducts() {
         const beer = (await getDocs(collection(db, 'alcoholics', 'items', 'beer'))).docs;
@@ -33,6 +34,7 @@ function Alcoholicalcoholics() {
         .then(products => {
             dispatch({case: 'loading', state: false});
             setProducts(products);
+            setPrompt(true);
         })
         .catch(error => {
             dispatch({case: 'loading', state: false});
@@ -50,6 +52,17 @@ function Alcoholicalcoholics() {
         <>
             {currentState.isLoading && <Loading />}
             {error && <p className="text-center text-xl">{error}</p>}
+            {prompt && 
+                <div className="fixed w-full h-full bg-[#001122f6] top-0 left-0 z-[2]">
+                    <div className="relative top-[35%]">
+                        <p className="text-red-500 text-center font-semibold text-2xl mb-[4%] px-[8%]">Alcohol is not to be consumed by minors!</p>
+                        <p className="text-center mb-[4%] text-lg text-white px-[8%]">By shopping items on this page, you consent to be at least 18 years old or above the legal drinking age in your region</p>
+                        <div className="flex justify-center items-center gap-x-[8%] tablet:gap-y-[32px] mobile:gap-y-[24px] tablet:flex-col">
+                            <button className="bg-orange-400 text-white px-4 py-1 rounded-[8px]" onClick={() => setPrompt(false)}>Okay</button>
+                        </div>
+                    </div>
+                </div>
+            }
             {products && 
                 <div className="products w-[60%] bg-slate-100 rounded-[10px] pl-[2%] laptop_s:w-[72%] tablet:w-full" onClick={checkAction}>
                     <section id="Beer" className="mb-[5px]">
