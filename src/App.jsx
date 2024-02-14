@@ -37,6 +37,7 @@ const db = getFirestore(app);
 
 const initialState = {
   start: false,
+  theme: 'light',
   isLoading: false,
   isLoggedIn: false,
   animateMessage: false,
@@ -50,6 +51,7 @@ const initialState = {
 function reducer(s, a) {
   switch(a.case) {
     case 'start': return { ...s, start: a.state };
+    case 'toggleTheme': return { ...s, theme: a.mode };
     case 'loading': return { ...s, isLoading: a.state };
     case 'animate': return { ...s, animateMessage: a.state };
     case 'greet': return { ...s, greeting: a.greeting };

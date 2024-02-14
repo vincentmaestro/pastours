@@ -65,7 +65,7 @@ function Beverages() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{water.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{water.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{water.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -84,7 +84,7 @@ function Beverages() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{sodaWater.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{sodaWater.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{sodaWater.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -102,7 +102,7 @@ function Beverages() {
                                     <Link to={`product?category=beverages&section=carbonatedDrinks&product=${carbonatedDrink.id}`}><img src={carbonatedDrink.data().image} alt={carbonatedDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{carbonatedDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{carbonatedDrink.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -120,7 +120,7 @@ function Beverages() {
                                     <Link to={`product?category=beverages&section=powderedDrinks&product=${powderedBeverage.id}`}><img src={powderedBeverage.data().image} alt={powderedBeverage.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{powderedBeverage.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{powderedBeverage.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -138,7 +138,7 @@ function Beverages() {
                                     <Link to={`product?category=beverages&section=chocolateAndDiary&product=${yoghurtAndDiary.id}`}><img src={yoghurtAndDiary.data().image} alt={yoghurtAndDiary.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{yoghurtAndDiary.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{yoghurtAndDiary.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -156,7 +156,7 @@ function Beverages() {
                                     <Link to={`product?category=beverages&section=juice&product=${juice.id}`}><img src={juice.data().image} alt={juice.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{juice.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{juice.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -174,7 +174,7 @@ function Beverages() {
                                     <Link to={`product?category=beverages&section=energyDrink&product=${energyDrink.id}`}><img src={energyDrink.data().image} alt={energyDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{energyDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{energyDrink.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -192,7 +192,7 @@ function Beverages() {
                                     <Link to={`product?category=beverages&section=maltDrinks&product=${maltDrink.id}`}><img src={maltDrink.data().image} alt={maltDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{maltDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{maltDrink.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>

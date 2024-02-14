@@ -58,7 +58,7 @@ function DiaryEggsSpreads() {
                                     <Link to={`product?category=diaryEggsSpreads&section=milk&product=${milk.id}`}><img src={milk.data().image} alt={milk.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{milk.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{milk.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -76,7 +76,7 @@ function DiaryEggsSpreads() {
                                     <Link to={`product?category=diaryEggsSpreads&section=milkPowder&product=${milkPowder.id}`}><img src={milkPowder.data().image} alt={milkPowder.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{milkPowder.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{milkPowder.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -94,7 +94,7 @@ function DiaryEggsSpreads() {
                                     <Link to={`product?category=beverages&section=chocolateAndDiary&product=${yoghurtAndDiary.id}`}><img src={yoghurtAndDiary.data().image} alt={yoghurtAndDiary.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{yoghurtAndDiary.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{yoghurtAndDiary.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -112,7 +112,7 @@ function DiaryEggsSpreads() {
                                     <Link to={`product?category=diaryEggsSpreads&section=margarine&product=${margarine.id}`}><img src={margarine.data().image} alt={margarine.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{margarine.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{margarine.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -130,7 +130,7 @@ function DiaryEggsSpreads() {
                                     <Link to={`product?category=diaryEggsSpreads&section=mayonnaise&product=${mayonnaise.id}`}><img src={mayonnaise.data().image} alt={mayonnaise.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{mayonnaise.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{mayonnaise.data().size}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>

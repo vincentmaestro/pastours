@@ -76,7 +76,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{beer.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{beer.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{beer.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -95,7 +95,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{cognac.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{cognac.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{cognac.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -114,7 +114,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{champagne.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{champagne.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{champagne.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -133,7 +133,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{gin.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{gin.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{gin.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -152,7 +152,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{liqueur.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{liqueur.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{liqueur.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -171,7 +171,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{redWine.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{redWine.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{redWine.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -190,7 +190,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{rose.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{rose.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{rose.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -209,7 +209,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{sparklingWine.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{sparklingWine.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{sparklingWine.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -228,7 +228,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{vodka.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{vodka.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{vodka.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>
@@ -247,7 +247,7 @@ function Alcoholicalcoholics() {
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{whisky.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{whisky.data().size}</p>
                                     <p className="text-center text-[14px] text-[#fd7d14c9] font-bold">{whisky.data().price}</p>
-                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px]">
+                                    <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
                                         <input type="number" min={1} className="w-[30%] h-[22px] rounded-[5px] outline-none mobile:w-[48%] mobile:h-[20px] mobile:mx-auto mobile:mt-1" />
                                         <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[2px] rounded-[4px]">Add to cart</button>
                                     </div>

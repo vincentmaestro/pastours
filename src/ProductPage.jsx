@@ -84,11 +84,11 @@ function ProductPage ({auth}) {
     }, []);
 
     return (
-    <div className="">
+    <div className="productPage">
         {currentState.isLoading && <Loading />}
         {error && <p className="text-center relative top-[20%]">{error}</p>}
         {currentState.userAction && <Prompt />}
-        <div className="bg-orange-300">
+        <div className="bg-orange-300 details">
             <button className="material-symbols-outlined relative top-[10px] ml-[2%] mobile:ml-[3%] mobile:text-[17px]" onClick={() => navigate(-1)}>arrow_back_ios</button>
             <div className="flex flex-col items-center laptop:mt-[2%]">
                 <div className="w-[16%] laptop:my-[2%] laptop:w-[25%] tablet:w-[45%] mobile:my-[4%]">
@@ -102,7 +102,7 @@ function ProductPage ({auth}) {
                 </div>
             </div>
         </div>
-        <div className="flex justify-center gap-x-[10px] py-[20px] bg-slate-300">
+        <div className="flex justify-center gap-x-[10px] py-[20px] bg-slate-300 border border-t-slate-300 add-section">
             <span className="material-symbols-outlined cursor-pointer text-orange-400 select-none" onClick={e => favouriteItem(e)}>favorite</span>
             <input type="number" min={1} className="w-[4%] h-[22px] rounded-[5px] outline-none laptop:w-[5%] tablet:w-[6%] mobile:w-[10%] mobile_m:w-[12%]" />
             <button className="text-[14px] font-medium bg-[#fd7d14c9] px-[4px] rounded-[4px]" onClick={e => addToCart(e)}>Add to cart</button>

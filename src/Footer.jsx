@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <footer className="py-6 px-12 laptop_s:px-10 tablet:px-[4%] tablet:py-3">
+        <footer className="bg-[#212529] text-[#dbdbdb] py-6 px-12 laptop_s:px-10 tablet:px-[4%] tablet:py-3">
             <div className="brand inline-block mb-2">
                 <Link to="/" className="brand">
                     <h1 className="logo text-5xl tablet:text-3xl">Pastours<span className="material-symbols-outlined bg-[#ffc107f1] text-black rounded-[50%] text-[18px] relative top-[-12px] tablet:text-[14px]">electric_bolt</span></h1>

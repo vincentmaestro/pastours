@@ -49,7 +49,7 @@ function Navbar({auth, db}) {
                     <div className="flex gap-x-[4%] min-w-[70%] items-center justify-end mobile_m:gap-x-[2%]">
                         <button className="relative material-symbols-outlined text-white cursor-pointer mobile:text-[22px] mobile_m:text-[19px]" onClick={() => dispatch({case: 'showCart', state: !currentState.showCart})}><span className="absolute left-3 bottom-5 bg-orange-400 text-white rounded-[50%] text-[15px] px-[2px] pb-[4px] mobile:text-[12px] mobile_m:text-[9px] mobile:left-2 mobile:bottom-4">{cartItemsCount}</span> shopping_cart</button>
                         <div className="relative">
-                            <div className="user-credentials flex gap-x-1 items-center px-3 py-2 rounded-[20px] cursor-pointer tablet:px-3 tablet:py-[6px]" onClick={() => setShowUser(!showUser)}>
+                            <div className="bg-orange-500 flex gap-x-1 items-center px-3 py-2 rounded-[20px] cursor-pointer tablet:px-3 tablet:py-[6px]" onClick={() => setShowUser(!showUser)}>
                                 {auth.currentUser && <p className="text-white font-semibold mobile:text-[14px] mobile_m:text-[13px]">{currentState.greeting} {auth.currentUser.displayName}</p>}
                                 <span className="material-symbols-outlined text-white mobile:text-[17px]">expand_more</span>
                             </div>
@@ -57,7 +57,11 @@ function Navbar({auth, db}) {
                                 <div className="about-user w-[90%] h-[600%] bg-[rgba(226,232,240,0.8)] absolute top-[110%] left-1/2 rounded-2xl z-[1]" onMouseOver={() => setShowUser(true)} onMouseOut={() => setShowUser(false)}>
                                     <div className="pt-[16px] pl-[10px]">
                                         <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">account_circle</span>View profile</p>
-                                        <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">dark_mode</span>Dark mode</p>
+                                        {currentState.theme === 'light' ?
+                                            <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]" onClick={() => {document.getElementById('root').setAttribute('mode', 'dark'); dispatch({case: 'toggleTheme', mode: 'dark'}); setShowUser(false)}}><span className="material-symbols-outlined mobile:text-[17px]">dark_mode</span>Dark mode</p>
+                                            :
+                                            <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]" onClick={() => {document.getElementById('root').removeAttribute('mode'); dispatch({case: 'toggleTheme', mode: 'light'}); setShowUser(false)}}><span className="material-symbols-outlined mobile:text-[17px]">light_mode</span>Light mode</p>
+                                        }
                                         <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">favorite</span>Favourites</p>
                                         <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]" onClick={() => logout()}><span className="material-symbols-outlined mobile:text-[17px]">logout</span>Logout</p>
                                     </div>

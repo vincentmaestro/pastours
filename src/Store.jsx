@@ -171,7 +171,7 @@ function Store() {
             <div className="w-full">
                 <div ref={subSectionsRef} className="indicator w-full tablet:hidden select-none flex gap-x-6 justify-center mb-[16px] overflow-x-auto laptop_s:gap-3 laptop:justify-normal laptop:px-[4%] laptop_s:text-sm laptop_s:font-semibold z-[1]">
                     {subSections && subSections.map((section, key) => (
-                        <button key={key} id={key} className="bg-[#fd7d14c9] rounded-md px-2 laptop:min-w-[22%] laptop:px-0 tablet:min-w-[30%] tablet_s:min-w-[36%] mobile:min-w-[46%] mobile:text-[13px] mobile:px-1" onClick={() => {document.getElementById(section).scrollIntoView()}}>{section}</button>
+                        <button key={key} id={key} className="bg-[#fd7d14c9] rounded-md px-2 py-[1px] laptop:min-w-[22%] laptop:px-0" onClick={() => {document.getElementById(section).scrollIntoView()}}>{section}</button>
                     ))}
                 </div>
                 <div className="indicator-tab-mobile w-full hidden bg-orange-400 tablet:block py-1 z-[1]">
@@ -195,7 +195,7 @@ function Store() {
                     </div>
                 </div>
                 <div className="flex gap-[2%] px-[2%]">
-                    <div className="store-filters max-w-[18%] h-[20%] bg-slate-100 rounded-[10px] tablet:hidden">
+                    <div className="store-filters max-w-[18%] h-[20%] bg-slate-100 rounded-[10px] shadow-sm shadow-slate-300 tablet:hidden">
                         <h1 className="text-center py-2 font-semibold text-xl">Sections</h1>
                         <div className="by-type px-2" onClick={e => {e.target.tagName === 'INPUT' ? navigateToSection(e) : null}}>
                             <label className="flex gap-x-3 mb-2 cursor-pointer">
