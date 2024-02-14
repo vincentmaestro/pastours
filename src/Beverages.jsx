@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import { collection, addDoc, getDocs} from "firebase/firestore";
-import { database, signInState, userActions } from "./App";
+import { database, applicationState, userActions } from "./App";
 import Loading from "./loading";
 import { Link } from "react-router-dom";
 
 function Beverages() {
-    const {currentState, dispatch} = useContext(signInState);
+    const {currentState, dispatch} = useContext(applicationState);
     const [products, setProducts] = useState(null);
     const [error, setError] = useState('');
     const db = useContext(database);

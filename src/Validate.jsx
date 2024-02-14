@@ -1,7 +1,7 @@
 import { verifyPasswordResetCode, confirmPasswordReset, signInWithEmailAndPassword, applyActionCode } from "firebase/auth";
 import { useState, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { signInState } from "./App";
+import { applicationState } from "./App";
 
 function Validate({auth}) {
     const location = useLocation();
@@ -17,7 +17,7 @@ function Validate({auth}) {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const passwordPattern = /^[a-zA-Z0-9-.]{7,}$/;
-    const {dispatch} = useContext(signInState);
+    const {dispatch} = useContext(applicationState);
     const [passwordReset, setPasswordReset] = useState(false);
     const [emailVerified, setEmailVerified] = useState(false);
     const [tokenExpired, setTokenExpired] = useState(false);

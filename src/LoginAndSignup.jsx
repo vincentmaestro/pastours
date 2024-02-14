@@ -1,10 +1,10 @@
-import { useState, useContext, useReducer } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail, sendEmailVerification } from "firebase/auth";
-import { signInState } from "./App";
+import { useState, useContext, useReducer, useEffect, useRef } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail, sendEmailVerification, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { applicationState } from "./App";
 import { useLocation } from "react-router-dom";
 
 export function VerifyEmail({auth, showPrompt}) {
-    const {dispatch} = useContext(signInState);
+    const {dispatch} = useContext(applicationState);
     const [verificationEmailSent, setVerificationEmailSent] = useState(false);
     const [error, setError] = useState(false);
     
@@ -33,17 +33,19 @@ export function VerifyEmail({auth, showPrompt}) {
 }
 
 function LoginandSignup({auth}) { 
-    const initialState = { login: true };
+    const initialState = { mailLogin: true };
     function reducer(s, a) {
         switch(a) {
-            case 'login': return { login: true };
-            case 'signup': return { signup: true };
+            case 'mailLogin': return { mailLogin: true };
+            case 'mailSignup': return { mailSignup: true };
+            case 'phoneLogin': return { phoneLogin: true };
+            case 'confirmOtp': return { confirmOtp: true };
             case 'resetPassword': return { resetpassword: true };
             default: return s;
         }
     }
     
-    const {dispatch} = useContext(signInState);
+    const {dispatch} = useContext(applicationState);
     const [passwordVisible, setpasswordVisible] = useState(false);
     const [authStage, toggleAuthStage] = useReducer(reducer, initialState);
     const [passwordResetMailSent, setPasswordResetMailSent] = useState(null);
@@ -64,18 +66,24 @@ function LoginandSignup({auth}) {
 
     const [signupData, setsignupData] = useState({
         email: '',
+        cc: '+234',
+        phone: '',
         username: '',
         password: ''
     });
 
     const [loginData, setloginData] = useState({
         email: '',
+        cc: '+234',
+        phone: '',
         savedEmail: '',
         password: ''
     });
 
     const [errors, setErrors] = useState({
         email: '',
+        phone: '',
+        otp: '',
         username: '',
         password: ''
     });   
@@ -125,7 +133,7 @@ function LoginandSignup({auth}) {
         return isValid;
     }
 
-    function handleSignup(e) {
+    function handleMailSignup(e) {
         e.preventDefault();
         if(validateSignup()) {
             dispatch({case: 'loading', state: true});
@@ -157,7 +165,7 @@ function LoginandSignup({auth}) {
         }
     }
 
-    function login(e) {
+    function mailLogin(e) {
         e.preventDefault();
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -213,6 +221,80 @@ function LoginandSignup({auth}) {
         }
     }
 
+    function phoneLogin(e) {
+        e.preventDefault();
+        auth.useDeviceLanguage();
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'phone-sign-in', {
+            'size': 'invisible',
+            'callback': (response) => {
+              // reCAPTCHA solved, allow signInWithPhoneNumber.
+               console.log(response);
+            }
+        });
+        const appVerifier = window.recaptchaVerifier;
+        signInWithPhoneNumber(auth, loginData.cc+loginData.phone, appVerifier)
+        .then(confirmationResult => {
+          window.confirmationResult = confirmationResult;
+          console.log(window.confirmationResult);
+          toggleAuthStage('confirmOtp');
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+
+    const otp = useRef();
+    let cc = [];
+    function handleConfirmationCode(e) {
+        const currentInput = e.target;
+        const nextInput = e.target.nextElementSibling;
+        const previousInput = e.target.previousElementSibling;
+        const cp = Array.from(otp.current.childNodes).findIndex(input => input == e.target);
+        
+        if(currentInput.value.length > 1) {
+            currentInput.value = "";
+            return;
+        }
+        if(nextInput && nextInput.hasAttribute('disabled') && currentInput.value) {
+            nextInput.removeAttribute('disabled');
+            nextInput.focus();
+        }
+        if(e.key === "Backspace") {
+            cc.length = cc.length - 1;
+            if(previousInput) {
+                previousInput.focus();
+                currentInput.setAttribute('disabled', true);
+            }
+        }
+
+        cc[cp] = currentInput.value;
+    }
+    useEffect(() => {
+        if(authStage.confirmOtp) {
+            otp.current.childNodes[0].focus();
+        }
+    });
+
+    function signInWithOtp(e) {
+        e.preventDefault();
+        // otp.current.childNodes.forEach(input => {
+        //     cc = [...cc, input.value];
+        // });
+        // cc = cc.join('');
+        if(cc.length === 6) {
+            confirmationResult.confirm(cc.join(''))
+            .then(result => {
+                // const user = result.user;
+                dispatch({case: 'sign_in_successful', message: 'Welcome'});
+                dispatch({case: 'animate', state: true});
+            })
+            .catch(error => {
+                console.log(error);
+                setErrors({...errors, phone: error.code})
+            });
+        }
+    }
+
     function rememberMe(e) {
         if (e.target.checked) {
             localStorage.setItem('rememberMe', true);
@@ -246,8 +328,8 @@ function LoginandSignup({auth}) {
 
     return (
         <div className="loginandsignup fixed top-0 left-0 w-full h-full z-[1] bg-[#001122e7]">
-            {authStage.login &&
-                <form className="login bg-orange-200 relative top-[7%] w-[75%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={login}>
+            {authStage.mailLogin &&
+                <form className="bg-orange-200 relative top-[7%] w-[75%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={mailLogin}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mt-[2%] mb-[4%] tablet:mt-0">Login</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[4%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
@@ -268,20 +350,63 @@ function LoginandSignup({auth}) {
                         <input type="checkbox" defaultChecked = {localStorage.getItem('rememberMe') ? true : false} onChange={rememberMe} />
                         <p className="text-sm font-semibold">Remember me</p>
                     </div>
-                    <div className="flex justify-end gap-8 w-[40%] mx-auto mb-6 laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet:gap-[10%] tablet_s:gap-[6%] tablet_s:w-[68%] tablet_s:mb-[4%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="flex justify-end gap-x-16 w-[35%] mx-auto mb-6 laptop_l:w-[40%] tablet:w-[60%] tablet:mb-[3%] tablet:gap-[10%] tablet_s:gap-[6%] tablet_s:w-[68%] tablet_s:mb-[4%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <button type="submit" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1px]">Login</button>
                         <button className="text-sm font-semibold" onClick={() => toggleAuthStage('resetPassword')}>Forgot password?</button>
                     </div>
                     <div className="flex items-center gap-x-[20%] w-[40%] mx-auto mb-3 laptop_l:w-[45%] tablet:w-[60%] tablet:gap-x-[18%] tablet:mb-[2%] tablet_s:mb-[1%] mobile:w-[75%] mobile:gap-x-[8%]">
                         <p className="text-sm font-medium">Don't have an account?</p>
-                        <button className="font-semibold" onClick={() => toggleAuthStage('signup')}>Create Account</button>
+                        <button className="font-semibold" onClick={() => toggleAuthStage('mailSignup')}>Create Account</button>
                     </div>
-                    <p className="text-center mb-3 font-semibold text-xl">OR</p>
-                    <button className="mx-auto block cursor-pointer"><img src="/continuewithGoogle.svg" alt="continueWithGoogle" /></button>
+                    <div className="flex flex-col items-center">
+                        <p className="text-xl mb-3 font-semibold">OR</p>
+                        <span className="font-semibold bg-white rounded-[50px] py-2 px-4 cursor-pointer" onClick={() => toggleAuthStage('phoneLogin')}>Use phone number</span>
+                    </div>
                 </form>
             }
-            {authStage.signup && 
-                <form className="signup bg-orange-200 relative top-[6%] w-[75%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleSignup}>
+            {authStage.phoneLogin &&
+                <form className="bg-orange-200 relative top-[18%] w-[75%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={phoneLogin}>
+                    <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
+                    <h1 className="text-center font-bold text-3xl mt-[2%] mb-[4%] tablet:mt-0">Login</h1>
+                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-3 w-[30%] mx-auto bg-white tablet:w-[55%] tablet:mb-[4%] tablet_s:w-[53%] mobile_m:w-[63%] mobile_s:w-[70%]">
+                        <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.phone}</span>
+                        <div className="flex justify-center px-2">
+                            <div className="flex gap-x-1">
+                                <input input="number" name="cc" className="w-[20%] outline-none" placeholder="CC" value={loginData.cc} onChange={handleLoginInput} />
+                                <input type="tel" name="phone" className="w-[60%] outline-none" placeholder="phone" value={loginData.phone} onChange={handleLoginInput} />
+                            </div>
+                            <span className="material-symbols-outlined">phone_enabled</span>
+                        </div>
+                    </div>
+                    <div className="remember-me flex gap-x-2 w-[30%] mx-auto mb-5 laptop_l:w-[35%] tablet:w-[50%] tablet:mb-[3%] tablet_s:gap-x-3 tablet_s:mb-[5%] tablet_s:w-[58%] mobile_m:w-[68%]">
+                        <input type="checkbox" defaultChecked = {localStorage.getItem('rememberMe') ? true : false} onChange={rememberMe} />
+                        <p className="text-sm font-semibold">Remember me</p>
+                    </div>
+                    <div className="flex justify-center mb-6 tablet:mb-[3%] tablet_s:mb-[4%]">
+                        <button type="submit" id="phone-sign-in" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1px]">Continue</button>
+                    </div>
+                </form>
+            }
+            {authStage.confirmOtp &&
+                <form className="bg-orange-200 relative top-[24%] w-[65%] pt-[1%] py-[1%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={signInWithOtp}>
+                    <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
+                    <h1 className="text-center font-bold text-3xl mt-[2%] mb-[3%] tablet:mt-0">Enter OTP</h1>
+                    <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.otp}</span>
+                    <div ref={otp} className="flex justify-center gap-x-2 mb-[3%]">
+                        <input type="number" className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
+                    </div>
+                    <div className="flex justify-center mb-6 tablet:mb-[3%] tablet_s:mb-[4%]">
+                        <button type="submit" id="phone-sign-in" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1px]">Confirm</button>
+                    </div>
+                </form>
+            }
+            {authStage.mailSignup && 
+                <form className="bg-orange-200 relative top-[6%] w-[75%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleMailSignup}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mb-[3%] laptop_s:mb-[2%] laptop_s:mt-[-2%]">Sign up</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
@@ -310,7 +435,7 @@ function LoginandSignup({auth}) {
                     <button type="submit" className="w-[18%] ml-[40%] mb-2 py-[3px] rounded-[20px] bg-[#fd7e14] font-bold laptop_s:w-[26%] laptop_s:ml-[37%] tablet:ml-[35%] tablet:py-[1px] mobile:w-[36%] mobile:ml-[32%] mobile_m:w-[45%] mobile_m:ml-[28%]">Create Account</button>
                     <div className="flex items-center gap-x-[12%] w-[35%] mx-auto mb-2 laptop_l:w-[40%] laptop_s:mb-[1%] tablet:w-[60%] tablet:gap-[24%] mobile_m:w-[72%] mobile_m:gap-[30%]">
                         <p className="text-sm font-medium">Already have an account?</p>
-                        <button className="font-semibold" onClick={() => toggleAuthStage('login')}>Login</button>
+                        <button className="font-semibold" onClick={() => toggleAuthStage('mailLogin')}>Login</button>
                     </div>
                     <p className="text-center mb-3 font-semibold text-xl">OR</p>
                     <button className="mx-auto block cursor-pointer"><img src="/continuewithGoogle.svg" alt="continueWithGoogle" /></button>

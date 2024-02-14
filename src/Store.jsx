@@ -1,11 +1,11 @@
 import { useState, useEffect,  useRef, useContext, useMemo } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import { database, signInState } from "./App";
+import { database, applicationState } from "./App";
 import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import Prompt from './Prompts';
 
 function Store() {
-    const {currentState} = useContext(signInState);
+    const {currentState} = useContext(applicationState);
     const db = useContext(database);
     const [section, setSection] = useState(sessionStorage.getItem('currentSection') || 'beverages');
     const [subSections, setSubSections] = useState([]);

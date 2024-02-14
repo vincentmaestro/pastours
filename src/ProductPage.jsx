@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { database, signInState } from "./App";
+import { database, applicationState } from "./App";
 import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 import Loading from "./loading";
 import Prompt from "./Prompts";
 
 function ProductPage ({auth}) {
-    const {currentState, dispatch} = useContext(signInState);
+    const {currentState, dispatch} = useContext(applicationState);
     const db = useContext(database);
     const [url] = useSearchParams();
     const category = url.get('category');

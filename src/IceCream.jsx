@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { database, signInState, userActions } from "./App";
+import { database, applicationState, userActions } from "./App";
 
 function IceCream() {
     const [products, setProducts] = useState(null);

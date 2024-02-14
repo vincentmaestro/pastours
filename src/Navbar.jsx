@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { signInState } from "./App";
+import { applicationState } from "./App";
 import { Link } from "react-router-dom";
 import LoginandSignup from "./LoginAndSignup";
 import Loading from "./loading";
@@ -8,7 +8,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { collection, onSnapshot } from "firebase/firestore";
 
 function Navbar({auth, db}) {
-    const {currentState, dispatch} = useContext(signInState);
+    const {currentState, dispatch} = useContext(applicationState);
     const [showUser, setShowUser] = useState(false);
     const [cartItemsCount, setCartItemsCount] = useState(0);
 
@@ -57,7 +57,7 @@ function Navbar({auth, db}) {
                                 <div className="about-user w-[90%] h-[600%] bg-[rgba(226,232,240,0.8)] absolute top-[110%] left-1/2 rounded-2xl z-[1]" onMouseOver={() => setShowUser(true)} onMouseOut={() => setShowUser(false)}>
                                     <div className="pt-[16px] pl-[10px]">
                                         <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">account_circle</span>View profile</p>
-                                        <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">phone</span>Add phone number</p>
+                                        <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">dark_mode</span>Dark mode</p>
                                         <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">favorite</span>Favourites</p>
                                         <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]" onClick={() => logout()}><span className="material-symbols-outlined mobile:text-[17px]">logout</span>Logout</p>
                                     </div>

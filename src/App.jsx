@@ -18,7 +18,7 @@ import IceCream from './IceCream';
 import ProductPage from './ProductPage';
 import Foodoutlets from './foodOutlets';
 
-export const signInState = createContext();
+export const applicationState = createContext();
 export const userActions = createContext();
 export const database = createContext();
 
@@ -157,7 +157,7 @@ function App() {
 
   return (
     <HelmetProvider>
-      <signInState.Provider value={{currentState, dispatch}}>
+      <applicationState.Provider value={{currentState, dispatch}}>
         <userActions.Provider value={{addToCart, favouriteItem, shareItem}}>
           <database.Provider value = {db}>
             <BrowserRouter>
@@ -181,7 +181,7 @@ function App() {
             </BrowserRouter>
           </database.Provider>
         </userActions.Provider>
-      </signInState.Provider>
+      </applicationState.Provider>
     </HelmetProvider>
   );
 }

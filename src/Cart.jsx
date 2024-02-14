@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { database, signInState } from "./App";
+import { database, applicationState } from "./App";
 import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
 
 function Cart({auth}) {
-    const {currentState, dispatch} = useContext(signInState);
+    const {currentState, dispatch} = useContext(applicationState);
     const [items, setItems] = useState(null);
     const db = useContext(database);
     const [prompt, setPrompt] = useState(false);
