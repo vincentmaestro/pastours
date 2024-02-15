@@ -4,40 +4,7 @@ html {
 }
 
 *{
-  transition: background-color .3s;
-}
-
-[mode="dark"] {
-  .select-service {
-    background-color: #212529;
-  }
-  .why-us {
-    background-color: #212529;
-    color: #dbdbdb;
-  }
-  .Store, .store-filters {
-    background-color: #212529;
-    color: #dbdbdb;
-  }
-  .products {
-    background-color: #212529;
-  }
-  .indicator-tab-mobile {
-    color: black;
-  }
-  .add-section {
-    background-color: #212529;
-  }
-  .add-section input {
-    color: black;
-  }
-  .add-section button {
-    color: black;
-  }
-  .productPage, .productPage .details {
-    background-color: #212529;
-    color: #dbdbdb;
-  }
+  transition: background-color .4s;
 }
 
 input[type="number"]::-webkit-inner-spin-button {
@@ -225,5 +192,38 @@ input[type="number"]::-webkit-inner-spin-button {
       .products section {
           padding-top: 20%;
       }
+  }
+}
+
+[mode="dark"] {
+  .select-service {
+    background-color: #212529;
+  }
+  .why-us {
+    background-color: #212529;
+    color: #dbdbdb;
+  }
+  .Store, .store-filters {
+    background-color: #212529;
+    color: #dbdbdb;
+  }
+  .products {
+    background-color: #212529;
+  }
+  .indicator-tab-mobile {
+    color: black;
+  }
+  .add-section {
+    background-color: #212529;
+  }
+  .add-section input {
+    color: black;
+  }
+  .add-section button {
+    color: black;
+  }
+  .productPage, .productPage .details {
+    background-color: #212529;
+    color: #dbdbdb;
   }
 }

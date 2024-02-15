@@ -37,7 +37,7 @@ const db = getFirestore(app);
 
 const initialState = {
   start: false,
-  theme: 'light',
+  theme: localStorage.getItem('darkMode') ? 'dark' : 'light',
   isLoading: false,
   isLoggedIn: false,
   animateMessage: false,
@@ -101,6 +101,7 @@ function App() {
   }, [currentState.isLoggedIn, hour]);
 
   useEffect(() => {
+    currentState.theme === 'dark' ? document.getElementById('root').setAttribute('mode', 'dark') : null
     if(currentState.isLoggedIn) {
       if(!auth.currentUser.emailVerified) {
         setPromptVerification(true);

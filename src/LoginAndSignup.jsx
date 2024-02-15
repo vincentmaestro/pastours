@@ -76,7 +76,6 @@ function LoginandSignup({auth}) {
         email: '',
         cc: '+234',
         phone: '',
-        savedEmail: '',
         password: ''
     });
 
@@ -94,8 +93,8 @@ function LoginandSignup({auth}) {
     }
 
     function handleLoginInput(e) {
-        const {id, name, value} = e.target;
-        setloginData({ ...loginData, [name]: value, [id]: value });
+        const { name, value} = e.target;
+        setloginData({ ...loginData, [name]: value });
     }
 
     function validateSignup() {
@@ -169,7 +168,7 @@ function LoginandSignup({auth}) {
         e.preventDefault();
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-        if(localStorage.getItem('rememberMe')) {
+        if(localStorage.getItem('rememberMail')) {
             if (!emailPattern.test(localStorage.getItem('savedEmail'))) {
                 setErrors({email: 'Invalid email'});
             }
@@ -217,30 +216,34 @@ function LoginandSignup({auth}) {
                         dispatch({case: 'animate', state: true});
                     }
                 });
-            } 
+            }
         }
     }
 
     function phoneLogin(e) {
         e.preventDefault();
-        auth.useDeviceLanguage();
-        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'phone-sign-in', {
-            'size': 'invisible',
-            'callback': (response) => {
-              // reCAPTCHA solved, allow signInWithPhoneNumber.
-               console.log(response);
-            }
-        });
-        const appVerifier = window.recaptchaVerifier;
-        signInWithPhoneNumber(auth, loginData.cc+loginData.phone, appVerifier)
-        .then(confirmationResult => {
-          window.confirmationResult = confirmationResult;
-          console.log(window.confirmationResult);
-          toggleAuthStage('confirmOtp');
-        })
-        .catch(error => {
-          console.log(error);
-        });
+        const ccPattern = /^\+[1-9]{1,3}[0-9]{10}$/;
+        if(ccPattern.test(loginData.cc+loginData.phone)) {
+            auth.useDeviceLanguage();
+            window.recaptchaVerifier = new RecaptchaVerifier(auth, 'phone-sign-in', {
+                'size': 'invisible',
+                'callback': (response) => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                }
+            });
+            dispatch({case: 'loading', state: true});
+            const appVerifier = window.recaptchaVerifier;
+            signInWithPhoneNumber(auth, loginData.cc+loginData.phone, appVerifier)
+            .then(confirmationResult => {
+            window.confirmationResult = confirmationResult;
+            dispatch({case: 'loading', state: false});
+            toggleAuthStage('confirmOtp');
+            })
+            .catch(error => {
+            console.log(error);
+            });
+        }
+        else setErrors({ ...errors, phone: 'Phone number supplied is incorrect/invalid. Confirm country code and exclude first zero from phone number'});
     }
 
     const otp = useRef();
@@ -266,7 +269,6 @@ function LoginandSignup({auth}) {
                 currentInput.setAttribute('disabled', true);
             }
         }
-
         cc[cp] = currentInput.value;
     }
     useEffect(() => {
@@ -293,16 +295,30 @@ function LoginandSignup({auth}) {
                 setErrors({...errors, phone: error.code})
             });
         }
+        else {
+            setErrors({ ...errors, otp: 'code is incomplete'});
+        }
     }
 
-    function rememberMe(e) {
+    function rememberMail(e) {
         if (e.target.checked) {
-            localStorage.setItem('rememberMe', true);
-            localStorage.setItem('savedEmail', loginData.savedEmail);
+            localStorage.setItem('rememberMail', true);
+            localStorage.setItem('savedEmail', loginData.email);
         }
         else {
-            localStorage.removeItem('rememberMe');
+            localStorage.removeItem('rememberMail');
             localStorage.removeItem('savedEmail');
+        }
+    }
+
+    function rememberPhone(e) {
+        if (e.target.checked) {
+            localStorage.setItem('rememberPhone', true);
+            localStorage.setItem('savedPhone', loginData.phone);
+        }
+        else {
+            localStorage.removeItem('rememberPhone');
+            localStorage.removeItem('savedPhone');
         }
     }
 
@@ -319,7 +335,7 @@ function LoginandSignup({auth}) {
                 dispatch({case: 'loading', state: false});
                 setPasswordResetMailSent(true);
             })
-            .catch(error => {
+            .catch(() => {
                 dispatch({case: 'loading', state: false});
                 setPasswordResetMailSent(false);
             })
@@ -329,13 +345,13 @@ function LoginandSignup({auth}) {
     return (
         <div className="loginandsignup fixed top-0 left-0 w-full h-full z-[1] bg-[#001122e7]">
             {authStage.mailLogin &&
-                <form className="bg-orange-200 relative top-[7%] w-[75%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={mailLogin}>
+                <form className="bg-orange-200 relative top-[7%] w-[65%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={mailLogin}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mt-[2%] mb-[4%] tablet:mt-0">Login</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[4%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.email}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type="email" name="email" placeholder="Email" className="w-[80%] outline-none" value={localStorage.getItem('rememberMe') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
+                            <input type="email" name="email" id="savedEmail" placeholder="Email" className="w-[80%] outline-none" value={localStorage.getItem('rememberMail') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
                             <span className="material-symbols-outlined">mail</span>
                         </div>
                     </div>
@@ -347,43 +363,43 @@ function LoginandSignup({auth}) {
                         </div>
                     </div>
                     <div className="remember-me flex gap-x-2 w-[40%] mx-auto mb-5 laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:gap-x-3 tablet_s:mb-[5%] tablet_s:w-[68%] mobile_m:w-[78%]">
-                        <input type="checkbox" defaultChecked = {localStorage.getItem('rememberMe') ? true : false} onChange={rememberMe} />
+                        <input type="checkbox" defaultChecked = {localStorage.getItem('rememberMail') ? true : false} onChange={rememberMail} />
                         <p className="text-sm font-semibold">Remember me</p>
                     </div>
-                    <div className="flex justify-end gap-x-16 w-[35%] mx-auto mb-6 laptop_l:w-[40%] tablet:w-[60%] tablet:mb-[3%] tablet:gap-[10%] tablet_s:gap-[6%] tablet_s:w-[68%] tablet_s:mb-[4%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="flex justify-end gap-x-16 w-[35%] mx-auto mb-6 laptop:w-[44%] laptop:gap-x-12">
                         <button type="submit" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1px]">Login</button>
                         <button className="text-sm font-semibold" onClick={() => toggleAuthStage('resetPassword')}>Forgot password?</button>
                     </div>
-                    <div className="flex items-center gap-x-[20%] w-[40%] mx-auto mb-3 laptop_l:w-[45%] tablet:w-[60%] tablet:gap-x-[18%] tablet:mb-[2%] tablet_s:mb-[1%] mobile:w-[75%] mobile:gap-x-[8%]">
+                    <div className="flex items-center gap-x-[20%] w-[40%] mx-auto mb-1 laptop_l:w-[45%] tablet:w-[60%] tablet:gap-x-[18%] tablet:mb-[2%] tablet_s:mb-[1%] mobile:w-[75%] mobile:gap-x-[8%]">
                         <p className="text-sm font-medium">Don't have an account?</p>
                         <button className="font-semibold" onClick={() => toggleAuthStage('mailSignup')}>Create Account</button>
                     </div>
                     <div className="flex flex-col items-center">
-                        <p className="text-xl mb-3 font-semibold">OR</p>
+                        <p className="text-xl mb-1 font-semibold">OR</p>
                         <span className="font-semibold bg-white rounded-[50px] py-2 px-4 cursor-pointer" onClick={() => toggleAuthStage('phoneLogin')}>Use phone number</span>
                     </div>
                 </form>
             }
             {authStage.phoneLogin &&
-                <form className="bg-orange-200 relative top-[18%] w-[75%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={phoneLogin}>
+                <form className="bg-orange-200 relative top-[18%] w-[65%] pt-[1%] pb-[2%] mx-auto tablet:top-[25%] tablet_s:w-[90%]" onSubmit={phoneLogin}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mt-[2%] mb-[4%] tablet:mt-0">Login</h1>
-                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-3 w-[30%] mx-auto bg-white tablet:w-[55%] tablet:mb-[4%] tablet_s:w-[53%] mobile_m:w-[63%] mobile_s:w-[70%]">
-                        <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.phone}</span>
+                    <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-3 w-[30%] mx-auto bg-white laptop:w-[40%] tablet:w-[50%] mobile:w-[65%] mobile_m:w-[78%]">
+                        <span className="block text-center text-sm text-red-500 font-semibold">{errors.phone}</span>
                         <div className="flex justify-center px-2">
-                            <div className="flex gap-x-1">
-                                <input input="number" name="cc" className="w-[20%] outline-none" placeholder="CC" value={loginData.cc} onChange={handleLoginInput} />
-                                <input type="tel" name="phone" className="w-[60%] outline-none" placeholder="phone" value={loginData.phone} onChange={handleLoginInput} />
+                            <div className="flex gap-x-1 mobile_m:gap-x-2">
+                                <input input="number" name="cc" className="w-[20%] outline-none" placeholder="code" value={loginData.cc} onChange={handleLoginInput} />
+                                <input type="tel" name="phone" className="w-[70%] outline-none" placeholder="phone" value={localStorage.getItem('savedPhone') ? localStorage.getItem('savedPhone') : loginData.phone} onChange={handleLoginInput} />
                             </div>
                             <span className="material-symbols-outlined">phone_enabled</span>
                         </div>
                     </div>
-                    <div className="remember-me flex gap-x-2 w-[30%] mx-auto mb-5 laptop_l:w-[35%] tablet:w-[50%] tablet:mb-[3%] tablet_s:gap-x-3 tablet_s:mb-[5%] tablet_s:w-[58%] mobile_m:w-[68%]">
-                        <input type="checkbox" defaultChecked = {localStorage.getItem('rememberMe') ? true : false} onChange={rememberMe} />
+                    <div className="remember-me flex gap-x-2 w-[30%] ml-[35%] mb-5 laptop:ml-[30%] tablet:ml-[25%] mobile:ml-[19%] mobile_m:w-[40%] mobile_m:ml-[14%]">
+                        <input type="checkbox" defaultChecked = {localStorage.getItem('rememberPhone') ? true : false} onChange={rememberPhone}/>
                         <p className="text-sm font-semibold">Remember me</p>
                     </div>
                     <div className="flex justify-center mb-6 tablet:mb-[3%] tablet_s:mb-[4%]">
-                        <button type="submit" id="phone-sign-in" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1px]">Continue</button>
+                        <button type="submit" id="phone-sign-in" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1.5px]">Continue</button>
                     </div>
                 </form>
             }
@@ -391,14 +407,14 @@ function LoginandSignup({auth}) {
                 <form className="bg-orange-200 relative top-[24%] w-[65%] pt-[1%] py-[1%] mx-auto laptop_s:top-[4%] laptop_l:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={signInWithOtp}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mt-[2%] mb-[3%] tablet:mt-0">Enter OTP</h1>
-                    <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.otp}</span>
-                    <div ref={otp} className="flex justify-center gap-x-2 mb-[3%]">
-                        <input type="number" className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
-                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
-                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
-                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
-                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
-                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none" onKeyUp={handleConfirmationCode} />
+                    <span className="block text-center text-sm text-red-500 font-semibold">{errors.otp}</span>
+                    <div ref={otp} className="flex justify-center gap-x-2 mb-[3%] tablet:mb-[5%]">
+                        <input type="number" className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none mobile_m:h-[38px] mobile_m:w-[38px]" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none mobile_m:h-[38px] mobile_m:w-[38px]" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none mobile_m:h-[38px] mobile_m:w-[38px]" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none mobile_m:h-[38px] mobile_m:w-[38px]" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none mobile_m:h-[38px] mobile_m:w-[38px]" onKeyUp={handleConfirmationCode} />
+                        <input type="number" disabled className="otp w-[46px] h-[46px] rounded-[8px] text-center text-xl outline-none mobile_m:h-[38px] mobile_m:w-[38px]" onKeyUp={handleConfirmationCode} />
                     </div>
                     <div className="flex justify-center mb-6 tablet:mb-[3%] tablet_s:mb-[4%]">
                         <button type="submit" id="phone-sign-in" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1px]">Confirm</button>
@@ -406,7 +422,7 @@ function LoginandSignup({auth}) {
                 </form>
             }
             {authStage.mailSignup && 
-                <form className="bg-orange-200 relative top-[6%] w-[75%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleMailSignup}>
+                <form className="bg-orange-200 relative top-[6%] w-[65%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleMailSignup}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mb-[3%] laptop_s:mb-[2%] laptop_s:mt-[-2%]">Sign up</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
@@ -433,12 +449,14 @@ function LoginandSignup({auth}) {
                         <span className="text-xs text-gray-700 font-semibold px-4">*minimum of 7 characters. Can include letters, numbers, "-" and "."</span>
                     </div>
                     <button type="submit" className="w-[18%] ml-[40%] mb-2 py-[3px] rounded-[20px] bg-[#fd7e14] font-bold laptop_s:w-[26%] laptop_s:ml-[37%] tablet:ml-[35%] tablet:py-[1px] mobile:w-[36%] mobile:ml-[32%] mobile_m:w-[45%] mobile_m:ml-[28%]">Create Account</button>
-                    <div className="flex items-center gap-x-[12%] w-[35%] mx-auto mb-2 laptop_l:w-[40%] laptop_s:mb-[1%] tablet:w-[60%] tablet:gap-[24%] mobile_m:w-[72%] mobile_m:gap-[30%]">
+                    <div className="flex items-center gap-x-[30%] w-[40%] mx-auto mb-1 laptop_s:mb-[1%] tablet:w-[60%] tablet:gap-[24%] mobile_m:w-[72%] mobile_m:gap-[30%]">
                         <p className="text-sm font-medium">Already have an account?</p>
                         <button className="font-semibold" onClick={() => toggleAuthStage('mailLogin')}>Login</button>
                     </div>
-                    <p className="text-center mb-3 font-semibold text-xl">OR</p>
-                    <button className="mx-auto block cursor-pointer"><img src="/continuewithGoogle.svg" alt="continueWithGoogle" /></button>
+                    <div className="flex flex-col items-center">
+                        <p className="text-xl mb-1 font-semibold">OR</p>
+                        <span className="font-semibold bg-white rounded-[50px] py-2 px-4 cursor-pointer" onClick={() => toggleAuthStage('phoneLogin')}>Use phone number</span>
+                    </div>
                 </form>
             }
             {authStage.resetpassword && 
