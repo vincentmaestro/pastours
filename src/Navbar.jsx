@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { applicationState } from "./App";
 import { Link } from "react-router-dom";
 import LoginandSignup from "./LoginAndSignup";
@@ -11,6 +11,7 @@ function Navbar({auth, db}) {
     const {currentState, dispatch} = useContext(applicationState);
     const [showUser, setShowUser] = useState(false);
     const [cartItemsCount, setCartItemsCount] = useState(0);
+    const [currentTheme, setCurrentTheme] = useState(currentState.theme);
 
     useEffect(() => {
         onAuthStateChanged(auth, user => {
@@ -19,8 +20,12 @@ function Navbar({auth, db}) {
                     setCartItemsCount(cart.docs.length);
                 });
             }
-        })
+        });
     }, []);
+
+    useMemo(() => {
+        setCurrentTheme(currentState.theme);
+    }, [currentState.theme]);
 
     function logout() {
         setShowUser(!showUser);
@@ -57,7 +62,7 @@ function Navbar({auth, db}) {
                                 <div className="about-user w-[90%] h-[600%] bg-[rgba(226,232,240,0.8)] absolute top-[110%] left-1/2 rounded-2xl z-[1]" onMouseOver={() => setShowUser(true)} onMouseOut={() => setShowUser(false)}>
                                     <div className="pt-[16px] pl-[10px]">
                                         <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]"><span className="material-symbols-outlined mobile:text-[17px]">account_circle</span>View profile</p>
-                                        {currentState.theme === 'light' ?
+                                        {currentTheme === 'light' ?
                                             <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]" onClick={() => {document.getElementById('root').setAttribute('mode', 'dark'); localStorage.setItem('darkMode', 'true'); dispatch({case: 'toggleTheme', mode: 'dark'}); setShowUser(false)}}><span className="material-symbols-outlined mobile:text-[17px]">dark_mode</span>Dark mode</p>
                                             :
                                             <p className="flex items-center gap-x-[20px] mb-[16px] cursor-pointer mobile:gap-x-[10px] mobile:mb-[10px] mobile:text-[14px]" onClick={() => {document.getElementById('root').removeAttribute('mode'); localStorage.removeItem('darkMode'); dispatch({case: 'toggleTheme', mode: 'light'}); setShowUser(false)}}><span className="material-symbols-outlined mobile:text-[17px]">light_mode</span>Light mode</p>

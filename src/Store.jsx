@@ -145,7 +145,7 @@ function Store() {
         <div className="Store bg-slate-200">
             {currentState.userAction && <Prompt />}
             <h1 className="title-heading text-3xl flex justify-center items-center py-[12px] tablet:text-2xl mobile:py-[4px]">STORE</h1>
-            <div className="promotions-tab-mobile hidden tablet:block overflow-x-clip mb-2">
+            <div className="hidden tablet:block overflow-x-clip mb-2">
                 {!promos.length && 
                     <div className="h-[160px] flex justify-center items-center">
                         <span className="material-symbols-outlined select-none text-5xl text-gray-600">hourglass_top</span>
@@ -153,7 +153,7 @@ function Store() {
                 }
                 <div ref={promosRef} className="w-[94%] mx-auto flex gap-x-[4%] mb-2 transition-transform duration-300 ease-in">
                     {promos.map((promo, position) => (
-                        <div key={position} className="min-w-[31%] bg-white rounded-[10px] overflow-hidden mobile:min-w-[48%]">
+                        <div key={position} className="promos min-w-[31%] bg-white rounded-[10px] overflow-hidden mobile:min-w-[48%]">
                             <img src={promo.data().image} alt={promo.data().title} className="h-[160px] w-full mobile:h-[120px]" />
                             <h1 className="text-center font-medium text-[17px] mobile:text-[16px]">{promo.data().title}</h1>
                         </div>
@@ -252,7 +252,7 @@ function Store() {
                             </div>
                         }
                         {promos.map((promo, key) => (
-                            <div key={key} className="discounts rounded-[10px] h-[180px] overflow-hidden border border-black mb-4">
+                            <div key={key} className="promos rounded-[10px] h-[180px] overflow-hidden border border-black mb-4">
                                 <h1 className="text-center font-medium">{promo.data().title}</h1>
                                 <img src={promo.data().image} alt={promo.data().title} className="w-full" />
                             </div>

@@ -345,13 +345,13 @@ function LoginandSignup({auth}) {
     return (
         <div className="loginandsignup fixed top-0 left-0 w-full h-full z-[1] bg-[#001122e7]">
             {authStage.mailLogin &&
-                <form className="bg-orange-200 relative top-[7%] w-[65%] pt-[1%] pb-[5%] mx-auto laptop_s:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={mailLogin}>
+                <form className="bg-orange-200 relative top-[9%] w-[65%] pt-[1%] pb-[3%] mx-auto laptop:top-[14%] tablet:top-[15%] tablet_s:w-[90%]" onSubmit={mailLogin}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mt-[2%] mb-[4%] tablet:mt-0">Login</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-6 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[4%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="email-error block text-center text-sm text-red-500 font-semibold">{errors.email}</span>
                         <div className="flex justify-center gap-x-3">
-                            <input type="email" name="email" id="savedEmail" placeholder="Email" className="w-[80%] outline-none" value={localStorage.getItem('rememberMail') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
+                            <input type="email" name="email" placeholder="Email" className="w-[80%] outline-none" value={localStorage.getItem('rememberMail') ? localStorage.getItem('savedEmail') : loginData.email} onChange={handleLoginInput} />
                             <span className="material-symbols-outlined">mail</span>
                         </div>
                     </div>
@@ -366,16 +366,16 @@ function LoginandSignup({auth}) {
                         <input type="checkbox" defaultChecked = {localStorage.getItem('rememberMail') ? true : false} onChange={rememberMail} />
                         <p className="text-sm font-semibold">Remember me</p>
                     </div>
-                    <div className="flex justify-end gap-x-16 w-[35%] mx-auto mb-6 laptop:w-[44%] laptop:gap-x-12">
+                    <div className="flex gap-x-[14%] mb-6 ml-[45%] mobile:ml-[38%] mobile_m:ml-[32%]">
                         <button type="submit" className="py-[3px] px-[10px] rounded-[20px] bg-[#fd7e14] font-bold tablet:px-[14px] tablet:py-[1px]">Login</button>
                         <button className="text-sm font-semibold" onClick={() => toggleAuthStage('resetPassword')}>Forgot password?</button>
                     </div>
-                    <div className="flex items-center gap-x-[20%] w-[40%] mx-auto mb-1 laptop_l:w-[45%] tablet:w-[60%] tablet:gap-x-[18%] tablet:mb-[2%] tablet_s:mb-[1%] mobile:w-[75%] mobile:gap-x-[8%]">
+                    <div className="flex gap-x-[18%] mb-2 ml-[26%] laptop:ml-[22%] tablet:ml-[15%] mobile:ml-[10%] mobile_m:gap-x-[16%]">
                         <p className="text-sm font-medium">Don't have an account?</p>
                         <button className="font-semibold" onClick={() => toggleAuthStage('mailSignup')}>Create Account</button>
                     </div>
                     <div className="flex flex-col items-center">
-                        <p className="text-xl mb-1 font-semibold">OR</p>
+                        <p className="text-xl mb-3 font-semibold">OR</p>
                         <span className="font-semibold bg-white rounded-[50px] py-2 px-4 cursor-pointer" onClick={() => toggleAuthStage('phoneLogin')}>Use phone number</span>
                     </div>
                 </form>
@@ -422,7 +422,7 @@ function LoginandSignup({auth}) {
                 </form>
             }
             {authStage.mailSignup && 
-                <form className="bg-orange-200 relative top-[6%] w-[65%] pt-[1%] pb-[2%] mx-auto laptop_s:top-[4%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleMailSignup}>
+                <form className="bg-orange-200 relative top-[6%] w-[65%] pt-[1%] pb-[3%] mx-auto laptop_s:top-[4%] laptop_l:top-[12%] tablet:top-[11%] tablet_s:w-[90%]" onSubmit={handleMailSignup}>
                     <span className="material-symbols-outlined cursor-pointer relative left-[95%] tablet:left-[92%]" onClick={() => dispatch({case: 'start', state: false})}>close</span>
                     <h1 className="text-center font-bold text-3xl mb-[3%] laptop_s:mb-[2%] laptop_s:mt-[-2%]">Sign up</h1>
                     <div className="email border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
@@ -440,7 +440,7 @@ function LoginandSignup({auth}) {
                         </div>
                         <span className="text-xs text-gray-700 font-semibold px-4">*minimum of 3 characters, maximum of 10. Can include letters, numbers, "-" and "."</span>
                     </div>
-                    <div className="password border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet:mb-[3%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
+                    <div className="password border rounded-[16px] flex flex-col gap-y-1 py-2 mb-4 w-[40%] mx-auto bg-white laptop_l:w-[45%] tablet:w-[60%] tablet_s:w-[68%] mobile_m:w-[78%] mobile_s:w-[85%]">
                         <span className="password-error block text-center text-sm text-red-500 font-semibold">{errors.password}</span>
                         <div className="flex justify-center gap-x-3">
                             <input type={passwordVisible ? 'text' : 'password'} name="password" placeholder="Password" className="w-[80%] outline-none py-[1px]" value={signupData.password} onChange={handleSignupInput} />
@@ -448,13 +448,13 @@ function LoginandSignup({auth}) {
                         </div>
                         <span className="text-xs text-gray-700 font-semibold px-4">*minimum of 7 characters. Can include letters, numbers, "-" and "."</span>
                     </div>
-                    <button type="submit" className="w-[18%] ml-[40%] mb-2 py-[3px] rounded-[20px] bg-[#fd7e14] font-bold laptop_s:w-[26%] laptop_s:ml-[37%] tablet:ml-[35%] tablet:py-[1px] mobile:w-[36%] mobile:ml-[32%] mobile_m:w-[45%] mobile_m:ml-[28%]">Create Account</button>
+                    <button type="submit" className="w-[18%] ml-[40%] mb-4 py-[3px] rounded-[20px] bg-[#fd7e14] font-bold laptop_s:w-[26%] laptop_s:ml-[37%] tablet:ml-[35%] tablet:py-[1px] mobile:w-[36%] mobile:ml-[32%] mobile_m:w-[45%] mobile_m:ml-[28%]">Create Account</button>
                     <div className="flex items-center gap-x-[30%] w-[40%] mx-auto mb-1 laptop_s:mb-[1%] tablet:w-[60%] tablet:gap-[24%] mobile_m:w-[72%] mobile_m:gap-[30%]">
                         <p className="text-sm font-medium">Already have an account?</p>
-                        <button className="font-semibold" onClick={() => toggleAuthStage('mailLogin')}>Login</button>
+                        <button className="font-semibold text-lg" onClick={() => toggleAuthStage('mailLogin')}>Login</button>
                     </div>
                     <div className="flex flex-col items-center">
-                        <p className="text-xl mb-1 font-semibold">OR</p>
+                        <p className="text-xl mb-3 font-semibold">OR</p>
                         <span className="font-semibold bg-white rounded-[50px] py-2 px-4 cursor-pointer" onClick={() => toggleAuthStage('phoneLogin')}>Use phone number</span>
                     </div>
                 </form>
