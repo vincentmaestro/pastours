@@ -1506,7 +1506,28 @@
     "energyDrinks": [
       {
         "name": "Fearless 500ml",
-        "image": "/src/images/beverages/fearless_500ml.jpg",
+        "image": "/images/beverages/fearless_500ml.jpg",
+        "description": "",
+        "price": ""
+      },
+      {
+        "name": "Lucozade boost",
+        "size": "125ml",
+        "image": "/images/beverages/lucozade_boost_125ml.jpg",
+        "description": "",
+        "price": ""
+      },
+      {
+        "name": "Lucozade boost",
+        "size": "250ml",
+        "image": "/images/beverages/lucozade_boost_250ml.jpg",
+        "description": "",
+        "price": ""
+      },
+      {
+        "name": "Lucozade boost",
+        "size": "1L",
+        "image": "/images/beverages/lucozade_boost_1l.jpg",
         "description": "",
         "price": ""
       },

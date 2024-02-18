@@ -171,7 +171,7 @@ function Beverages() {
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
                                     <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
                                     <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
-                                    <Link to={`product?category=beverages&section=energyDrink&product=${energyDrink.id}`}><img src={energyDrink.data().image} alt={energyDrink.data().name} /></Link>
+                                    <Link to={`product?category=beverages&section=energyDrinks&product=${energyDrink.id}`}><img src={energyDrink.data().image} alt={energyDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{energyDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{energyDrink.data().size}</p>
                                     <div className="flex justify-center gap-x-[6px] py-[8px] bg-slate-300 mobile:flex-col mobile:py-0 mobile:gap-y-[4px] add-section">
