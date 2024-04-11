@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { collection, addDoc, getDocs} from "firebase/firestore";
 import { database, applicationState, userActions } from "./App";
 import Loading from "./loading";
-import { Link } from "react-router-dom";
 
 function Alcoholicalcoholics() {
     const {currentState, dispatch} = useContext(applicationState);
@@ -44,12 +45,15 @@ function Alcoholicalcoholics() {
 
     function checkAction(e) {
         if(e.target.tagName === 'BUTTON' && e.target.textContent === 'Add to cart') addToCart(e);
-        if(e.target.tagName === 'SPAN' && e.target.textContent === 'favorite') favouriteItem(e);
-        if(e.target.tagName === 'SPAN' && e.target.textContent === 'share') shareItem(e);
+        if(e.target.tagName === 'BUTTON' && e.target.textContent === 'favorite') favouriteItem(e);
+        if(e.target.tagName === 'BUTTON' && e.target.textContent === 'share') shareItem(e);
     }
 
     return (
         <>
+            <Helmet>
+                <title>Pastours | Alcoholics</title>
+            </Helmet>
             {currentState.isLoading && <Loading />}
             {error && <p className="text-center text-xl">{error}</p>}
             {prompt && 
@@ -70,8 +74,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.beer.map((beer, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=beer&product=${beer.id}`}><img src={beer.data().image} alt={beer.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{beer.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{beer.data().size}</p>
@@ -89,8 +93,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.cognac.map((cognac, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=cognac&product=${cognac.id}`}><img src={cognac.data().image} alt={cognac.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{cognac.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{cognac.data().size}</p>
@@ -108,8 +112,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.champagne.map((champagne, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=champagne&product=${champagne.id}`}><img src={champagne.data().image} alt={champagne.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{champagne.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{champagne.data().size}</p>
@@ -127,8 +131,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.gin.map((gin, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=gin&product=${gin.id}`}><img src={gin.data().image} alt={gin.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{gin.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{gin.data().size}</p>
@@ -146,8 +150,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.liqueur.map((liqueur, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=liqueur&product=${liqueur.id}`}><img src={liqueur.data().image} alt={liqueur.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{liqueur.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{liqueur.data().size}</p>
@@ -165,8 +169,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.redWine.map((redWine, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=redWine&product=${redWine.id}`}><img src={redWine.data().image} alt={redWine.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{redWine.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{redWine.data().size}</p>
@@ -184,8 +188,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.rose.map((rose, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=rose&product=${rose.id}`}><img src={rose.data().image} alt={rose.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{rose.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{rose.data().size}</p>
@@ -203,8 +207,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.sparklingWine.map((sparklingWine, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=sparklingWine&product=${sparklingWine.id}`}><img src={sparklingWine.data().image} alt={sparklingWine.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{sparklingWine.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{sparklingWine.data().size}</p>
@@ -222,8 +226,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.vodka.map((vodka, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=vodka&product=${vodka.id}`}><img src={vodka.data().image} alt={vodka.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{vodka.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{vodka.data().size}</p>
@@ -241,8 +245,8 @@ function Alcoholicalcoholics() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.whisky.map((whisky, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=alcoholics&section=whisky&product=${whisky.id}`}><img src={whisky.data().image} alt={whisky.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{whisky.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{whisky.data().size}</p>

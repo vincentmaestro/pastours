@@ -19,21 +19,20 @@ function Store() {
     const sectionRef = useRef();
     const subSectionsRef = useRef();
     const [cr, setCr] = useState(false);
-    let sh = Number(sessionStorage.getItem('scrollHeight') || 0);
-    const [scrollHeight] = useState(sh);
-    const [scrollToTop, setScrollToTop] = useState(false);
+    let sh = Number(sessionStorage.getItem('scrollHeight')) || 0;
+    const [scrollToTopArrow, setScrollToTopArrow] = useState(false);
 
     function moveToSlide(direction) {
         getDocs(collection(db, 'promotions'))
         .then(promos => {
             setPromos(promos.docs);
-            promosRef.current.childNodes[0].classList.add('current-slide');
+            promosRef.current.childNodes[0]?.classList.add('current-slide');
         });
 
         const cs = Array.from(promosRef.current.childNodes).filter(slide => slide.classList.contains('current-slide'));
         const currentSlide = cs[0];
-        const previousSlide = currentSlide.previousElementSibling;
-        const nextSlide = currentSlide.nextElementSibling;
+        const previousSlide = currentSlide?.previousElementSibling;
+        const nextSlide = currentSlide?.nextElementSibling;
 
         if(direction === 'next') {
             scrollCount++;
@@ -46,8 +45,8 @@ function Store() {
             }
             else {
                 promosRef.current.style.transform = `translateX(-${scrollWidth * scrollCount}%)`;
-                currentSlide.classList.remove('current-slide');
-                nextSlide.classList.add('current-slide');
+                currentSlide?.classList.remove('current-slide');
+                nextSlide?.classList.add('current-slide');
             }
         }
 
@@ -74,20 +73,19 @@ function Store() {
     }
 
     useEffect(() => {
-        const timer = setInterval(() => {
+        const interval = setTimeout(() => {
+            scrollTo(0, sh);
+        }, 2500);
+
+        const timeout = setInterval(() => {
             moveToSlide('next');
         }, 4000);
 
-        const tm = setTimeout(() => {
-            scrollTo(0, scrollHeight);
-        }, 2500);
-
         return () => {
-            clearTimeout(tm);
-            clearInterval(timer);
+            clearInterval(interval);
+            clearInterval(timeout);
             sessionStorage.setItem('scrollHeight', sh);
         }
-
     }, []);
 
     useEffect(() => {
@@ -115,10 +113,10 @@ function Store() {
     const ctm = useMemo(() => {
         onscroll = () => {
             sh = scrollY;
-            scrollY > 140 ? document.querySelector('.Store').setAttribute('data-fixed', 'true') : document.querySelector('.Store').removeAttribute('data-fixed');
-            scrollY > 307 ? document.querySelector('.Store').setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store').removeAttribute('data-fixed-tab');
-            scrollY > 690 ? setScrollToTop(true) : setScrollToTop(false);
-            document.querySelector('.products').childNodes.forEach((section, index) => {
+            scrollY > 140 ? document.querySelector('.Store')?.setAttribute('data-fixed', 'true') : document.querySelector('.Store')?.removeAttribute('data-fixed');
+            scrollY > 307 ? document.querySelector('.Store')?.setAttribute('data-fixed-tab', 'true') : document.querySelector('.Store')?.removeAttribute('data-fixed-tab');
+            scrollY > 690 ? setScrollToTopArrow(true) : setScrollToTopArrow(false);
+            document.querySelector('.products')?.childNodes.forEach((section, index) => {
                 if((scrollY >= (section.offsetTop - (section.clientHeight / 20))) && cr === false) {
                     subSectionsRef.current.childNodes.forEach(nav => nav.style.backgroundColor = 'initial');
                     Array.from(subSectionsRef.current.childNodes).filter(nav => nav.getAttribute('id').includes(index))[0].style.backgroundColor = 'white';
@@ -258,7 +256,7 @@ function Store() {
                             </div>
                         ))}
                     </div>
-                    {scrollToTop && <button className="material-symbols-outlined select-none text-white font-bold bg-orange-400 text-[30px] rounded-[16px] fixed left-[48%] top-[85%]" onClick={() => scrollTo(0, 0)}>keyboard_arrow_up</button>}
+                    {scrollToTopArrow && <button className="material-symbols-outlined select-none text-white font-bold bg-orange-400 text-[30px] rounded-[16px] fixed left-[48%] top-[85%]" onClick={() => scrollTo(0, 0)}>keyboard_arrow_up</button>}
                 </div>
             </div>
         </div>

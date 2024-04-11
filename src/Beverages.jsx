@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { collection, addDoc, getDocs} from "firebase/firestore";
 import { database, applicationState, userActions } from "./App";
 import Loading from "./loading";
-import { Link } from "react-router-dom";
 
 function Beverages() {
     const {currentState, dispatch} = useContext(applicationState);
@@ -44,12 +45,15 @@ function Beverages() {
 
     function checkAction(e) {
         if(e.target.tagName === 'BUTTON' && e.target.textContent === 'Add to cart') addToCart(e);
-        if(e.target.tagName === 'SPAN' && e.target.textContent === 'favorite') favouriteItem(e);
-        if(e.target.tagName === 'SPAN' && e.target.textContent === 'share') shareItem(e);
+        if(e.target.tagName === 'BUTTON' && e.target.textContent === 'favorite') favouriteItem(e);
+        if(e.target.tagName === 'BUTTON' && e.target.textContent === 'share') shareItem(e);
     }
 
     return (
         <>
+            <Helmet>
+                <title>Pastours | Beverages</title>
+            </Helmet>
             {currentState.isLoading && <Loading />}
             {error && <p className="text-center text-xl">{error}</p>}
             {products && 
@@ -59,8 +63,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.water.map((water, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=water&product=${water.id}`}><img src={water.data().image} alt={water.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{water.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{water.data().size}</p>
@@ -78,8 +82,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.sodaWater.map((sodaWater, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=sodaWater&product=${sodaWater.id}`}><img src={sodaWater.data().image} alt={sodaWater.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{sodaWater.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{sodaWater.data().size}</p>
@@ -97,8 +101,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.carbonatedDrinks.map((carbonatedDrink, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=carbonatedDrinks&product=${carbonatedDrink.id}`}><img src={carbonatedDrink.data().image} alt={carbonatedDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{carbonatedDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{carbonatedDrink.data().size}</p>
@@ -115,8 +119,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.powderedBeverages.map((powderedBeverage, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=powderedDrinks&product=${powderedBeverage.id}`}><img src={powderedBeverage.data().image} alt={powderedBeverage.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{powderedBeverage.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{powderedBeverage.data().size}</p>
@@ -133,8 +137,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.yoghurtAndDiary.map((yoghurtAndDiary, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=chocolateAndDiary&product=${yoghurtAndDiary.id}`}><img src={yoghurtAndDiary.data().image} alt={yoghurtAndDiary.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{yoghurtAndDiary.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{yoghurtAndDiary.data().size}</p>
@@ -151,8 +155,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.juice.map((juice, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=juice&product=${juice.id}`}><img src={juice.data().image} alt={juice.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{juice.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{juice.data().size}</p>
@@ -169,8 +173,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.energyDrinks.map((energyDrink, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=energyDrinks&product=${energyDrink.id}`}><img src={energyDrink.data().image} alt={energyDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{energyDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{energyDrink.data().size}</p>
@@ -187,8 +191,8 @@ function Beverages() {
                         <div className="flex flex-wrap gap-x-[2%] gap-y-[20px] tablet:gap-x-[3%]">
                             {products.maltDrinks.map((maltDrink, key) => (
                                 <div key={key} className="relative max-w-[18%] h-[10%] rounded-lg hover:shadow-slate-500 shadow-md overflow-hidden laptop_l:max-w-[23%] laptop_s:max-w-[30%] tablet:max-w-[22%] mobile:max-w-[30.5%]">
-                                    <span className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</span>
-                                    <span className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</span>
+                                    <button className="material-symbols-outlined absolute top-1 left-1 cursor-pointer text-orange-400 select-none">favorite</button>
+                                    <button className="material-symbols-outlined absolute top-1 right-1 cursor-pointer text-[22px] text-orange-400 select-none">share</button>
                                     <Link to={`product?category=beverages&section=maltDrinks&product=${maltDrink.id}`}><img src={maltDrink.data().image} alt={maltDrink.data().name} /></Link>
                                     <h1 className="text-center font-semibold text-[14px] mobile:text-[12px] truncate">{maltDrink.data().name}</h1>
                                     <p className="text-center font-semibold text-[14px] mobile:text-[12px]">{maltDrink.data().size}</p>

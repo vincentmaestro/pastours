@@ -176,7 +176,6 @@ function App() {
                   <Route path='snacksandbaked' element={<SnacksAndBaked />} />
                   <Route path='diaryEggsSpreads' element={<DiaryEggsSpreads />} />
                   <Route path='icecream' element={<IceCream />} />
-                  <Route path='provisions' element={<Provisions />} />
                 </Route>
                 <Route path='store/*' element={<ProductPage auth = {auth} />} />
                 <Route path='food-outlets' element={<Foodoutlets />} />

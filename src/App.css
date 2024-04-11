@@ -72,7 +72,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .prompts {
   transform: translateX(-50%);
-  animation: fading 1.2s ease-in;
+  animation: fading 1.5s ease-in;
 }
 
 @keyframes fading {
