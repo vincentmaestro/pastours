@@ -12,6 +12,7 @@ dist
 dist-ssr
 src/firebase_functions.md
 *.local
+cd.html
 
 # Editor directories and files
 .vscode/*
