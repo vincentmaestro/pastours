@@ -112,6 +112,18 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: contain;
 }
 
+.food-outlets::after, .send-recieve::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(249 115 22);
+  color: #eee;
+  border-bottom-left-radius: 1rem;
+  font-size: 1.2rem;
+  padding: 0 3%;
+}
+
 .store h1, .food-outlets h1, .send-recieve h1 {
   color: #efe;
   font-size: 24px;

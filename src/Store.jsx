@@ -178,14 +178,14 @@ function Store() {
                             <button value="beverages" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Water & Beverages</button>
                             <button value="alcoholics" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Alcoholic beverages</button>
                             <button value="snacksandbaked" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Snacks & Baked goods</button>
-                            <button value="icecream" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Ice cream</button>
                             <button value="diaryEggsSpreads" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Diary, eggs & spreads</button>
-                            <button value="cooking" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Cooking</button>
-                            <button value="fruits&vegs" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Fruits & Vegetables</button>
-                            <button value="homecare&laundry" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Home care & Laundry</button>
-                            <button value="personalcare" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Personal care</button>
-                            <button value="babycare" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Baby care</button>
-                            <button value="petfood" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Pet food</button>
+                            <button disabled value="icecream" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Ice cream</button>
+                            <button disabled value="cooking" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Cooking</button>
+                            <button disabled value="fruits&vegs" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Fruits & Vegetables</button>
+                            <button disabled value="homecare&laundry" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Home care & Laundry</button>
+                            <button disabled value="personalcare" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Personal care</button>
+                            <button disabled value="babycare" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Baby care</button>
+                            <button disabled value="petfood" className="min-w-[30%] rounded-md tablet_s:min-w-[34%] mobile:min-w-[46%]">Pet food</button>
                         </div>
                         <div ref={subSectionsRef} className="select-none flex gap-x-6 py-2 overflow-x-auto gap-3 px-[4%] text-sm font-semibold">
                             {subSections && subSections.map((section, key) => (
@@ -210,35 +210,35 @@ function Store() {
                                     <span className="text-lg">Snacks & Baked goods</span>
                                 </label>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                    <input type="radio" name="select" value="icecream" defaultChecked={location.pathname.includes('icecream') ? true : false} />
-                                    <span className="text-lg">Ice cream</span>
-                                </label>
-                                <label className="flex gap-x-3 mb-2 cursor-pointer">
                                     <input type="radio" name="select" value="diaryEggsSpreads" defaultChecked={location.pathname.includes('diaryEggsSpreads') ? true : false} />
                                     <span className="text-lg">Diary, eggs & spreads</span>
                                 </label>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                    <input type="radio" name="select" value="cooking" defaultChecked={location.pathname.includes('cooking') ? true : false} />
+                                    <input disabled type="radio" name="select" value="icecream" defaultChecked={location.pathname.includes('icecream') ? true : false} />
+                                    <span className="text-lg">Ice cream</span>
+                                </label>
+                                <label className="flex gap-x-3 mb-2 cursor-pointer">
+                                    <input disabled type="radio" name="select" value="cooking" defaultChecked={location.pathname.includes('cooking') ? true : false} />
                                     <span className="text-lg">Cooking</span>
                                 </label>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                    <input type="radio" name="select" value="fruits&vegs" defaultChecked={location.pathname.includes('fruits&vegs') ? true : false} />
+                                    <input disabled type="radio" name="select" value="fruits&vegs" defaultChecked={location.pathname.includes('fruits&vegs') ? true : false} />
                                     <span className="text-lg">Fruits & Vegetables</span>
                                 </label>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                    <input type="radio" name="select" value="homecare&laundry" defaultChecked={location.pathname.includes('homecare&laundry') ? true : false} />
+                                    <input disabled type="radio" name="select" value="homecare&laundry" defaultChecked={location.pathname.includes('homecare&laundry') ? true : false} />
                                     <span className="text-lg">Home care & Laundry</span>
                                 </label>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                    <input type="radio" name="select" value="personalcare" defaultChecked={location.pathname.includes('personalcare') ? true : false} />
+                                    <input disabled type="radio" name="select" value="personalcare" defaultChecked={location.pathname.includes('personalcare') ? true : false} />
                                     <span className="text-lg">Personal care</span>
                                 </label>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                    <input type="radio" name="select" value="babycare" defaultChecked={location.pathname.includes('babycare') ? true : false} />
+                                    <input disabled type="radio" name="select" value="babycare" defaultChecked={location.pathname.includes('babycare') ? true : false} />
                                     <span className="text-lg">Baby care</span>
                                 </label>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
-                                    <input type="radio" name="select" value="petfood" defaultChecked={location.pathname.includes('petfood') ? true : false} />
+                                    <input disabled type="radio" name="select" value="petfood" defaultChecked={location.pathname.includes('petfood') ? true : false} />
                                     <span className="text-lg">Pet food</span>
                                 </label>
                             </div>

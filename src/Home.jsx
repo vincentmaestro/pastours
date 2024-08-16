@@ -19,11 +19,11 @@ function Home() {
                     <Link to="store" className="store w-[320px] h-[190px] rounded-[16px] text-center hover:scale-[1.1] transition transition-duration: 150ms; laptop_s:w-[290px] tablet:w-[260px] tablet:h-[160px] tablet:hover:scale-[1.04] mobile:w-[210px] mobile:h-[120px] shadow-md shadow-gray-500">
                         <h1>STORE</h1>
                     </Link>
-                    <Link to="food-outlets" className="food-outlets w-[320px] h-[190px] rounded-[16px] text-center hover:scale-[1.1] transition transition-duration: 150ms; laptop_s:w-[290px] tablet:w-[260px] tablet:h-[160px] tablet:hover:scale-[1.04] mobile:w-[210px] mobile:h-[120px] shadow-md shadow-gray-500">
+                    <Link to="" className="food-outlets relative overflow-hidden w-[320px] h-[190px] rounded-[16px] text-center hover:scale-[1.1] transition transition-duration: 150ms; laptop_s:w-[290px] tablet:w-[260px] tablet:h-[160px] tablet:hover:scale-[1.04] mobile:w-[210px] mobile:h-[120px] shadow-md shadow-gray-500">
                         <h1>Food Outlets</h1>
                     </Link>
                 </div>
-                <Link to="" className="send-recieve inline-block self-center w-[320px] h-[190px] rounded-[16px] text-center hover:scale-[1.1] transition transition-duration: 150ms; laptop_s:w-[290px] tablet:w-[260px] tablet:h-[160px] tablet:hover:scale-[1.04] mobile:w-[210px] mobile:h-[120px] shadow-md shadow-gray-500">
+                <Link to="" className="send-recieve relative overflow-hidden inline-block self-center w-[320px] h-[190px] rounded-[16px] text-center hover:scale-[1.1] transition transition-duration: 150ms; laptop_s:w-[290px] tablet:w-[260px] tablet:h-[160px] tablet:hover:scale-[1.04] mobile:w-[210px] mobile:h-[120px] shadow-md shadow-gray-500">
                     <h1>Send&Receive</h1>
                 </Link>
             </section>
