@@ -194,7 +194,7 @@ function Store() {
                         </div>
                     </div>
                     <div className="flex gap-[2%] px-[2%]">
-                        <div className="store-filters max-w-[18%] h-[20%] bg-slate-100 rounded-[10px] shadow-sm shadow-slate-300 tablet:hidden">
+                        <div className="store-filters sticky top-10 max-w-[18%] h-[20%] bg-slate-100 rounded-[10px] shadow-sm shadow-slate-300 tablet:hidden">
                             <h1 className="text-center py-2 font-semibold text-xl">Sections</h1>
                             <div className="by-type px-2" onClick={e => {e.target.tagName === 'INPUT' ? navigateToSection(e) : null}}>
                                 <label className="flex gap-x-3 mb-2 cursor-pointer">
@@ -244,7 +244,7 @@ function Store() {
                             </div>
                         </div>
                         <Outlet />
-                        <div className="promotions w-[20%] h-[30%] rounded-[10px] py-4 laptop_s:w-[30%] tablet:hidden">
+                        <div className="promotions sticky top-10 w-[20%] h-[30%] rounded-[10px] py-4 laptop_s:w-[30%] tablet:hidden">
                             {!promos.length && 
                                 <div className="flex justify-center items-center mt-[45%]">
                                     <span className="material-symbols-outlined select-none text-7xl text-gray-600">hourglass_top</span>
